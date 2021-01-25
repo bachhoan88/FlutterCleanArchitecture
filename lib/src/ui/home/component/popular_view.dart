@@ -9,7 +9,7 @@ import 'package:river_movies/src/di/provider/view_model_provider.dart';
 import 'package:river_movies/src/ui/theme/color.dart';
 import 'package:river_movies/src/ui/widget/container_with_loading.dart';
 import 'package:river_movies/src/ui/widget/error_page.dart';
-import '../../../extension/async_snapshot.dart';
+import '../../extension/async_snapshot.dart';
 
 class PopularView extends HookWidget {
   final Function(Movie) actionOpenMovie;

@@ -29,11 +29,25 @@ class MovieApiImpl implements MovieApi {
 
   @override
   Future<MovieImage> getMovieImages(int movieId) {
-    throw UnimplementedError();
+    final key = Constants.of().apiKey;
+    return _dio.get<Map<String, dynamic>>(
+      '/$movieId/images',
+      queryParameters: <String, String>{
+        'api_key': key,
+      },
+      options: buildCacheOptions(const Duration(seconds: 5)),
+    ).then((response) => MovieImage.fromJson(response.data));
   }
 
   @override
   Future<MovieInfo> getMovieInfo(int movieId) {
-    throw UnimplementedError();
+    final key = Constants.of().apiKey;
+    return _dio.get<Map<String, dynamic>>(
+      '/$movieId',
+      queryParameters: <String, String>{
+        'api_key': key,
+      },
+      options: buildCacheOptions(const Duration(seconds: 5)),
+    ).then((response) => MovieInfo.fromJson(response.data));
   }
 }

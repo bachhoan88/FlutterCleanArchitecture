@@ -19,14 +19,11 @@ class MovieRepositoryImpl implements MovieRepository {
 
   @override
   Future<Result<MovieImage>> getMovieImages(int movieId) {
-    // TODO: implement getMovieImages
-    throw UnimplementedError();
+    return Result.guardFuture(() => _movieApi.getMovieImages(movieId));
   }
 
   @override
   Future<Result<MovieInfo>> getMovieInfo(int movieId) {
-    // TODO: implement getMovieInfo
-    throw UnimplementedError();
+    return Result.guardFuture(() => _movieApi.getMovieInfo(movieId));
   }
-
 }

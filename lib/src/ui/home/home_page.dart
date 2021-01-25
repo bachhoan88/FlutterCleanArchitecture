@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:get/get.dart';
+import 'package:river_movies/constants.dart';
 import 'package:river_movies/src/data/model/models.dart';
 import 'package:river_movies/src/ui/theme/color.dart';
 import 'component/category_view.dart';
@@ -90,6 +92,6 @@ class HomePage extends HookWidget {
   }
 
   void _openMovieDetail(Movie movie) async {
-
+    await Get.toNamed(Constants.detailPage, arguments: movie);
   }
 }

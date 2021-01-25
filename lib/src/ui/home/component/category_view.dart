@@ -9,7 +9,7 @@ import 'package:river_movies/src/ui/theme/color.dart';
 import 'package:river_movies/src/ui/widget/container_with_loading.dart';
 import 'package:river_movies/src/ui/widget/error_page.dart';
 
-import '../../../extension/async_snapshot.dart';
+import '../../extension/async_snapshot.dart';
 
 class CategoryView extends HookWidget {
   final Function(Movie) actionOpenCategory;

@@ -55,9 +55,9 @@ Map<String, dynamic> _$_$_MovieInfoToJson(_$_MovieInfo instance) =>
     <String, dynamic>{
       'adult': instance.adult,
       'backdrop_path': instance.backdropPath,
-      'belongs_to_collection': instance.collection,
+      'belongs_to_collection': instance.collection?.toJson(),
       'budget': instance.budget,
-      'genres': instance.genres,
+      'genres': instance.genres?.map((e) => e?.toJson())?.toList(),
       'homepage': instance.homepage,
       'id': instance.id,
       'imdb_id': instance.imdbId,
@@ -75,7 +75,9 @@ Map<String, dynamic> _$_$_MovieInfoToJson(_$_MovieInfo instance) =>
       'video': instance.video,
       'vote_average': instance.voteAverage,
       'vote_count': instance.voteCount,
-      'production_companies': instance.companies,
-      'production_countries': instance.countries,
-      'spoken_languages': instance.languages,
+      'production_companies':
+          instance.companies?.map((e) => e?.toJson())?.toList(),
+      'production_countries':
+          instance.countries?.map((e) => e?.toJson())?.toList(),
+      'spoken_languages': instance.languages?.map((e) => e?.toJson())?.toList(),
     };

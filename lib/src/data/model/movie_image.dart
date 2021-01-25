@@ -11,5 +11,5 @@ class MovieImage {
 
   MovieImage({this.backdrops, this.posters});
 
-  factory MovieImage.parserFromJson(Map<String, dynamic> json) => _$MovieImageFromJson(json);
+  factory MovieImage.fromJson(Map<String, dynamic> json) => _$MovieImageFromJson(json);
 }

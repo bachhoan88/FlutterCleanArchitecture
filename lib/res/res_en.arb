@@ -1,0 +1,20 @@
+{
+  "helloWorld": "Hello World!",
+  "@helloWorld": {},
+  "appName": "Netflix",
+  "@appName": {},
+  "popular": "Popular on Netflix",
+  "@popular": {},
+  "myList": "My List",
+  "@myList": {},
+  "year": "Year",
+  "@year": {},
+  "country": "Country",
+  "@country": {},
+  "cannotSupport": "Cannot support",
+  "@cannotSupport": {},
+  "length": "Length",
+  "@length": {},
+  "screenshot": "Screenshots",
+  "@screenshot": {}
+}

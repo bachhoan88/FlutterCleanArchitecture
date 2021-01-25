@@ -1,0 +1,85 @@
+name: river_movies
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.10.0 <3.0.0'
+  flutter: '>=1.21.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Lint rule
+  pedantic: ^1.9.2
+
+  equatable: ^1.2.5
+  # Resource localizations
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0-nullsafety.2
+
+  # For Design Pattern
+  flutter_hooks: ^0.15.0
+  hooks_riverpod: ^0.12.1
+
+  # For Networking
+  dio: ^3.0.10
+  dio_http_cache: ^0.2.11
+#  ua_client_hints: ^1.0.3
+
+  # Json serializable
+  json_annotation: ^3.1.1
+  freezed_annotation: ^0.12.0
+
+  # For network status
+  connectivity: ^2.0.2
+
+  # Cache Image loader
+  cached_network_image: ^2.5.0
+
+  # Local storage
+#  sqflite: ^1.3.2+1
+  shared_preferences: ^0.5.12+4
+
+  # For Utilities
+  get: ^3.24.0
+
+  # Convert between Enum and String
+  enum_to_string: ^1.0.14
+
+  # Lib for custom view
+  carousel_slider: ^2.3.1
+  shape_of_view: 1.0.2
+  cupertino_icons: ^1.0.1
+  flutter_svg: ^0.19.2+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Data class
+  freezed: ^0.12.6
+
+  mockito: ^4.0.0
+  integration_test: ^1.0.0
+  build_runner: ^1.10.9
+  json_serializable: ^3.5.1
+
+flutter_gen:
+  integrations:
+    flutter_svg: true
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/images/
+  fonts:
+    - family: Muli
+      fonts:
+        - asset: assets/fonts/Muli-Bold.ttf
+        - asset: assets/fonts/Muli-SemiBold.ttf
+        - asset: assets/fonts/Muli-Regular.ttf

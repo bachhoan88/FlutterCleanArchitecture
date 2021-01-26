@@ -2,15 +2,38 @@
 
 A new Flutter application.
 
-## Getting Started
+## Environment
 
-This project is a starting point for a Flutter application.
+<img height="520px" src="files/RiverFlutter.png" align="right" />
 
-A few resources to get you started if this is your first Flutter project:
+**iOS**
+- iOS 13+
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+**Android**
+- Android 5.1+
+    - minSdkVersion 22
+- targetSdkVersion 30
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## App architecture
+- Base on [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
+
+## Code Style
+- [Effective Dart](https://dart.dev/guides/language/effective-dart)
+
+## Assets, Fonts
+
+**If added some assets or fonts**
+
+- Use [FlutterGen](https://github.com/FlutterGen/flutter_gen/)
+
+## Models
+
+**If added some models for api results**
+
+- Use [Freezed](https://pub.dev/packages/freezed)
+
+## Localizations
+
+**If added some localizations (i.g. edited [*.arb](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/lib/l10n))**
+
+- Use [Official Flutter localization package](https://docs.google.com/document/d/10e0saTfAv32OZLRmONy866vnaw0I2jwL8zukykpgWBc)

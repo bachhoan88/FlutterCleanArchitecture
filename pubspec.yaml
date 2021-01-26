@@ -8,6 +8,9 @@ environment:
   sdk: '>=2.10.0 <3.0.0'
   flutter: '>=1.21.0'
 
+dependency_overrides:
+  intl: ^0.17.0-nullsafety.2
+
 dependencies:
   flutter:
     sdk: flutter
@@ -19,7 +22,7 @@ dependencies:
   # Resource localizations
   flutter_localizations:
     sdk: flutter
-  intl: ^0.17.0-nullsafety.2
+#  intl: ^0.17.0-nullsafety.2
 
   # For Design Pattern
   flutter_hooks: ^0.15.0
@@ -54,7 +57,7 @@ dependencies:
   carousel_slider: ^2.3.1
   shape_of_view: 1.0.2
   cupertino_icons: ^1.0.1
-  flutter_svg: ^0.17.4
+#  flutter_svg: ^0.19.2+1
 
 dev_dependencies:
   flutter_test:
@@ -68,9 +71,9 @@ dev_dependencies:
   build_runner: ^1.10.9
   json_serializable: ^3.5.1
 
-flutter_gen:
-  integrations:
-    flutter_svg: true
+#flutter_gen:
+#  integrations:
+#    flutter_svg: true
 
 flutter:
   uses-material-design: true

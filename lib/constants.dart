@@ -7,7 +7,7 @@ enum Flavor { dev, stag, prod }
 class Constants {
   const Constants({@required this.endpoint, @required this.apiKey});
 
-  factory Constants.of() {
+  factory Constants.shared() {
     if (_instance != null) {
       return _instance;
     }
@@ -51,14 +51,4 @@ class Constants {
   final String apiKey;
 
   static Constants _instance;
-
-  // Defined http request information
-  static const String contentType = 'application/json';
-  static const int connectionTimeOutMls = 30000;
-  static const int readTimeOutMls = 30000;
-  static const int writeTimeOutMls = 30000;
-
-  // Defined routes
-  static const String homePage = '/';
-  static const String detailPage = '/detail';
 }

@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - master
+      - example
   pull_request:
     branches:
       - master
+      - example
 
 jobs:
   build_ios:

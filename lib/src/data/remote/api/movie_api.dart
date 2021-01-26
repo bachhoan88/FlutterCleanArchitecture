@@ -1,9 +1,20 @@
+import 'package:dio/dio.dart';
+import 'package:retrofit/http.dart';
 import 'package:river_movies/src/data/model/models.dart';
+import 'package:river_movies/src/data/remote/response/movie_response.dart';
 
+part 'movie_api.g.dart';
+
+@RestApi()
 abstract class MovieApi {
-  Future<List<Movie>> fetchMovies(String type);
+  factory MovieApi(Dio dioBuilder) = _MovieApi;
 
-  Future<MovieInfo> getMovieInfo(int movieId);
+  @GET('/{type}')
+  Future<MovieResponse> fetchMovies(@Path('type') String type, @Query('api_key') String key);
 
-  Future<MovieImage> getMovieImages(int movieId);
+  @GET('/{id}/images')
+  Future<MovieImageEntity> getMovieImages(@Path('id') int movieId, @Query('api_key') String key);
+
+  @GET('/{id}')
+  Future<MovieInfoEntity> getMovieInfo(@Path('id') int movieId, @Query('api_key') String key);
 }

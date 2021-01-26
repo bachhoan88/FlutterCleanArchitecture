@@ -30,6 +30,7 @@ dependencies:
   # For Networking
   dio: ^3.0.10
   dio_http_cache: ^0.2.11
+  retrofit: ^1.3.4+1
 #  ua_client_hints: ^1.0.3
 
   # Json serializable
@@ -38,6 +39,9 @@ dependencies:
 
   # For network status
 #  connectivity: ^2.0.2
+
+  # Dependencies Injection
+  get_it: ^5.0.6
 
   # Cache Image loader
   cached_network_image: ^2.5.0
@@ -69,6 +73,9 @@ dev_dependencies:
   integration_test: ^1.0.0
   build_runner: ^1.10.9
   json_serializable: ^3.5.1
+
+  # retrofit
+  retrofit_generator: ^1.3.4+1
 
 #flutter_gen:
 #  integrations:

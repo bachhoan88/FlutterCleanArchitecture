@@ -6,7 +6,7 @@ A new Flutter application.
 - Base on [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
 
 ## Data Flow
-![Structure](files/RiverFlutter.png "Data flow")
+![Structure](files/RiverFlutter.jpg "Data flow")
 
 ## Run with Flavor (dev | stag | prod)
 

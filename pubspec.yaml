@@ -37,7 +37,7 @@ dependencies:
   freezed_annotation: ^0.12.0
 
   # For network status
-  connectivity: ^2.0.2
+#  connectivity: ^2.0.2
 
   # Cache Image loader
   cached_network_image: ^2.5.0

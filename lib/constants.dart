@@ -13,7 +13,6 @@ class Constants {
     }
 
     final flavor = EnumToString.fromString(Flavor.values, const String.fromEnvironment('FLAVOR'));
-
     switch(flavor) {
       case Flavor.prod:
         return Constants._prod();

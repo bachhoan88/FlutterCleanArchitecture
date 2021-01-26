@@ -21,8 +21,6 @@ jobs:
         with:
           flutter-version: '1.20.4'
           channel: 'stable'
-      - run: flutter clean
-        working-directory: ./<PROJECT-FOLDER>
       - run: flutter pub get
         working-directory: ./<PROJECT-FOLDER>
       - run: flutter build ios --debug --no-codesign
@@ -40,8 +38,6 @@ jobs:
         with:
           flutter-version: '1.20.4'
           channel: 'stable'
-      - run: flutter clean
-        working-directory: ./<PROJECT-FOLDER>
       - run: flutter pub get
         working-directory: ./<PROJECT-FOLDER>
       - run: flutter build apk --debug

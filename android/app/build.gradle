@@ -47,22 +47,22 @@ android {
         }
     }
 
-    flavorDimensions "default"
+    flavorDimensions "environment"
     productFlavors {
         dev {
-            dimension "default"
+            dimension "environment"
             applicationIdSuffix ".dev"
             versionNameSuffix "-Dev"
         }
 
         stag {
-            dimension "default"
+            dimension "environment"
             applicationIdSuffix ".stag"
             versionNameSuffix "-Stag"
         }
 
         prod {
-            dimension "default"
+            dimension "environment"
         }
     }
 }

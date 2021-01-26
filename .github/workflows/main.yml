@@ -21,10 +21,9 @@ jobs:
         with:
           flutter-version: '1.20.4'
           channel: 'stable'
+      - run: flutter clean
       - run: flutter pub get
-        working-directory: ./<PROJECT-FOLDER>
       - run: flutter build ios --debug --no-codesign
-        working-directory: ./<PROJECT-FOLDER>
 
   build_apk:
     name: Build Flutter (Android)
@@ -38,7 +37,6 @@ jobs:
         with:
           flutter-version: '1.20.4'
           channel: 'stable'
+      - run: flutter clean
       - run: flutter pub get
-        working-directory: ./<PROJECT-FOLDER>
       - run: flutter build apk --debug
-        working-directory: ./<PROJECT-FOLDER>

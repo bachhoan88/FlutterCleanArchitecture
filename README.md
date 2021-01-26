@@ -2,9 +2,8 @@
 
 A new Flutter application.
 
-## Environment
-
-<img height="520px" src="files/RiverFlutter.png" align="right" />
+## Design Pattern
+![Structure](files/RiverFlutter.png "Data flow")
 
 **iOS**
 - iOS 13+

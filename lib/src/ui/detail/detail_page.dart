@@ -5,12 +5,13 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 import 'package:river_movies/src/data/model/models.dart';
+import 'package:river_movies/src/di/provider/view_model_provider.dart';
 import 'package:river_movies/src/ui/detail/component/movie_info_view.dart';
 import 'package:river_movies/src/ui/theme/color.dart';
 import 'package:river_movies/src/ui/widget/favorite_icon_widget.dart';
 import 'package:shape_of_view/shape_of_view.dart';
-
 import 'component/screen_shot_view.dart';
+import 'package:hooks_riverpod/all.dart';
 
 class DetailPage extends HookWidget {
   @override
@@ -103,7 +104,9 @@ class DetailPage extends HookWidget {
           padding: EdgeInsets.only(left: 16.0),
           child: IconButton(
             icon: Icon(Icons.arrow_back, color: actionBarIconColor),
-            onPressed: Get.back,
+            onPressed: () {
+              Get.back();
+            },
           ),
         ),
         actions: [

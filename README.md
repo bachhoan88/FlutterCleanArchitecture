@@ -2,8 +2,17 @@
 
 A new Flutter application.
 
-## Design Pattern
+## App architecture
+- Base on [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
+
+## Data Flow
 ![Structure](files/RiverFlutter.png "Data flow")
+
+## Run with Flavor (dev | stag | prod)
+
+`flutter run --flavor dev --dart-define=FLAVOR=dev`
+
+## Environment
 
 **iOS**
 - iOS 13+
@@ -12,9 +21,6 @@ A new Flutter application.
 - Android 5.1+
     - minSdkVersion 22
 - targetSdkVersion 30
-
-## App architecture
-- Base on [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
 
 ## Code Style
 - [Effective Dart](https://dart.dev/guides/language/effective-dart)

@@ -22,7 +22,6 @@ dependencies:
   # Resource localizations
   flutter_localizations:
     sdk: flutter
-#  intl: ^0.17.0-nullsafety.2
 
   # For Design Pattern
   flutter_hooks: ^0.15.0
@@ -56,7 +55,7 @@ dependencies:
   # Lib for custom view
   carousel_slider: ^2.3.1
   shape_of_view: 1.0.2
-  cupertino_icons: ^1.0.1
+  cupertino_icons: ^1.0.2
 #  flutter_svg: ^0.19.2+1
 
 dev_dependencies:

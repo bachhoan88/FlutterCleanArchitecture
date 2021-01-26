@@ -21,9 +21,14 @@ jobs:
         with:
           flutter-version: '1.20.4'
           channel: 'stable'
-      - run: flutter clean
-      - run: flutter pub get
-      - run: flutter build ios --debug --no-codesign
+      - name: Flutter clean cache
+        run: flutter clean
+
+      - name: Get dependences
+        run: flutter pub get
+
+      - name: Build ios
+        run: flutter build ios --debug --no-codesign
 
   build_apk:
     name: Build Flutter (Android)
@@ -37,6 +42,12 @@ jobs:
         with:
           flutter-version: '1.20.4'
           channel: 'stable'
-      - run: flutter clean
-      - run: flutter pub get
-      - run: flutter build apk --debug
+
+      - name: Flutter clean cache
+        run: flutter clean
+
+      - name: Get dependences
+        run: flutter pub get
+
+      - name: Build android
+        run: flutter build apk --debug --flavor dev --dart-define=FLAVOR=dev

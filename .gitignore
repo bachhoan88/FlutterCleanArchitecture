@@ -41,8 +41,8 @@ app.*.symbols
 app.*.map.json
 
 # Ignore generate files
-*.g.dart
-*.freezed.dart
+#*.g.dart
+#*.freezed.dart
 
 # Android Studio will place build artifacts here
 /android/app/debug

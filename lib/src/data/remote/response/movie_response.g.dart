@@ -14,8 +14,9 @@ MovieResponse _$MovieResponseFromJson(Map<String, dynamic> json) {
           json,
           'results',
           (v) => (v as List)
-              ?.map((e) =>
-                  e == null ? null : Movie.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => e == null
+                  ? null
+                  : MovieEntity.fromJson(e as Map<String, dynamic>))
               ?.toList()),
       totalPages: $checkedConvert(json, 'total_pages', (v) => v as int),
       totalResult: $checkedConvert(json, 'total_results', (v) => v as int),

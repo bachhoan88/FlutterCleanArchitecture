@@ -6,19 +6,27 @@ import 'package:river_movies/constants.dart';
 // import 'package:ua_client_hints/ua_client_hints.dart';
 
 class DioBuilder extends DioMixin implements Dio {
+  // create basic information for request
+  final String contentType = 'application/json';
+  final int connectionTimeOutMls = 3000;
+  final int readTimeOutMls = 3000;
+  final int writeTimeOutMls = 3000;
+
+  static DioBuilder getInstance() => DioBuilder._();
+
   DioBuilder._([BaseOptions options]) {
     options = BaseOptions(
-      baseUrl: Constants.of().endpoint,
-      contentType: Constants.contentType,
-      connectTimeout: Constants.connectionTimeOutMls,
-      receiveTimeout: Constants.readTimeOutMls,
-      sendTimeout: Constants.writeTimeOutMls,
+      baseUrl: Constants.shared().endpoint,
+      contentType: contentType,
+      connectTimeout: connectionTimeOutMls,
+      receiveTimeout: readTimeOutMls,
+      sendTimeout: writeTimeOutMls,
     );
 
     this.options = options;
 
     // Config cache
-    final cacheConfig = CacheConfig(baseUrl: Constants.of().endpoint);
+    final cacheConfig = CacheConfig(baseUrl: Constants.shared().endpoint);
     interceptors.add(DioCacheManager(cacheConfig).interceptor as InterceptorsWrapper);
 
     // Debug mode
@@ -34,6 +42,4 @@ class DioBuilder extends DioMixin implements Dio {
     // create default http client
     httpClientAdapter = DefaultHttpClientAdapter();
   }
-
-  static DioBuilder getInstance() => DioBuilder._();
 }

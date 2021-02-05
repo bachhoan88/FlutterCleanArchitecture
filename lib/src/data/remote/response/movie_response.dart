@@ -10,7 +10,7 @@ class MovieResponse {
   final int page;
 
   @JsonKey(name: 'results')
-  final List<Movie> movies;
+  final List<MovieEntity> movies;
 
   @JsonKey(name: 'total_pages')
   final int totalPages;

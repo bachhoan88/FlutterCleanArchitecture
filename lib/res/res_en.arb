@@ -16,5 +16,11 @@
   "length": "Length",
   "@length": {},
   "screenshot": "Screenshots",
-  "@screenshot": {}
+  "@screenshot": {},
+  "movieIdInvalid": "Movie id must be not null",
+  "@movieIdInvalid": {},
+  "cancel": "Cancel",
+  "@cancel": {},
+  "ok": "OK",
+  "@ok": {}
 }

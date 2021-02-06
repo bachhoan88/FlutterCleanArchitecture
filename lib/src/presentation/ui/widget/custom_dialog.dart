@@ -13,29 +13,25 @@ class CustomDialog {
   AlertDialog _alertDialog;
 
   CustomDialog({@required this.context, @required this.title, @required this.message, this.positive, this.positiveCallback, this.negative, this.negativeCallback}) {
-    final okButton = TextButton(
-      child: Text(positive),
-      onPressed: positiveCallback,
-    );
+    var buttons = [
+      TextButton(
+        child: Text(positive),
+        onPressed: positiveCallback,
+      )
+    ];
 
-    if (negative == null) {
-      _alertDialog = AlertDialog(
-        title: Text(title),
-        content: Text(message),
-        actions: [okButton],
-      );
-    } else {
-      final cancelButton = TextButton(
+    if (negative != null) {
+      buttons.add(TextButton(
         child: Text(negative),
         onPressed: negativeCallback,
-      );
-
-      _alertDialog = AlertDialog(
-        title: Text(title),
-        content: Text(message),
-        actions: [okButton, cancelButton],
-      );
+      ));
     }
+
+    _alertDialog = AlertDialog(
+      title: Text(title),
+      content: Text(message),
+      actions: buttons,
+    );
   }
 
   Future<void> show() async {

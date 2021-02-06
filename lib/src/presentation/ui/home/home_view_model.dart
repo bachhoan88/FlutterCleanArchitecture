@@ -8,14 +8,14 @@ class HomeViewModel extends BaseViewModel {}
 
 final fetchMoviesProvider = StateNotifierProvider.autoDispose.family<GetMovies, MovieType>((ref, type) => GetMovies(fetchMovieUseCase: ref.read(fetchMoviesUseCaseProvider), type: type));
 
-class GetMovies extends StateNotifier<AsyncValue<List<MovieItemViewDataModel>>> {
+class GetMovies extends StateNotifier<AsyncValue<List<MovieViewDataModel>>> {
   final FetchMovieUseCase _fetchMovieUseCase;
-  final MovieItemViewDataModelMapper _movieItemMapper;
+  final MovieViewDataModelMapper _movieItemMapper;
   final MovieType _movieType;
 
-  GetMovies({FetchMovieUseCase fetchMovieUseCase, MovieItemViewDataModelMapper mapper, MovieType type})
+  GetMovies({FetchMovieUseCase fetchMovieUseCase, MovieViewDataModelMapper mapper, MovieType type})
       : _fetchMovieUseCase = fetchMovieUseCase,
-        _movieItemMapper = mapper ?? MovieItemViewDataModelMapper(),
+        _movieItemMapper = mapper ?? MovieViewDataModelMapper(),
         _movieType = type ?? MovieType.upcoming,
         super(AsyncValue.loading()) {
     _createObserve();

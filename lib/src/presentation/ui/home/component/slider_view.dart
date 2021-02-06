@@ -10,13 +10,13 @@ import 'package:river_movies/src/presentation/ui/home/component/slide_view_holde
 import '../home_view_model.dart';
 
 class SliderView extends HookWidget {
-  final Function(MovieItemViewDataModel) actionOpenMovie;
+  final Function(MovieViewDataModel) actionOpenMovie;
 
   SliderView({Key key, @required this.actionOpenMovie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return AsyncValueView<List<MovieItemViewDataModel>>(
+    return AsyncValueView<List<MovieViewDataModel>>(
       value: useProvider(fetchMoviesProvider(MovieType.nowPlaying).state),
       errorRetry: () {
         context.refresh(fetchMoviesProvider(MovieType.nowPlaying));

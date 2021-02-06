@@ -94,7 +94,7 @@ class HomePage extends HookWidget {
     );
   }
 
-  void _openMovieDetail(MovieItemViewDataModel movie) async {
+  void _openMovieDetail(MovieViewDataModel movie) async {
     await Get.toNamed(detailPageRoutes, arguments: movie);
   }
 }

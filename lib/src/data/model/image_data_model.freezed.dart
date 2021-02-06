@@ -1,30 +1,30 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'image_entity.dart';
+part of 'image_data_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-ImageEntity _$ImageEntityFromJson(Map<String, dynamic> json) {
-  return _ImageEntity.fromJson(json);
+ImageDataModel _$ImageDataModelFromJson(Map<String, dynamic> json) {
+  return _ImageDataModel.fromJson(json);
 }
 
 /// @nodoc
-class _$ImageEntityTearOff {
-  const _$ImageEntityTearOff();
+class _$ImageDataModelTearOff {
+  const _$ImageDataModelTearOff();
 
 // ignore: unused_element
-  _ImageEntity call(
+  _ImageDataModel call(
       {@JsonKey(name: 'file_path') String imagePath,
       int height,
       int width,
       @JsonKey(name: 'iso_639_1') String countryCode,
       @JsonKey(name: 'vote_average') double voteAverage,
       @JsonKey(name: 'vote_count') int voteCount}) {
-    return _ImageEntity(
+    return _ImageDataModel(
       imagePath: imagePath,
       height: height,
       width: width,
@@ -35,17 +35,17 @@ class _$ImageEntityTearOff {
   }
 
 // ignore: unused_element
-  ImageEntity fromJson(Map<String, Object> json) {
-    return ImageEntity.fromJson(json);
+  ImageDataModel fromJson(Map<String, Object> json) {
+    return ImageDataModel.fromJson(json);
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $ImageEntity = _$ImageEntityTearOff();
+const $ImageDataModel = _$ImageDataModelTearOff();
 
 /// @nodoc
-mixin _$ImageEntity {
+mixin _$ImageDataModel {
   @JsonKey(name: 'file_path')
   String get imagePath;
   int get height;
@@ -59,14 +59,14 @@ mixin _$ImageEntity {
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
-  $ImageEntityCopyWith<ImageEntity> get copyWith;
+  $ImageDataModelCopyWith<ImageDataModel> get copyWith;
 }
 
 /// @nodoc
-abstract class $ImageEntityCopyWith<$Res> {
-  factory $ImageEntityCopyWith(
-          ImageEntity value, $Res Function(ImageEntity) then) =
-      _$ImageEntityCopyWithImpl<$Res>;
+abstract class $ImageDataModelCopyWith<$Res> {
+  factory $ImageDataModelCopyWith(
+          ImageDataModel value, $Res Function(ImageDataModel) then) =
+      _$ImageDataModelCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'file_path') String imagePath,
       int height,
@@ -77,12 +77,13 @@ abstract class $ImageEntityCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ImageEntityCopyWithImpl<$Res> implements $ImageEntityCopyWith<$Res> {
-  _$ImageEntityCopyWithImpl(this._value, this._then);
+class _$ImageDataModelCopyWithImpl<$Res>
+    implements $ImageDataModelCopyWith<$Res> {
+  _$ImageDataModelCopyWithImpl(this._value, this._then);
 
-  final ImageEntity _value;
+  final ImageDataModel _value;
   // ignore: unused_field
-  final $Res Function(ImageEntity) _then;
+  final $Res Function(ImageDataModel) _then;
 
   @override
   $Res call({
@@ -107,11 +108,11 @@ class _$ImageEntityCopyWithImpl<$Res> implements $ImageEntityCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ImageEntityCopyWith<$Res>
-    implements $ImageEntityCopyWith<$Res> {
-  factory _$ImageEntityCopyWith(
-          _ImageEntity value, $Res Function(_ImageEntity) then) =
-      __$ImageEntityCopyWithImpl<$Res>;
+abstract class _$ImageDataModelCopyWith<$Res>
+    implements $ImageDataModelCopyWith<$Res> {
+  factory _$ImageDataModelCopyWith(
+          _ImageDataModel value, $Res Function(_ImageDataModel) then) =
+      __$ImageDataModelCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'file_path') String imagePath,
@@ -123,14 +124,15 @@ abstract class _$ImageEntityCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ImageEntityCopyWithImpl<$Res> extends _$ImageEntityCopyWithImpl<$Res>
-    implements _$ImageEntityCopyWith<$Res> {
-  __$ImageEntityCopyWithImpl(
-      _ImageEntity _value, $Res Function(_ImageEntity) _then)
-      : super(_value, (v) => _then(v as _ImageEntity));
+class __$ImageDataModelCopyWithImpl<$Res>
+    extends _$ImageDataModelCopyWithImpl<$Res>
+    implements _$ImageDataModelCopyWith<$Res> {
+  __$ImageDataModelCopyWithImpl(
+      _ImageDataModel _value, $Res Function(_ImageDataModel) _then)
+      : super(_value, (v) => _then(v as _ImageDataModel));
 
   @override
-  _ImageEntity get _value => super._value as _ImageEntity;
+  _ImageDataModel get _value => super._value as _ImageDataModel;
 
   @override
   $Res call({
@@ -141,7 +143,7 @@ class __$ImageEntityCopyWithImpl<$Res> extends _$ImageEntityCopyWithImpl<$Res>
     Object voteAverage = freezed,
     Object voteCount = freezed,
   }) {
-    return _then(_ImageEntity(
+    return _then(_ImageDataModel(
       imagePath: imagePath == freezed ? _value.imagePath : imagePath as String,
       height: height == freezed ? _value.height : height as int,
       width: width == freezed ? _value.width : width as int,
@@ -157,8 +159,8 @@ class __$ImageEntityCopyWithImpl<$Res> extends _$ImageEntityCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$_ImageEntity implements _ImageEntity {
-  _$_ImageEntity(
+class _$_ImageDataModel implements _ImageDataModel {
+  _$_ImageDataModel(
       {@JsonKey(name: 'file_path') this.imagePath,
       this.height,
       this.width,
@@ -166,8 +168,8 @@ class _$_ImageEntity implements _ImageEntity {
       @JsonKey(name: 'vote_average') this.voteAverage,
       @JsonKey(name: 'vote_count') this.voteCount});
 
-  factory _$_ImageEntity.fromJson(Map<String, dynamic> json) =>
-      _$_$_ImageEntityFromJson(json);
+  factory _$_ImageDataModel.fromJson(Map<String, dynamic> json) =>
+      _$_$_ImageDataModelFromJson(json);
 
   @override
   @JsonKey(name: 'file_path')
@@ -188,13 +190,13 @@ class _$_ImageEntity implements _ImageEntity {
 
   @override
   String toString() {
-    return 'ImageEntity(imagePath: $imagePath, height: $height, width: $width, countryCode: $countryCode, voteAverage: $voteAverage, voteCount: $voteCount)';
+    return 'ImageDataModel(imagePath: $imagePath, height: $height, width: $width, countryCode: $countryCode, voteAverage: $voteAverage, voteCount: $voteCount)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ImageEntity &&
+        (other is _ImageDataModel &&
             (identical(other.imagePath, imagePath) ||
                 const DeepCollectionEquality()
                     .equals(other.imagePath, imagePath)) &&
@@ -225,26 +227,26 @@ class _$_ImageEntity implements _ImageEntity {
 
   @JsonKey(ignore: true)
   @override
-  _$ImageEntityCopyWith<_ImageEntity> get copyWith =>
-      __$ImageEntityCopyWithImpl<_ImageEntity>(this, _$identity);
+  _$ImageDataModelCopyWith<_ImageDataModel> get copyWith =>
+      __$ImageDataModelCopyWithImpl<_ImageDataModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_ImageEntityToJson(this);
+    return _$_$_ImageDataModelToJson(this);
   }
 }
 
-abstract class _ImageEntity implements ImageEntity {
-  factory _ImageEntity(
+abstract class _ImageDataModel implements ImageDataModel {
+  factory _ImageDataModel(
       {@JsonKey(name: 'file_path') String imagePath,
       int height,
       int width,
       @JsonKey(name: 'iso_639_1') String countryCode,
       @JsonKey(name: 'vote_average') double voteAverage,
-      @JsonKey(name: 'vote_count') int voteCount}) = _$_ImageEntity;
+      @JsonKey(name: 'vote_count') int voteCount}) = _$_ImageDataModel;
 
-  factory _ImageEntity.fromJson(Map<String, dynamic> json) =
-      _$_ImageEntity.fromJson;
+  factory _ImageDataModel.fromJson(Map<String, dynamic> json) =
+      _$_ImageDataModel.fromJson;
 
   @override
   @JsonKey(name: 'file_path')
@@ -264,5 +266,5 @@ abstract class _ImageEntity implements ImageEntity {
   int get voteCount;
   @override
   @JsonKey(ignore: true)
-  _$ImageEntityCopyWith<_ImageEntity> get copyWith;
+  _$ImageDataModelCopyWith<_ImageDataModel> get copyWith;
 }

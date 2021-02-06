@@ -1,19 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'genre_entity.dart';
+part of 'genre_data_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GenreEntity _$_$_GenreEntityFromJson(Map<String, dynamic> json) {
-  return _$_GenreEntity(
+_$_GenreDataModel _$_$_GenreDataModelFromJson(Map<String, dynamic> json) {
+  return _$_GenreDataModel(
     id: json['id'] as int,
     name: json['name'] as String,
   );
 }
 
-Map<String, dynamic> _$_$_GenreEntityToJson(_$_GenreEntity instance) =>
+Map<String, dynamic> _$_$_GenreDataModelToJson(_$_GenreDataModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

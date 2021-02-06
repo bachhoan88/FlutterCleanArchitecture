@@ -5,18 +5,18 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:river_movies/src/domain/usecase/movie/fetch_movies_usecase.dart';
 import 'package:river_movies/src/presentation/base/async_value_view.dart';
-import 'package:river_movies/src/presentation/model/movie_item.dart';
+import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/home/component/slide_view_holder.dart';
 import '../home_view_model.dart';
 
 class SliderView extends HookWidget {
-  final Function(MovieItem) actionOpenMovie;
+  final Function(MovieItemViewDataModel) actionOpenMovie;
 
   SliderView({Key key, @required this.actionOpenMovie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return AsyncValueView<List<MovieItem>>(
+    return AsyncValueView<List<MovieItemViewDataModel>>(
       value: useProvider(fetchMoviesProvider(MovieType.nowPlaying).state),
       errorRetry: () {
         context.refresh(fetchMoviesProvider(MovieType.nowPlaying));

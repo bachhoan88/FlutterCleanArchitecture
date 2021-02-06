@@ -1,13 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'collection_entity.dart';
+part of 'collection_data_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CollectionEntity _$_$_CollectionEntityFromJson(Map<String, dynamic> json) {
-  return _$_CollectionEntity(
+_$_CollectionDataModel _$_$_CollectionDataModelFromJson(
+    Map<String, dynamic> json) {
+  return _$_CollectionDataModel(
     id: json['id'] as int,
     name: json['name'] as String,
     posterPath: json['poster_path'] as String,
@@ -15,8 +16,8 @@ _$_CollectionEntity _$_$_CollectionEntityFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$_$_CollectionEntityToJson(
-        _$_CollectionEntity instance) =>
+Map<String, dynamic> _$_$_CollectionDataModelToJson(
+        _$_CollectionDataModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

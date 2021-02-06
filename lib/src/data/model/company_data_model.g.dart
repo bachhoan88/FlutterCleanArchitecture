@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'company_entity.dart';
+part of 'company_data_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CompanyEntity _$_$_CompanyEntityFromJson(Map<String, dynamic> json) {
-  return _$_CompanyEntity(
+_$_CompanyDataModel _$_$_CompanyDataModelFromJson(Map<String, dynamic> json) {
+  return _$_CompanyDataModel(
     id: json['id'] as int,
     logoPath: json['logo_path'] as String,
     name: json['name'] as String,
@@ -15,7 +15,8 @@ _$_CompanyEntity _$_$_CompanyEntityFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$_$_CompanyEntityToJson(_$_CompanyEntity instance) =>
+Map<String, dynamic> _$_$_CompanyDataModelToJson(
+        _$_CompanyDataModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'logo_path': instance.logoPath,

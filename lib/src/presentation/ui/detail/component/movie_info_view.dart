@@ -5,20 +5,20 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/all.dart';
 import 'package:river_movies/src/presentation/base/async_value_view.dart';
 import 'package:river_movies/src/presentation/di/view_model_provider.dart';
-import 'package:river_movies/src/presentation/model/movie_info_item.dart';
-import 'package:river_movies/src/presentation/model/movie_item.dart';
+import 'package:river_movies/src/presentation/model/movie_info_view_data_model.dart';
+import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/widget/star_rating.dart';
 
 import '../detail_view_model.dart';
 
 class MovieInfoView extends HookWidget {
-  final MovieItem movie;
+  final MovieItemViewDataModel movie;
 
   const MovieInfoView({Key key, this.movie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return AsyncValueView<MovieInfoItem>(
+    return AsyncValueView<MovieInfoViewDataModel>(
         value: useProvider(getMovieInfoProvider(movie.id).state),
         errorRetry: () {
           context.refresh(getMovieInfoProvider(movie.id));
@@ -28,7 +28,7 @@ class MovieInfoView extends HookWidget {
         });
   }
 
-  Widget _createMovieBody(BuildContext context, MovieInfoItem info) {
+  Widget _createMovieBody(BuildContext context, MovieInfoViewDataModel info) {
     return Column(
       children: [
         Container(

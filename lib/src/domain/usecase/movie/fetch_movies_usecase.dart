@@ -4,7 +4,7 @@ import 'package:river_movies/src/domain/mapper/mapper.dart';
 import 'package:river_movies/src/domain/repository/movie_repository.dart';
 import 'package:river_movies/src/domain/usecase/usecase.dart';
 
-class FetchMovieUseCase extends UseCase<MovieType, List<MovieEntity>> {
+class FetchMovieUseCase extends UseCase<MovieType, List<MovieDataModel>> {
   final MovieRepository _movieRepository;
   final MovieTypeMapper _mapper;
 
@@ -13,7 +13,7 @@ class FetchMovieUseCase extends UseCase<MovieType, List<MovieEntity>> {
         _mapper = mapper ?? MovieTypeMapper();
 
   @override
-  Future<List<MovieEntity>> createObservable(MovieType type) {
+  Future<List<MovieDataModel>> createObservable(MovieType type) {
     return _mapper.mapperTo(type).then(_movieRepository.fetchMovies);
   }
 }

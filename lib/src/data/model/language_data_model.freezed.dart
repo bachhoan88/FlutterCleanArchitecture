@@ -1,27 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'language_entity.dart';
+part of 'language_data_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-LanguageEntity _$LanguageEntityFromJson(Map<String, dynamic> json) {
-  return _LanguageEntity.fromJson(json);
+LanguageDataModel _$LanguageDataModelFromJson(Map<String, dynamic> json) {
+  return _LanguageDataModel.fromJson(json);
 }
 
 /// @nodoc
-class _$LanguageEntityTearOff {
-  const _$LanguageEntityTearOff();
+class _$LanguageDataModelTearOff {
+  const _$LanguageDataModelTearOff();
 
 // ignore: unused_element
-  _LanguageEntity call(
+  _LanguageDataModel call(
       {String name,
       @JsonKey(name: 'english_name') String engName,
       @JsonKey(name: 'iso_639_1') String countryCode}) {
-    return _LanguageEntity(
+    return _LanguageDataModel(
       name: name,
       engName: engName,
       countryCode: countryCode,
@@ -29,17 +29,17 @@ class _$LanguageEntityTearOff {
   }
 
 // ignore: unused_element
-  LanguageEntity fromJson(Map<String, Object> json) {
-    return LanguageEntity.fromJson(json);
+  LanguageDataModel fromJson(Map<String, Object> json) {
+    return LanguageDataModel.fromJson(json);
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $LanguageEntity = _$LanguageEntityTearOff();
+const $LanguageDataModel = _$LanguageDataModelTearOff();
 
 /// @nodoc
-mixin _$LanguageEntity {
+mixin _$LanguageDataModel {
   String get name;
   @JsonKey(name: 'english_name')
   String get engName;
@@ -48,14 +48,14 @@ mixin _$LanguageEntity {
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
-  $LanguageEntityCopyWith<LanguageEntity> get copyWith;
+  $LanguageDataModelCopyWith<LanguageDataModel> get copyWith;
 }
 
 /// @nodoc
-abstract class $LanguageEntityCopyWith<$Res> {
-  factory $LanguageEntityCopyWith(
-          LanguageEntity value, $Res Function(LanguageEntity) then) =
-      _$LanguageEntityCopyWithImpl<$Res>;
+abstract class $LanguageDataModelCopyWith<$Res> {
+  factory $LanguageDataModelCopyWith(
+          LanguageDataModel value, $Res Function(LanguageDataModel) then) =
+      _$LanguageDataModelCopyWithImpl<$Res>;
   $Res call(
       {String name,
       @JsonKey(name: 'english_name') String engName,
@@ -63,13 +63,13 @@ abstract class $LanguageEntityCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LanguageEntityCopyWithImpl<$Res>
-    implements $LanguageEntityCopyWith<$Res> {
-  _$LanguageEntityCopyWithImpl(this._value, this._then);
+class _$LanguageDataModelCopyWithImpl<$Res>
+    implements $LanguageDataModelCopyWith<$Res> {
+  _$LanguageDataModelCopyWithImpl(this._value, this._then);
 
-  final LanguageEntity _value;
+  final LanguageDataModel _value;
   // ignore: unused_field
-  final $Res Function(LanguageEntity) _then;
+  final $Res Function(LanguageDataModel) _then;
 
   @override
   $Res call({
@@ -87,11 +87,11 @@ class _$LanguageEntityCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$LanguageEntityCopyWith<$Res>
-    implements $LanguageEntityCopyWith<$Res> {
-  factory _$LanguageEntityCopyWith(
-          _LanguageEntity value, $Res Function(_LanguageEntity) then) =
-      __$LanguageEntityCopyWithImpl<$Res>;
+abstract class _$LanguageDataModelCopyWith<$Res>
+    implements $LanguageDataModelCopyWith<$Res> {
+  factory _$LanguageDataModelCopyWith(
+          _LanguageDataModel value, $Res Function(_LanguageDataModel) then) =
+      __$LanguageDataModelCopyWithImpl<$Res>;
   @override
   $Res call(
       {String name,
@@ -100,15 +100,15 @@ abstract class _$LanguageEntityCopyWith<$Res>
 }
 
 /// @nodoc
-class __$LanguageEntityCopyWithImpl<$Res>
-    extends _$LanguageEntityCopyWithImpl<$Res>
-    implements _$LanguageEntityCopyWith<$Res> {
-  __$LanguageEntityCopyWithImpl(
-      _LanguageEntity _value, $Res Function(_LanguageEntity) _then)
-      : super(_value, (v) => _then(v as _LanguageEntity));
+class __$LanguageDataModelCopyWithImpl<$Res>
+    extends _$LanguageDataModelCopyWithImpl<$Res>
+    implements _$LanguageDataModelCopyWith<$Res> {
+  __$LanguageDataModelCopyWithImpl(
+      _LanguageDataModel _value, $Res Function(_LanguageDataModel) _then)
+      : super(_value, (v) => _then(v as _LanguageDataModel));
 
   @override
-  _LanguageEntity get _value => super._value as _LanguageEntity;
+  _LanguageDataModel get _value => super._value as _LanguageDataModel;
 
   @override
   $Res call({
@@ -116,7 +116,7 @@ class __$LanguageEntityCopyWithImpl<$Res>
     Object engName = freezed,
     Object countryCode = freezed,
   }) {
-    return _then(_LanguageEntity(
+    return _then(_LanguageDataModel(
       name: name == freezed ? _value.name : name as String,
       engName: engName == freezed ? _value.engName : engName as String,
       countryCode:
@@ -128,14 +128,14 @@ class __$LanguageEntityCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$_LanguageEntity implements _LanguageEntity {
-  _$_LanguageEntity(
+class _$_LanguageDataModel implements _LanguageDataModel {
+  _$_LanguageDataModel(
       {this.name,
       @JsonKey(name: 'english_name') this.engName,
       @JsonKey(name: 'iso_639_1') this.countryCode});
 
-  factory _$_LanguageEntity.fromJson(Map<String, dynamic> json) =>
-      _$_$_LanguageEntityFromJson(json);
+  factory _$_LanguageDataModel.fromJson(Map<String, dynamic> json) =>
+      _$_$_LanguageDataModelFromJson(json);
 
   @override
   final String name;
@@ -148,13 +148,13 @@ class _$_LanguageEntity implements _LanguageEntity {
 
   @override
   String toString() {
-    return 'LanguageEntity(name: $name, engName: $engName, countryCode: $countryCode)';
+    return 'LanguageDataModel(name: $name, engName: $engName, countryCode: $countryCode)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LanguageEntity &&
+        (other is _LanguageDataModel &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.engName, engName) ||
@@ -174,23 +174,23 @@ class _$_LanguageEntity implements _LanguageEntity {
 
   @JsonKey(ignore: true)
   @override
-  _$LanguageEntityCopyWith<_LanguageEntity> get copyWith =>
-      __$LanguageEntityCopyWithImpl<_LanguageEntity>(this, _$identity);
+  _$LanguageDataModelCopyWith<_LanguageDataModel> get copyWith =>
+      __$LanguageDataModelCopyWithImpl<_LanguageDataModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_LanguageEntityToJson(this);
+    return _$_$_LanguageDataModelToJson(this);
   }
 }
 
-abstract class _LanguageEntity implements LanguageEntity {
-  factory _LanguageEntity(
+abstract class _LanguageDataModel implements LanguageDataModel {
+  factory _LanguageDataModel(
       {String name,
       @JsonKey(name: 'english_name') String engName,
-      @JsonKey(name: 'iso_639_1') String countryCode}) = _$_LanguageEntity;
+      @JsonKey(name: 'iso_639_1') String countryCode}) = _$_LanguageDataModel;
 
-  factory _LanguageEntity.fromJson(Map<String, dynamic> json) =
-      _$_LanguageEntity.fromJson;
+  factory _LanguageDataModel.fromJson(Map<String, dynamic> json) =
+      _$_LanguageDataModel.fromJson;
 
   @override
   String get name;
@@ -202,5 +202,5 @@ abstract class _LanguageEntity implements LanguageEntity {
   String get countryCode;
   @override
   @JsonKey(ignore: true)
-  _$LanguageEntityCopyWith<_LanguageEntity> get copyWith;
+  _$LanguageDataModelCopyWith<_LanguageDataModel> get copyWith;
 }

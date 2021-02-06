@@ -1,20 +1,20 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:river_movies/src/data/base/model_entity.dart';
+import 'package:river_movies/src/data/base/data_model.dart';
 
 import 'models.dart';
 
-part 'movie_info_entity.freezed.dart';
-part 'movie_info_entity.g.dart';
+part 'movie_info_data_model.freezed.dart';
+part 'movie_info_data_model.g.dart';
 
 @freezed
-abstract class MovieInfoEntity with _$MovieInfoEntity, ModelEntity {
-  factory MovieInfoEntity({
+abstract class MovieInfoDataModel with _$MovieInfoDataModel, DataModel {
+  factory MovieInfoDataModel({
     bool adult,
     @JsonKey(name: 'backdrop_path') String backdropPath,
-    @JsonKey(name: 'belongs_to_collection') CollectionEntity collection,
+    @JsonKey(name: 'belongs_to_collection') CollectionDataModel collection,
     int budget,
-    List<GenreEntity> genres,
+    List<GenreDataModel> genres,
     String homepage,
     int id,
     @JsonKey(name: 'imdb_id') String imdbId,
@@ -32,10 +32,10 @@ abstract class MovieInfoEntity with _$MovieInfoEntity, ModelEntity {
     bool video,
     @JsonKey(name: 'vote_average') double voteAverage,
     @JsonKey(name: 'vote_count') int voteCount,
-    @JsonKey(name: 'production_companies') List<CompanyEntity> companies,
-    @JsonKey(name: 'production_countries') List<CountryEntity> countries,
-    @JsonKey(name: 'spoken_languages') List<LanguageEntity> languages,
-  }) = _MovieInfoEntity;
+    @JsonKey(name: 'production_companies') List<CompanyDataModel> companies,
+    @JsonKey(name: 'production_countries') List<CountryDataModel> countries,
+    @JsonKey(name: 'spoken_languages') List<LanguageDataModel> languages,
+  }) = _MovieInfoDataModel;
 
-  factory MovieInfoEntity.fromJson(Map<String, dynamic> json) => _$MovieInfoEntityFromJson(json);
+  factory MovieInfoDataModel.fromJson(Map<String, dynamic> json) => _$MovieInfoDataModelFromJson(json);
 }

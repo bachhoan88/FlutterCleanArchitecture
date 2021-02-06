@@ -1,6 +1,6 @@
 import 'package:river_movies/src/data/model/models.dart';
 
-MovieEntity get createMovie => MovieEntity(
+MovieDataModel get createMovie => MovieDataModel(
   id: 1,
   voteCount: 100,
   video: false,

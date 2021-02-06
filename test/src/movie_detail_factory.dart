@@ -1,36 +1,36 @@
 import 'package:river_movies/src/data/model/models.dart';
 
-CollectionEntity createCollection = CollectionEntity(
+CollectionDataModel createCollection = CollectionDataModel(
   id: 1,
   name: 'Name',
   posterPath: '',
   backdropPath: '',
 );
 
-CompanyEntity createCompany = CompanyEntity(
+CompanyDataModel createCompany = CompanyDataModel(
   id: 1,
   name: 'Name',
   logoPath: '',
   originalCountry: '',
 );
 
-CountryEntity createCountry = CountryEntity(
+CountryDataModel createCountry = CountryDataModel(
   name: 'Name',
   code: 'n',
 );
 
-GenreEntity createGenre = GenreEntity(
+GenreDataModel createGenre = GenreDataModel(
   id: 1,
   name: 'Fantasy',
 );
 
-LanguageEntity createLanguage = LanguageEntity(
+LanguageDataModel createLanguage = LanguageDataModel(
   name: 'En',
   countryCode: 'en',
   engName: 'Name',
 );
 
-MovieInfoEntity createMovieInfo = MovieInfoEntity(
+MovieInfoDataModel createMovieInfo = MovieInfoDataModel(
   adult: false,
   backdropPath: '',
   budget: 1,

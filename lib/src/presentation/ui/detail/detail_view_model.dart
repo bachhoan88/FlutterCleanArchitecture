@@ -3,8 +3,8 @@ import 'package:river_movies/src/domain/usecase/movie/get_movie_image_usecase.da
 import 'package:river_movies/src/domain/usecase/movie/get_movie_info_usecase.dart';
 import 'package:river_movies/src/presentation/base/base_view_model.dart';
 import 'package:river_movies/src/presentation/di/use_case_provider.dart';
-import 'package:river_movies/src/presentation/model/image_item.dart';
-import 'package:river_movies/src/presentation/model/movie_info_item.dart';
+import 'package:river_movies/src/presentation/model/image_view_data_model.dart';
+import 'package:river_movies/src/presentation/model/movie_info_view_data_model.dart';
 
 class DetailViewModel extends BaseViewModel {
   bool expanded = false;
@@ -21,15 +21,15 @@ final getMovieInfoProvider = StateNotifierProvider.autoDispose.family<GetMovieIn
         (ref, movieId) => GetMovieInfo(getMovieInfoUseCase: ref.read(getMovieInfoUseCaseProvider), movieId: movieId)
 );
 
-class GetMovieImage extends StateNotifier<AsyncValue<List<ImageItem>>> {
+class GetMovieImage extends StateNotifier<AsyncValue<List<ImageViewDataModel>>> {
   final GetMovieImageUseCase _getMovieImageUseCase;
-  final ImageItemMapper _imageItemMapper;
+  final ImageViewDataModelMapper _imageItemMapper;
   final int _movieId;
 
-  GetMovieImage({GetMovieImageUseCase getMovieImageUseCase, ImageItemMapper imageItemMapper, int movieId})
+  GetMovieImage({GetMovieImageUseCase getMovieImageUseCase, ImageViewDataModelMapper imageItemMapper, int movieId})
       : _getMovieImageUseCase = getMovieImageUseCase,
         _movieId = movieId,
-        _imageItemMapper = imageItemMapper ?? ImageItemMapper(),
+        _imageItemMapper = imageItemMapper ?? ImageViewDataModelMapper(),
         super(AsyncValue.loading()) {
     _createObserver();
   }
@@ -39,14 +39,14 @@ class GetMovieImage extends StateNotifier<AsyncValue<List<ImageItem>>> {
   }
 }
 
-class GetMovieInfo extends StateNotifier<AsyncValue<MovieInfoItem>> {
+class GetMovieInfo extends StateNotifier<AsyncValue<MovieInfoViewDataModel>> {
   final GetMovieInfoUseCase _getMovieInfoUseCase;
-  final MovieInfoItemMapper _movieInfoItemMapper;
+  final MovieInfoViewDataModelMapper _movieInfoItemMapper;
   final int _movieId;
 
-  GetMovieInfo({int movieId, GetMovieInfoUseCase getMovieInfoUseCase, MovieInfoItemMapper mapper})
+  GetMovieInfo({int movieId, GetMovieInfoUseCase getMovieInfoUseCase, MovieInfoViewDataModelMapper mapper})
       : _getMovieInfoUseCase = getMovieInfoUseCase,
-        _movieInfoItemMapper = mapper ?? MovieInfoItemMapper(),
+        _movieInfoItemMapper = mapper ?? MovieInfoViewDataModelMapper(),
         _movieId = movieId,
         super(AsyncValue.loading()) {
     _createObserver();

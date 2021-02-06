@@ -3,13 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:river_movies/src/presentation/base/base_view_holder.dart';
-import 'package:river_movies/src/presentation/model/movie_item.dart';
+import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 
-class MovieViewHolder extends BaseViewHolder<MovieItem> {
-  MovieViewHolder(MovieItem item, Function(MovieItem) action) : super(item, action);
+class MovieViewHolder extends BaseViewHolder<MovieItemViewDataModel> {
+  MovieViewHolder(MovieItemViewDataModel item, Function(MovieItemViewDataModel) action) : super(item, action);
 
   @override
-  Widget createContent(BuildContext context, MovieItem movie) {
+  Widget createContent(BuildContext context, MovieItemViewDataModel movie) {
     final width = MediaQuery.of(context).size.width / 2.6;
 
     return Container(

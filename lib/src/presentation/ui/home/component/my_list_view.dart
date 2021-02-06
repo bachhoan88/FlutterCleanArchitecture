@@ -12,14 +12,14 @@ import 'package:river_movies/src/presentation/ui/theme/color.dart';
 import '../home_view_model.dart';
 
 class MyListView extends HookWidget {
-  final Function(MovieItemViewDataModel) actionOpenMovie;
+  final Function(MovieViewDataModel) actionOpenMovie;
   final Function actionLoadAll;
 
   const MyListView({Key key, @required this.actionOpenMovie, @required this.actionLoadAll}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return AsyncValueView<List<MovieItemViewDataModel>>(
+    return AsyncValueView<List<MovieViewDataModel>>(
       value: useProvider(fetchMoviesProvider(MovieType.topRated).state),
       errorRetry: () {
         context.refresh(fetchMoviesProvider(MovieType.topRated));
@@ -30,7 +30,7 @@ class MyListView extends HookWidget {
     );
   }
 
-  Widget _createMyListView(BuildContext context, List<MovieItemViewDataModel> movies) {
+  Widget _createMyListView(BuildContext context, List<MovieViewDataModel> movies) {
     final contentHeight = 4.0 * (MediaQuery.of(context).size.width / 2.4) / 3;
     return Container(
       child: Column(

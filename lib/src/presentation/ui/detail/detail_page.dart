@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/theme/color.dart';
@@ -14,7 +13,7 @@ import 'component/screen_shot_view.dart';
 
 const detailPageRoutes = '/detail';
 
-class DetailPage extends HookWidget {
+class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -26,8 +25,7 @@ class DetailPage extends HookWidget {
   }
 
   Widget _createDetailBody(BuildContext context) {
-    final movie = Get.arguments as MovieItemViewDataModel;
-
+    final movie = Get.arguments as MovieViewDataModel;
     return Stack(
       children: [
         LayoutBuilder(
@@ -121,7 +119,7 @@ class DetailPage extends HookWidget {
   }
 
   Widget _createHeaderImage(BuildContext context) {
-    final MovieItemViewDataModel movie = Get.arguments;
+    final MovieViewDataModel movie = Get.arguments;
     return Stack(
       children: [
         Container(

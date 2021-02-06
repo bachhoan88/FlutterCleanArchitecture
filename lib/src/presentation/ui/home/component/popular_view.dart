@@ -11,17 +11,17 @@ import 'package:river_movies/src/presentation/ui/home/home_view_model.dart';
 import 'package:river_movies/src/presentation/ui/theme/color.dart';
 
 class PopularView extends HookWidget {
-  final Function(MovieItemViewDataModel) actionOpenMovie;
+  final Function(MovieViewDataModel) actionOpenMovie;
   final Function actionLoadAll;
 
   const PopularView({Key key, @required this.actionOpenMovie, @required this.actionLoadAll}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return AsyncValueView<List<MovieItemViewDataModel>>(
-      value: useProvider(fetchMoviesProvider(MovieType.topRated).state),
+    return AsyncValueView<List<MovieViewDataModel>>(
+      value: useProvider(fetchMoviesProvider(MovieType.popular).state),
       errorRetry: () {
-        context.refresh(fetchMoviesProvider(MovieType.topRated));
+        context.refresh(fetchMoviesProvider(MovieType.popular));
       },
       child: (movies) {
         return _createPopularView(context, movies);
@@ -29,7 +29,7 @@ class PopularView extends HookWidget {
     );
   }
 
-  Widget _createPopularView(BuildContext context, List<MovieItemViewDataModel> movies) {
+  Widget _createPopularView(BuildContext context, List<MovieViewDataModel> movies) {
     final contentHeight = 4.0 * (MediaQuery.of(context).size.width / 2.4) / 3;
     return Container(
       child: Column(

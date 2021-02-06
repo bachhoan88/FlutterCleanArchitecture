@@ -10,13 +10,13 @@ import 'package:river_movies/src/presentation/ui/home/component/category_view_ho
 import '../home_view_model.dart';
 
 class CategoryView extends HookWidget {
-  final Function(MovieItemViewDataModel) actionOpenCategory;
+  final Function(MovieViewDataModel) actionOpenCategory;
 
   CategoryView({Key key, @required this.actionOpenCategory}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return AsyncValueView<List<MovieItemViewDataModel>>(
+    return AsyncValueView<List<MovieViewDataModel>>(
       value: useProvider(fetchMoviesProvider(MovieType.upcoming).state),
       errorRetry: () {
         context.refresh(fetchMoviesProvider(MovieType.upcoming));
@@ -27,7 +27,7 @@ class CategoryView extends HookWidget {
     );
   }
 
-  Widget _createCategoryList(BuildContext context, List<MovieItemViewDataModel> movies) {
+  Widget _createCategoryList(BuildContext context, List<MovieViewDataModel> movies) {
     return Container(
       width: double.infinity,
       height: 96.0,

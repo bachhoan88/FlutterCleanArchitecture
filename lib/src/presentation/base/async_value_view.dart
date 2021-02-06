@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/res.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:get/get.dart';
 import 'package:hooks_riverpod/all.dart';
 import 'package:river_movies/src/domain/annotation/exception_type.dart';
 import 'package:river_movies/src/domain/exception/alert_exception.dart';
@@ -65,15 +66,22 @@ class AsyncValueView<T> extends HookWidget {
 
             case ExceptionType.snack:
               final exception = error as SnackBarException;
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(exception.message)));
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(exception.message)));
+              });
+
               return SizedBox();
 
             case ExceptionType.toast:
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+
+              });
               return SizedBox();
 
             case ExceptionType.dialog:
               final exception = error as DialogException;
-              CustomDialog(
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                CustomDialog(
                   context: context,
                   title: exception.dialog.title ?? '',
                   message: exception.dialog.message,
@@ -82,28 +90,37 @@ class AsyncValueView<T> extends HookWidget {
                     if (_positiveAction != null) {
                       _positiveAction(exception.dialog.positiveAction, exception.dialog.positiveObject);
                     }
+                    Get.back();
                   },
                   negative: exception.dialog.negative ?? Resource.of(context).cancel,
                   negativeCallback: () {
                     if (_negativeAction != null) {
                       _negativeAction(exception.dialog.negativeAction, exception.dialog.negativeObject);
                     }
-                  }).show();
+                    Get.back();
+                  },
+                ).show();
+              });
+
               return SizedBox();
 
             case ExceptionType.alert:
               final exception = error as AlertException;
-              CustomDialog(
-                context: context,
-                title: exception.title ?? '',
-                message: error.message,
-                positive: Resource.of(context).ok,
-                positiveCallback: () {
-                  if (_positiveAction != null) {
-                    _positiveAction(null, null);
-                  }
-                },
-              ).show();
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                CustomDialog(
+                  context: context,
+                  title: exception.title ?? '',
+                  message: error.message,
+                  positive: Resource.of(context).ok,
+                  positiveCallback: () {
+                    if (_positiveAction != null) {
+                      _positiveAction(null, null);
+                    }
+                    Get.back();
+                  },
+                ).show();
+              });
+
               return SizedBox();
 
             case ExceptionType.onPage:

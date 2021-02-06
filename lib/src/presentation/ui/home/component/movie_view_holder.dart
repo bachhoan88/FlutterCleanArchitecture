@@ -5,11 +5,11 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:river_movies/src/presentation/base/base_view_holder.dart';
 import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 
-class MovieViewHolder extends BaseViewHolder<MovieItemViewDataModel> {
-  MovieViewHolder(MovieItemViewDataModel item, Function(MovieItemViewDataModel) action) : super(item, action);
+class MovieViewHolder extends BaseViewHolder<MovieViewDataModel> {
+  MovieViewHolder(MovieViewDataModel item, Function(MovieViewDataModel) action) : super(item, action);
 
   @override
-  Widget createContent(BuildContext context, MovieItemViewDataModel movie) {
+  Widget createContent(BuildContext context, MovieViewDataModel movie) {
     final width = MediaQuery.of(context).size.width / 2.6;
 
     return Container(

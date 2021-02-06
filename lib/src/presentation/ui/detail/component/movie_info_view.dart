@@ -12,7 +12,7 @@ import 'package:river_movies/src/presentation/ui/widget/star_rating.dart';
 import '../detail_view_model.dart';
 
 class MovieInfoView extends HookWidget {
-  final MovieItemViewDataModel movie;
+  final MovieViewDataModel movie;
 
   const MovieInfoView({Key key, this.movie}) : super(key: key);
 

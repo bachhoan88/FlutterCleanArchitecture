@@ -6,12 +6,12 @@ import 'package:river_movies/src/presentation/base/base_view_holder.dart';
 import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/theme/color.dart';
 
-class SlideViewHolder extends BaseViewHolder<MovieItemViewDataModel> {
+class SlideViewHolder extends BaseViewHolder<MovieViewDataModel> {
 
-  SlideViewHolder(MovieItemViewDataModel item, Function(MovieItemViewDataModel) actionOnItemClicked) : super(item, actionOnItemClicked);
+  SlideViewHolder(MovieViewDataModel item, Function(MovieViewDataModel) actionOnItemClicked) : super(item, actionOnItemClicked);
 
   @override
-  Widget createContent(BuildContext context, MovieItemViewDataModel movie) {
+  Widget createContent(BuildContext context, MovieViewDataModel movie) {
     final width = MediaQuery.of(context).size.width;
 
     return Container(

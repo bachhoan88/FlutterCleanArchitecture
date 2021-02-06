@@ -1,8 +1,8 @@
 import 'package:river_movies/src/data/app_error.dart';
 import 'package:river_movies/src/data/mapper/exception_mapper.dart';
-import 'package:river_movies/src/data/model/movie_entity.dart';
-import 'package:river_movies/src/data/model/movie_image_entity.dart';
-import 'package:river_movies/src/data/model/movie_info_entity.dart';
+import 'package:river_movies/src/data/model/movie_data_model.dart';
+import 'package:river_movies/src/data/model/movie_image_data_model.dart';
+import 'package:river_movies/src/data/model/movie_info_data_model.dart';
 import 'package:river_movies/src/data/remote/api/movie_api.dart';
 import 'package:river_movies/src/domain/repository/movie_repository.dart';
 
@@ -18,20 +18,20 @@ class MovieRepositoryImpl implements MovieRepository {
         _exceptionMapper = mapper ?? ExceptionMapper();
 
   @override
-  Future<List<MovieEntity>> fetchMovies(String type) {
+  Future<List<MovieDataModel>> fetchMovies(String type) {
     return _movieApi.fetchMovies(type, _apiKey)
         .then((value) => value.movies)
         .catchError((e) => throw _exceptionMapper.mapperTo(AppError(e)));
   }
 
   @override
-  Future<MovieImageEntity> getMovieImages(int movieId) {
+  Future<MovieImageDataModel> getMovieImages(int movieId) {
     return _movieApi.getMovieImages(movieId, _apiKey)
         .catchError((e) => throw _exceptionMapper.mapperTo(AppError(e)));
   }
 
   @override
-  Future<MovieInfoEntity> getMovieInfo(int movieId) {
+  Future<MovieInfoDataModel> getMovieInfo(int movieId) {
     return _movieApi.getMovieInfo(movieId, _apiKey)
         .catchError((e) => throw _exceptionMapper.mapperTo(AppError(e)));
   }

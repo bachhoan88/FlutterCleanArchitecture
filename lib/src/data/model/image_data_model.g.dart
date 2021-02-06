@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'image_entity.dart';
+part of 'image_data_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ImageEntity _$_$_ImageEntityFromJson(Map<String, dynamic> json) {
-  return _$_ImageEntity(
+_$_ImageDataModel _$_$_ImageDataModelFromJson(Map<String, dynamic> json) {
+  return _$_ImageDataModel(
     imagePath: json['file_path'] as String,
     height: json['height'] as int,
     width: json['width'] as int,
@@ -17,7 +17,7 @@ _$_ImageEntity _$_$_ImageEntityFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$_$_ImageEntityToJson(_$_ImageEntity instance) =>
+Map<String, dynamic> _$_$_ImageDataModelToJson(_$_ImageDataModel instance) =>
     <String, dynamic>{
       'file_path': instance.imagePath,
       'height': instance.height,

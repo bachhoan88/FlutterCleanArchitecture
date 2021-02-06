@@ -2,20 +2,20 @@ import 'package:river_movies/src/data/model/models.dart';
 import 'package:river_movies/src/presentation/base/model_item.dart';
 import 'package:river_movies/src/presentation/base/model_item_mapper.dart';
 
-class MovieItem with ModelItem {
+class MovieItemViewDataModel with ModelItem {
   final int id;
   final String title;
   final String releaseDate;
   final String backdropPath;
   final String posterPath;
 
-  MovieItem({this.id, this.title, this.releaseDate, this.backdropPath, this.posterPath});
+  MovieItemViewDataModel({this.id, this.title, this.releaseDate, this.backdropPath, this.posterPath});
 }
 
-class MovieItemMapper extends ModelItemMapper<MovieEntity, MovieItem> {
+class MovieItemViewDataModelMapper extends ModelItemMapper<MovieDataModel, MovieItemViewDataModel> {
   @override
-  MovieItem mapperTo(MovieEntity data) {
-    return MovieItem(
+  MovieItemViewDataModel mapperTo(MovieDataModel data) {
+    return MovieItemViewDataModel(
       id: data.id,
       title: data.title ?? '',
       releaseDate: data.releaseDate ?? '',

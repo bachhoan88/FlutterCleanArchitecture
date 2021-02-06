@@ -1,14 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'movie_entity.dart';
+part of 'movie_data_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-MovieEntity _$MovieEntityFromJson(Map<String, dynamic> json) {
-  return $checkedNew('MovieEntity', json, () {
-    final val = MovieEntity(
+MovieDataModel _$MovieDataModelFromJson(Map<String, dynamic> json) {
+  return $checkedNew('MovieDataModel', json, () {
+    final val = MovieDataModel(
       id: $checkedConvert(json, 'id', (v) => v as int),
       voteCount: $checkedConvert(json, 'vote_count', (v) => v as int),
       video: $checkedConvert(json, 'video', (v) => v as bool),

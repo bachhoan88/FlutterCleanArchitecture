@@ -1,28 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'collection_entity.dart';
+part of 'collection_data_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-CollectionEntity _$CollectionEntityFromJson(Map<String, dynamic> json) {
-  return _CollectionEntity.fromJson(json);
+CollectionDataModel _$CollectionDataModelFromJson(Map<String, dynamic> json) {
+  return _CollectionDataModel.fromJson(json);
 }
 
 /// @nodoc
-class _$CollectionEntityTearOff {
-  const _$CollectionEntityTearOff();
+class _$CollectionDataModelTearOff {
+  const _$CollectionDataModelTearOff();
 
 // ignore: unused_element
-  _CollectionEntity call(
+  _CollectionDataModel call(
       {int id,
       String name,
       @JsonKey(name: 'poster_path') String posterPath,
       @JsonKey(name: 'backdrop_path') String backdropPath}) {
-    return _CollectionEntity(
+    return _CollectionDataModel(
       id: id,
       name: name,
       posterPath: posterPath,
@@ -31,17 +31,17 @@ class _$CollectionEntityTearOff {
   }
 
 // ignore: unused_element
-  CollectionEntity fromJson(Map<String, Object> json) {
-    return CollectionEntity.fromJson(json);
+  CollectionDataModel fromJson(Map<String, Object> json) {
+    return CollectionDataModel.fromJson(json);
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $CollectionEntity = _$CollectionEntityTearOff();
+const $CollectionDataModel = _$CollectionDataModelTearOff();
 
 /// @nodoc
-mixin _$CollectionEntity {
+mixin _$CollectionDataModel {
   int get id;
   String get name;
   @JsonKey(name: 'poster_path')
@@ -51,14 +51,14 @@ mixin _$CollectionEntity {
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
-  $CollectionEntityCopyWith<CollectionEntity> get copyWith;
+  $CollectionDataModelCopyWith<CollectionDataModel> get copyWith;
 }
 
 /// @nodoc
-abstract class $CollectionEntityCopyWith<$Res> {
-  factory $CollectionEntityCopyWith(
-          CollectionEntity value, $Res Function(CollectionEntity) then) =
-      _$CollectionEntityCopyWithImpl<$Res>;
+abstract class $CollectionDataModelCopyWith<$Res> {
+  factory $CollectionDataModelCopyWith(
+          CollectionDataModel value, $Res Function(CollectionDataModel) then) =
+      _$CollectionDataModelCopyWithImpl<$Res>;
   $Res call(
       {int id,
       String name,
@@ -67,13 +67,13 @@ abstract class $CollectionEntityCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CollectionEntityCopyWithImpl<$Res>
-    implements $CollectionEntityCopyWith<$Res> {
-  _$CollectionEntityCopyWithImpl(this._value, this._then);
+class _$CollectionDataModelCopyWithImpl<$Res>
+    implements $CollectionDataModelCopyWith<$Res> {
+  _$CollectionDataModelCopyWithImpl(this._value, this._then);
 
-  final CollectionEntity _value;
+  final CollectionDataModel _value;
   // ignore: unused_field
-  final $Res Function(CollectionEntity) _then;
+  final $Res Function(CollectionDataModel) _then;
 
   @override
   $Res call({
@@ -95,11 +95,11 @@ class _$CollectionEntityCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$CollectionEntityCopyWith<$Res>
-    implements $CollectionEntityCopyWith<$Res> {
-  factory _$CollectionEntityCopyWith(
-          _CollectionEntity value, $Res Function(_CollectionEntity) then) =
-      __$CollectionEntityCopyWithImpl<$Res>;
+abstract class _$CollectionDataModelCopyWith<$Res>
+    implements $CollectionDataModelCopyWith<$Res> {
+  factory _$CollectionDataModelCopyWith(_CollectionDataModel value,
+          $Res Function(_CollectionDataModel) then) =
+      __$CollectionDataModelCopyWithImpl<$Res>;
   @override
   $Res call(
       {int id,
@@ -109,15 +109,15 @@ abstract class _$CollectionEntityCopyWith<$Res>
 }
 
 /// @nodoc
-class __$CollectionEntityCopyWithImpl<$Res>
-    extends _$CollectionEntityCopyWithImpl<$Res>
-    implements _$CollectionEntityCopyWith<$Res> {
-  __$CollectionEntityCopyWithImpl(
-      _CollectionEntity _value, $Res Function(_CollectionEntity) _then)
-      : super(_value, (v) => _then(v as _CollectionEntity));
+class __$CollectionDataModelCopyWithImpl<$Res>
+    extends _$CollectionDataModelCopyWithImpl<$Res>
+    implements _$CollectionDataModelCopyWith<$Res> {
+  __$CollectionDataModelCopyWithImpl(
+      _CollectionDataModel _value, $Res Function(_CollectionDataModel) _then)
+      : super(_value, (v) => _then(v as _CollectionDataModel));
 
   @override
-  _CollectionEntity get _value => super._value as _CollectionEntity;
+  _CollectionDataModel get _value => super._value as _CollectionDataModel;
 
   @override
   $Res call({
@@ -126,7 +126,7 @@ class __$CollectionEntityCopyWithImpl<$Res>
     Object posterPath = freezed,
     Object backdropPath = freezed,
   }) {
-    return _then(_CollectionEntity(
+    return _then(_CollectionDataModel(
       id: id == freezed ? _value.id : id as int,
       name: name == freezed ? _value.name : name as String,
       posterPath:
@@ -141,15 +141,15 @@ class __$CollectionEntityCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$_CollectionEntity implements _CollectionEntity {
-  _$_CollectionEntity(
+class _$_CollectionDataModel implements _CollectionDataModel {
+  _$_CollectionDataModel(
       {this.id,
       this.name,
       @JsonKey(name: 'poster_path') this.posterPath,
       @JsonKey(name: 'backdrop_path') this.backdropPath});
 
-  factory _$_CollectionEntity.fromJson(Map<String, dynamic> json) =>
-      _$_$_CollectionEntityFromJson(json);
+  factory _$_CollectionDataModel.fromJson(Map<String, dynamic> json) =>
+      _$_$_CollectionDataModelFromJson(json);
 
   @override
   final int id;
@@ -164,13 +164,13 @@ class _$_CollectionEntity implements _CollectionEntity {
 
   @override
   String toString() {
-    return 'CollectionEntity(id: $id, name: $name, posterPath: $posterPath, backdropPath: $backdropPath)';
+    return 'CollectionDataModel(id: $id, name: $name, posterPath: $posterPath, backdropPath: $backdropPath)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CollectionEntity &&
+        (other is _CollectionDataModel &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
@@ -193,25 +193,26 @@ class _$_CollectionEntity implements _CollectionEntity {
 
   @JsonKey(ignore: true)
   @override
-  _$CollectionEntityCopyWith<_CollectionEntity> get copyWith =>
-      __$CollectionEntityCopyWithImpl<_CollectionEntity>(this, _$identity);
+  _$CollectionDataModelCopyWith<_CollectionDataModel> get copyWith =>
+      __$CollectionDataModelCopyWithImpl<_CollectionDataModel>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_CollectionEntityToJson(this);
+    return _$_$_CollectionDataModelToJson(this);
   }
 }
 
-abstract class _CollectionEntity implements CollectionEntity {
-  factory _CollectionEntity(
+abstract class _CollectionDataModel implements CollectionDataModel {
+  factory _CollectionDataModel(
           {int id,
           String name,
           @JsonKey(name: 'poster_path') String posterPath,
           @JsonKey(name: 'backdrop_path') String backdropPath}) =
-      _$_CollectionEntity;
+      _$_CollectionDataModel;
 
-  factory _CollectionEntity.fromJson(Map<String, dynamic> json) =
-      _$_CollectionEntity.fromJson;
+  factory _CollectionDataModel.fromJson(Map<String, dynamic> json) =
+      _$_CollectionDataModel.fromJson;
 
   @override
   int get id;
@@ -225,5 +226,5 @@ abstract class _CollectionEntity implements CollectionEntity {
   String get backdropPath;
   @override
   @JsonKey(ignore: true)
-  _$CollectionEntityCopyWith<_CollectionEntity> get copyWith;
+  _$CollectionDataModelCopyWith<_CollectionDataModel> get copyWith;
 }

@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:river_movies/src/data/base/model_entity.dart';
+import 'package:river_movies/src/data/base/data_model.dart';
 
-part 'movie_entity.g.dart';
+part 'movie_data_model.g.dart';
 
 @JsonSerializable(createToJson: false, checked: true)
-class MovieEntity with ModelEntity {
+class MovieDataModel with DataModel {
   final int id;
 
   @JsonKey(name: 'vote_count')
@@ -37,7 +37,7 @@ class MovieEntity with ModelEntity {
   @JsonKey(name: 'release_date')
   final String releaseDate;
 
-  MovieEntity({
+  MovieDataModel({
     this.id,
     this.voteCount,
     this.video,
@@ -54,5 +54,5 @@ class MovieEntity with ModelEntity {
     this.releaseDate,
   });
 
-  factory MovieEntity.fromJson(Map<String, dynamic> json) => _$MovieEntityFromJson(json);
+  factory MovieDataModel.fromJson(Map<String, dynamic> json) => _$MovieDataModelFromJson(json);
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/res.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/all.dart';
 import 'package:river_movies/src/domain/annotation/exception_type.dart';
@@ -12,7 +13,6 @@ import 'package:river_movies/src/domain/exception/snack_bar_exception.dart';
 import 'package:river_movies/src/presentation/ui/widget/custom_dialog.dart';
 import 'package:river_movies/src/presentation/ui/widget/error_page.dart';
 import 'package:river_movies/src/presentation/ui/widget/loading.dart';
-import 'package:flutter_gen/gen_l10n/res.dart';
 
 class AsyncValueView<T> extends HookWidget {
   final AsyncValue<T> _asyncValue;
@@ -24,8 +24,8 @@ class AsyncValueView<T> extends HookWidget {
   final Function(dynamic) _redirectAction;
 
   const AsyncValueView({
-    AsyncValue<T> value,
-    Widget Function(T) child,
+    @required AsyncValue<T> value,
+    @required Widget Function(T) child,
     Function errorRetry,
     Function(dynamic, dynamic) positiveAction,
     Function(dynamic, dynamic) negativeAction,
@@ -51,12 +51,16 @@ class AsyncValueView<T> extends HookWidget {
           switch (error.exceptionType) {
             case ExceptionType.redirect:
               final exception = error as RedirectException;
-              _redirectAction(exception.redirect);
+              if (_redirectAction != null) {
+                _redirectAction(exception.redirect);
+              }
               return SizedBox();
 
             case ExceptionType.inline:
               final exception = error as InlineException;
-              _inlineAction(exception.tags);
+              if (_inlineAction != null) {
+                _inlineAction(exception.tags);
+              }
               return SizedBox();
 
             case ExceptionType.snack:
@@ -70,18 +74,21 @@ class AsyncValueView<T> extends HookWidget {
             case ExceptionType.dialog:
               final exception = error as DialogException;
               CustomDialog(
-                context: context,
-                title: exception.dialog.title ?? '',
-                message: exception.dialog.message,
-                positive: exception.dialog.positive ?? Resource.of(context).ok,
-                positiveCallback: () {
-                  _positiveAction(exception.dialog.positiveAction, exception.dialog.positiveObject);
-                },
-                negative: exception.dialog.negative ?? Resource.of(context).cancel,
-                negativeCallback: () {
-                  _negativeAction(exception.dialog.negativeAction, exception.dialog.negativeObject);
-                }
-              ).show();
+                  context: context,
+                  title: exception.dialog.title ?? '',
+                  message: exception.dialog.message,
+                  positive: exception.dialog.positive ?? Resource.of(context).ok,
+                  positiveCallback: () {
+                    if (_positiveAction != null) {
+                      _positiveAction(exception.dialog.positiveAction, exception.dialog.positiveObject);
+                    }
+                  },
+                  negative: exception.dialog.negative ?? Resource.of(context).cancel,
+                  negativeCallback: () {
+                    if (_negativeAction != null) {
+                      _negativeAction(exception.dialog.negativeAction, exception.dialog.negativeObject);
+                    }
+                  }).show();
               return SizedBox();
 
             case ExceptionType.alert:
@@ -92,7 +99,9 @@ class AsyncValueView<T> extends HookWidget {
                 message: error.message,
                 positive: Resource.of(context).ok,
                 positiveCallback: () {
-                  _positiveAction(null, null);
+                  if (_positiveAction != null) {
+                    _positiveAction(null, null);
+                  }
                 },
               ).show();
               return SizedBox();

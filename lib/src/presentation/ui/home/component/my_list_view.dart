@@ -5,21 +5,21 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/all.dart';
 import 'package:river_movies/src/domain/usecase/movie/fetch_movies_usecase.dart';
 import 'package:river_movies/src/presentation/base/async_value_view.dart';
-import 'package:river_movies/src/presentation/model/movie_item.dart';
+import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/home/component/movie_view_holder.dart';
 import 'package:river_movies/src/presentation/ui/theme/color.dart';
 
 import '../home_view_model.dart';
 
 class MyListView extends HookWidget {
-  final Function(MovieItem) actionOpenMovie;
+  final Function(MovieItemViewDataModel) actionOpenMovie;
   final Function actionLoadAll;
 
   const MyListView({Key key, @required this.actionOpenMovie, @required this.actionLoadAll}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return AsyncValueView<List<MovieItem>>(
+    return AsyncValueView<List<MovieItemViewDataModel>>(
       value: useProvider(fetchMoviesProvider(MovieType.topRated).state),
       errorRetry: () {
         context.refresh(fetchMoviesProvider(MovieType.topRated));
@@ -30,7 +30,7 @@ class MyListView extends HookWidget {
     );
   }
 
-  Widget _createMyListView(BuildContext context, List<MovieItem> movies) {
+  Widget _createMyListView(BuildContext context, List<MovieItemViewDataModel> movies) {
     final contentHeight = 4.0 * (MediaQuery.of(context).size.width / 2.4) / 3;
     return Container(
       child: Column(

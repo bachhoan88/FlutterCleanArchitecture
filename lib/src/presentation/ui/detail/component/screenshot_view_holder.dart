@@ -3,14 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:river_movies/src/presentation/base/base_view_holder.dart';
-import 'package:river_movies/src/presentation/model/image_item.dart';
+import 'package:river_movies/src/presentation/model/image_view_data_model.dart';
 
-class ScreenshotViewHolder extends BaseViewHolder<ImageItem> {
+class ScreenshotViewHolder extends BaseViewHolder<ImageViewDataModel> {
 
-  ScreenshotViewHolder(ImageItem item, Function(ImageItem) action) : super(item, action);
+  ScreenshotViewHolder(ImageViewDataModel item, Function(ImageViewDataModel) action) : super(item, action);
 
   @override
-  Widget createContent(BuildContext context, ImageItem data) {
+  Widget createContent(BuildContext context, ImageViewDataModel data) {
     final width = MediaQuery.of(context).size.width / 2.4;
     return Container(
       width: width,

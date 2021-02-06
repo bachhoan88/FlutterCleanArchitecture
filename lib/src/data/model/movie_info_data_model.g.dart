@@ -1,23 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'movie_info_entity.dart';
+part of 'movie_info_data_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MovieInfoEntity _$_$_MovieInfoEntityFromJson(Map<String, dynamic> json) {
-  return _$_MovieInfoEntity(
+_$_MovieInfoDataModel _$_$_MovieInfoDataModelFromJson(
+    Map<String, dynamic> json) {
+  return _$_MovieInfoDataModel(
     adult: json['adult'] as bool,
     backdropPath: json['backdrop_path'] as String,
     collection: json['belongs_to_collection'] == null
         ? null
-        : CollectionEntity.fromJson(
+        : CollectionDataModel.fromJson(
             json['belongs_to_collection'] as Map<String, dynamic>),
     budget: json['budget'] as int,
     genres: (json['genres'] as List)
-        ?.map((e) =>
-            e == null ? null : GenreEntity.fromJson(e as Map<String, dynamic>))
+        ?.map((e) => e == null
+            ? null
+            : GenreDataModel.fromJson(e as Map<String, dynamic>))
         ?.toList(),
     homepage: json['homepage'] as String,
     id: json['id'] as int,
@@ -39,22 +41,23 @@ _$_MovieInfoEntity _$_$_MovieInfoEntityFromJson(Map<String, dynamic> json) {
     companies: (json['production_companies'] as List)
         ?.map((e) => e == null
             ? null
-            : CompanyEntity.fromJson(e as Map<String, dynamic>))
+            : CompanyDataModel.fromJson(e as Map<String, dynamic>))
         ?.toList(),
     countries: (json['production_countries'] as List)
         ?.map((e) => e == null
             ? null
-            : CountryEntity.fromJson(e as Map<String, dynamic>))
+            : CountryDataModel.fromJson(e as Map<String, dynamic>))
         ?.toList(),
     languages: (json['spoken_languages'] as List)
         ?.map((e) => e == null
             ? null
-            : LanguageEntity.fromJson(e as Map<String, dynamic>))
+            : LanguageDataModel.fromJson(e as Map<String, dynamic>))
         ?.toList(),
   );
 }
 
-Map<String, dynamic> _$_$_MovieInfoEntityToJson(_$_MovieInfoEntity instance) =>
+Map<String, dynamic> _$_$_MovieInfoDataModelToJson(
+        _$_MovieInfoDataModel instance) =>
     <String, dynamic>{
       'adult': instance.adult,
       'backdrop_path': instance.backdropPath,

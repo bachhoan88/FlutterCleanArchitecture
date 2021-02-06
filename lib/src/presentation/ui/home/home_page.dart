@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
-import 'package:river_movies/constants.dart';
-import 'package:river_movies/src/data/model/models.dart';
-import 'package:river_movies/src/presentation/model/movie_item.dart';
+import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/detail/detail_page.dart';
 import 'package:river_movies/src/presentation/ui/theme/color.dart';
+
 import 'component/category_view.dart';
 import 'component/my_list_view.dart';
 import 'component/popular_view.dart';
@@ -16,7 +15,6 @@ import 'component/slider_view.dart';
 const homePageRoutes = '/';
 
 class HomePage extends HookWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,7 +94,7 @@ class HomePage extends HookWidget {
     );
   }
 
-  void _openMovieDetail(MovieItem movie) async {
+  void _openMovieDetail(MovieItemViewDataModel movie) async {
     await Get.toNamed(detailPageRoutes, arguments: movie);
   }
 }

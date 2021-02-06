@@ -13,8 +13,8 @@ abstract class MovieApi {
   Future<MovieResponse> fetchMovies(@Path('type') String type, @Query('api_key') String key);
 
   @GET('/{id}/images')
-  Future<MovieImageEntity> getMovieImages(@Path('id') int movieId, @Query('api_key') String key);
+  Future<MovieImageDataModel> getMovieImages(@Path('id') int movieId, @Query('api_key') String key);
 
   @GET('/{id}')
-  Future<MovieInfoEntity> getMovieInfo(@Path('id') int movieId, @Query('api_key') String key);
+  Future<MovieInfoDataModel> getMovieInfo(@Path('id') int movieId, @Query('api_key') String key);
 }

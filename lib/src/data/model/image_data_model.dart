@@ -1,13 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:river_movies/src/data/base/model_entity.dart';
+import 'package:river_movies/src/data/base/data_model.dart';
 
-part 'image_entity.g.dart';
-part 'image_entity.freezed.dart';
+part 'image_data_model.g.dart';
+part 'image_data_model.freezed.dart';
 
 @freezed
-abstract class ImageEntity with _$ImageEntity, ModelEntity {
-  factory ImageEntity({
+abstract class ImageDataModel with _$ImageDataModel, DataModel {
+  factory ImageDataModel({
     @JsonKey(name: 'file_path')
     String imagePath,
     int height,
@@ -18,7 +18,7 @@ abstract class ImageEntity with _$ImageEntity, ModelEntity {
     double voteAverage,
     @JsonKey(name: 'vote_count')
     int voteCount,
-  }) = _ImageEntity;
+  }) = _ImageDataModel;
 
-  factory ImageEntity.fromJson(Map<String, dynamic> json) => _$ImageEntityFromJson(json);
+  factory ImageDataModel.fromJson(Map<String, dynamic> json) => _$ImageDataModelFromJson(json);
 }

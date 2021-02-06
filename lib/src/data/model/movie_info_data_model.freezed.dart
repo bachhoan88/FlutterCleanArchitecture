@@ -1,28 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'movie_info_entity.dart';
+part of 'movie_info_data_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-MovieInfoEntity _$MovieInfoEntityFromJson(Map<String, dynamic> json) {
-  return _MovieInfoEntity.fromJson(json);
+MovieInfoDataModel _$MovieInfoDataModelFromJson(Map<String, dynamic> json) {
+  return _MovieInfoDataModel.fromJson(json);
 }
 
 /// @nodoc
-class _$MovieInfoEntityTearOff {
-  const _$MovieInfoEntityTearOff();
+class _$MovieInfoDataModelTearOff {
+  const _$MovieInfoDataModelTearOff();
 
 // ignore: unused_element
-  _MovieInfoEntity call(
+  _MovieInfoDataModel call(
       {bool adult,
       @JsonKey(name: 'backdrop_path') String backdropPath,
-      @JsonKey(name: 'belongs_to_collection') CollectionEntity collection,
+      @JsonKey(name: 'belongs_to_collection') CollectionDataModel collection,
       int budget,
-      List<GenreEntity> genres,
+      List<GenreDataModel> genres,
       String homepage,
       int id,
       @JsonKey(name: 'imdb_id') String imdbId,
@@ -40,10 +40,10 @@ class _$MovieInfoEntityTearOff {
       bool video,
       @JsonKey(name: 'vote_average') double voteAverage,
       @JsonKey(name: 'vote_count') int voteCount,
-      @JsonKey(name: 'production_companies') List<CompanyEntity> companies,
-      @JsonKey(name: 'production_countries') List<CountryEntity> countries,
-      @JsonKey(name: 'spoken_languages') List<LanguageEntity> languages}) {
-    return _MovieInfoEntity(
+      @JsonKey(name: 'production_companies') List<CompanyDataModel> companies,
+      @JsonKey(name: 'production_countries') List<CountryDataModel> countries,
+      @JsonKey(name: 'spoken_languages') List<LanguageDataModel> languages}) {
+    return _MovieInfoDataModel(
       adult: adult,
       backdropPath: backdropPath,
       collection: collection,
@@ -73,24 +73,24 @@ class _$MovieInfoEntityTearOff {
   }
 
 // ignore: unused_element
-  MovieInfoEntity fromJson(Map<String, Object> json) {
-    return MovieInfoEntity.fromJson(json);
+  MovieInfoDataModel fromJson(Map<String, Object> json) {
+    return MovieInfoDataModel.fromJson(json);
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $MovieInfoEntity = _$MovieInfoEntityTearOff();
+const $MovieInfoDataModel = _$MovieInfoDataModelTearOff();
 
 /// @nodoc
-mixin _$MovieInfoEntity {
+mixin _$MovieInfoDataModel {
   bool get adult;
   @JsonKey(name: 'backdrop_path')
   String get backdropPath;
   @JsonKey(name: 'belongs_to_collection')
-  CollectionEntity get collection;
+  CollectionDataModel get collection;
   int get budget;
-  List<GenreEntity> get genres;
+  List<GenreDataModel> get genres;
   String get homepage;
   int get id;
   @JsonKey(name: 'imdb_id')
@@ -116,28 +116,28 @@ mixin _$MovieInfoEntity {
   @JsonKey(name: 'vote_count')
   int get voteCount;
   @JsonKey(name: 'production_companies')
-  List<CompanyEntity> get companies;
+  List<CompanyDataModel> get companies;
   @JsonKey(name: 'production_countries')
-  List<CountryEntity> get countries;
+  List<CountryDataModel> get countries;
   @JsonKey(name: 'spoken_languages')
-  List<LanguageEntity> get languages;
+  List<LanguageDataModel> get languages;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
-  $MovieInfoEntityCopyWith<MovieInfoEntity> get copyWith;
+  $MovieInfoDataModelCopyWith<MovieInfoDataModel> get copyWith;
 }
 
 /// @nodoc
-abstract class $MovieInfoEntityCopyWith<$Res> {
-  factory $MovieInfoEntityCopyWith(
-          MovieInfoEntity value, $Res Function(MovieInfoEntity) then) =
-      _$MovieInfoEntityCopyWithImpl<$Res>;
+abstract class $MovieInfoDataModelCopyWith<$Res> {
+  factory $MovieInfoDataModelCopyWith(
+          MovieInfoDataModel value, $Res Function(MovieInfoDataModel) then) =
+      _$MovieInfoDataModelCopyWithImpl<$Res>;
   $Res call(
       {bool adult,
       @JsonKey(name: 'backdrop_path') String backdropPath,
-      @JsonKey(name: 'belongs_to_collection') CollectionEntity collection,
+      @JsonKey(name: 'belongs_to_collection') CollectionDataModel collection,
       int budget,
-      List<GenreEntity> genres,
+      List<GenreDataModel> genres,
       String homepage,
       int id,
       @JsonKey(name: 'imdb_id') String imdbId,
@@ -155,21 +155,21 @@ abstract class $MovieInfoEntityCopyWith<$Res> {
       bool video,
       @JsonKey(name: 'vote_average') double voteAverage,
       @JsonKey(name: 'vote_count') int voteCount,
-      @JsonKey(name: 'production_companies') List<CompanyEntity> companies,
-      @JsonKey(name: 'production_countries') List<CountryEntity> countries,
-      @JsonKey(name: 'spoken_languages') List<LanguageEntity> languages});
+      @JsonKey(name: 'production_companies') List<CompanyDataModel> companies,
+      @JsonKey(name: 'production_countries') List<CountryDataModel> countries,
+      @JsonKey(name: 'spoken_languages') List<LanguageDataModel> languages});
 
-  $CollectionEntityCopyWith<$Res> get collection;
+  $CollectionDataModelCopyWith<$Res> get collection;
 }
 
 /// @nodoc
-class _$MovieInfoEntityCopyWithImpl<$Res>
-    implements $MovieInfoEntityCopyWith<$Res> {
-  _$MovieInfoEntityCopyWithImpl(this._value, this._then);
+class _$MovieInfoDataModelCopyWithImpl<$Res>
+    implements $MovieInfoDataModelCopyWith<$Res> {
+  _$MovieInfoDataModelCopyWithImpl(this._value, this._then);
 
-  final MovieInfoEntity _value;
+  final MovieInfoDataModel _value;
   // ignore: unused_field
-  final $Res Function(MovieInfoEntity) _then;
+  final $Res Function(MovieInfoDataModel) _then;
 
   @override
   $Res call({
@@ -206,9 +206,10 @@ class _$MovieInfoEntityCopyWithImpl<$Res>
           : backdropPath as String,
       collection: collection == freezed
           ? _value.collection
-          : collection as CollectionEntity,
+          : collection as CollectionDataModel,
       budget: budget == freezed ? _value.budget : budget as int,
-      genres: genres == freezed ? _value.genres : genres as List<GenreEntity>,
+      genres:
+          genres == freezed ? _value.genres : genres as List<GenreDataModel>,
       homepage: homepage == freezed ? _value.homepage : homepage as String,
       id: id == freezed ? _value.id : id as int,
       imdbId: imdbId == freezed ? _value.imdbId : imdbId as String,
@@ -236,40 +237,40 @@ class _$MovieInfoEntityCopyWithImpl<$Res>
       voteCount: voteCount == freezed ? _value.voteCount : voteCount as int,
       companies: companies == freezed
           ? _value.companies
-          : companies as List<CompanyEntity>,
+          : companies as List<CompanyDataModel>,
       countries: countries == freezed
           ? _value.countries
-          : countries as List<CountryEntity>,
+          : countries as List<CountryDataModel>,
       languages: languages == freezed
           ? _value.languages
-          : languages as List<LanguageEntity>,
+          : languages as List<LanguageDataModel>,
     ));
   }
 
   @override
-  $CollectionEntityCopyWith<$Res> get collection {
+  $CollectionDataModelCopyWith<$Res> get collection {
     if (_value.collection == null) {
       return null;
     }
-    return $CollectionEntityCopyWith<$Res>(_value.collection, (value) {
+    return $CollectionDataModelCopyWith<$Res>(_value.collection, (value) {
       return _then(_value.copyWith(collection: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$MovieInfoEntityCopyWith<$Res>
-    implements $MovieInfoEntityCopyWith<$Res> {
-  factory _$MovieInfoEntityCopyWith(
-          _MovieInfoEntity value, $Res Function(_MovieInfoEntity) then) =
-      __$MovieInfoEntityCopyWithImpl<$Res>;
+abstract class _$MovieInfoDataModelCopyWith<$Res>
+    implements $MovieInfoDataModelCopyWith<$Res> {
+  factory _$MovieInfoDataModelCopyWith(
+          _MovieInfoDataModel value, $Res Function(_MovieInfoDataModel) then) =
+      __$MovieInfoDataModelCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool adult,
       @JsonKey(name: 'backdrop_path') String backdropPath,
-      @JsonKey(name: 'belongs_to_collection') CollectionEntity collection,
+      @JsonKey(name: 'belongs_to_collection') CollectionDataModel collection,
       int budget,
-      List<GenreEntity> genres,
+      List<GenreDataModel> genres,
       String homepage,
       int id,
       @JsonKey(name: 'imdb_id') String imdbId,
@@ -287,24 +288,24 @@ abstract class _$MovieInfoEntityCopyWith<$Res>
       bool video,
       @JsonKey(name: 'vote_average') double voteAverage,
       @JsonKey(name: 'vote_count') int voteCount,
-      @JsonKey(name: 'production_companies') List<CompanyEntity> companies,
-      @JsonKey(name: 'production_countries') List<CountryEntity> countries,
-      @JsonKey(name: 'spoken_languages') List<LanguageEntity> languages});
+      @JsonKey(name: 'production_companies') List<CompanyDataModel> companies,
+      @JsonKey(name: 'production_countries') List<CountryDataModel> countries,
+      @JsonKey(name: 'spoken_languages') List<LanguageDataModel> languages});
 
   @override
-  $CollectionEntityCopyWith<$Res> get collection;
+  $CollectionDataModelCopyWith<$Res> get collection;
 }
 
 /// @nodoc
-class __$MovieInfoEntityCopyWithImpl<$Res>
-    extends _$MovieInfoEntityCopyWithImpl<$Res>
-    implements _$MovieInfoEntityCopyWith<$Res> {
-  __$MovieInfoEntityCopyWithImpl(
-      _MovieInfoEntity _value, $Res Function(_MovieInfoEntity) _then)
-      : super(_value, (v) => _then(v as _MovieInfoEntity));
+class __$MovieInfoDataModelCopyWithImpl<$Res>
+    extends _$MovieInfoDataModelCopyWithImpl<$Res>
+    implements _$MovieInfoDataModelCopyWith<$Res> {
+  __$MovieInfoDataModelCopyWithImpl(
+      _MovieInfoDataModel _value, $Res Function(_MovieInfoDataModel) _then)
+      : super(_value, (v) => _then(v as _MovieInfoDataModel));
 
   @override
-  _MovieInfoEntity get _value => super._value as _MovieInfoEntity;
+  _MovieInfoDataModel get _value => super._value as _MovieInfoDataModel;
 
   @override
   $Res call({
@@ -334,16 +335,17 @@ class __$MovieInfoEntityCopyWithImpl<$Res>
     Object countries = freezed,
     Object languages = freezed,
   }) {
-    return _then(_MovieInfoEntity(
+    return _then(_MovieInfoDataModel(
       adult: adult == freezed ? _value.adult : adult as bool,
       backdropPath: backdropPath == freezed
           ? _value.backdropPath
           : backdropPath as String,
       collection: collection == freezed
           ? _value.collection
-          : collection as CollectionEntity,
+          : collection as CollectionDataModel,
       budget: budget == freezed ? _value.budget : budget as int,
-      genres: genres == freezed ? _value.genres : genres as List<GenreEntity>,
+      genres:
+          genres == freezed ? _value.genres : genres as List<GenreDataModel>,
       homepage: homepage == freezed ? _value.homepage : homepage as String,
       id: id == freezed ? _value.id : id as int,
       imdbId: imdbId == freezed ? _value.imdbId : imdbId as String,
@@ -371,13 +373,13 @@ class __$MovieInfoEntityCopyWithImpl<$Res>
       voteCount: voteCount == freezed ? _value.voteCount : voteCount as int,
       companies: companies == freezed
           ? _value.companies
-          : companies as List<CompanyEntity>,
+          : companies as List<CompanyDataModel>,
       countries: countries == freezed
           ? _value.countries
-          : countries as List<CountryEntity>,
+          : countries as List<CountryDataModel>,
       languages: languages == freezed
           ? _value.languages
-          : languages as List<LanguageEntity>,
+          : languages as List<LanguageDataModel>,
     ));
   }
 }
@@ -385,8 +387,8 @@ class __$MovieInfoEntityCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$_MovieInfoEntity implements _MovieInfoEntity {
-  _$_MovieInfoEntity(
+class _$_MovieInfoDataModel implements _MovieInfoDataModel {
+  _$_MovieInfoDataModel(
       {this.adult,
       @JsonKey(name: 'backdrop_path') this.backdropPath,
       @JsonKey(name: 'belongs_to_collection') this.collection,
@@ -413,8 +415,8 @@ class _$_MovieInfoEntity implements _MovieInfoEntity {
       @JsonKey(name: 'production_countries') this.countries,
       @JsonKey(name: 'spoken_languages') this.languages});
 
-  factory _$_MovieInfoEntity.fromJson(Map<String, dynamic> json) =>
-      _$_$_MovieInfoEntityFromJson(json);
+  factory _$_MovieInfoDataModel.fromJson(Map<String, dynamic> json) =>
+      _$_$_MovieInfoDataModelFromJson(json);
 
   @override
   final bool adult;
@@ -423,11 +425,11 @@ class _$_MovieInfoEntity implements _MovieInfoEntity {
   final String backdropPath;
   @override
   @JsonKey(name: 'belongs_to_collection')
-  final CollectionEntity collection;
+  final CollectionDataModel collection;
   @override
   final int budget;
   @override
-  final List<GenreEntity> genres;
+  final List<GenreDataModel> genres;
   @override
   final String homepage;
   @override
@@ -471,23 +473,23 @@ class _$_MovieInfoEntity implements _MovieInfoEntity {
   final int voteCount;
   @override
   @JsonKey(name: 'production_companies')
-  final List<CompanyEntity> companies;
+  final List<CompanyDataModel> companies;
   @override
   @JsonKey(name: 'production_countries')
-  final List<CountryEntity> countries;
+  final List<CountryDataModel> countries;
   @override
   @JsonKey(name: 'spoken_languages')
-  final List<LanguageEntity> languages;
+  final List<LanguageDataModel> languages;
 
   @override
   String toString() {
-    return 'MovieInfoEntity(adult: $adult, backdropPath: $backdropPath, collection: $collection, budget: $budget, genres: $genres, homepage: $homepage, id: $id, imdbId: $imdbId, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, tatus: $tatus, tagline: $tagline, title: $title, video: $video, voteAverage: $voteAverage, voteCount: $voteCount, companies: $companies, countries: $countries, languages: $languages)';
+    return 'MovieInfoDataModel(adult: $adult, backdropPath: $backdropPath, collection: $collection, budget: $budget, genres: $genres, homepage: $homepage, id: $id, imdbId: $imdbId, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, tatus: $tatus, tagline: $tagline, title: $title, video: $video, voteAverage: $voteAverage, voteCount: $voteCount, companies: $companies, countries: $countries, languages: $languages)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _MovieInfoEntity &&
+        (other is _MovieInfoDataModel &&
             (identical(other.adult, adult) ||
                 const DeepCollectionEquality().equals(other.adult, adult)) &&
             (identical(other.backdropPath, backdropPath) ||
@@ -588,46 +590,57 @@ class _$_MovieInfoEntity implements _MovieInfoEntity {
 
   @JsonKey(ignore: true)
   @override
-  _$MovieInfoEntityCopyWith<_MovieInfoEntity> get copyWith =>
-      __$MovieInfoEntityCopyWithImpl<_MovieInfoEntity>(this, _$identity);
+  _$MovieInfoDataModelCopyWith<_MovieInfoDataModel> get copyWith =>
+      __$MovieInfoDataModelCopyWithImpl<_MovieInfoDataModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_MovieInfoEntityToJson(this);
+    return _$_$_MovieInfoDataModelToJson(this);
   }
 }
 
-abstract class _MovieInfoEntity implements MovieInfoEntity {
-  factory _MovieInfoEntity(
-          {bool adult,
-          @JsonKey(name: 'backdrop_path') String backdropPath,
-          @JsonKey(name: 'belongs_to_collection') CollectionEntity collection,
-          int budget,
-          List<GenreEntity> genres,
-          String homepage,
-          int id,
-          @JsonKey(name: 'imdb_id') String imdbId,
-          @JsonKey(name: 'original_language') String originalLanguage,
-          @JsonKey(name: 'original_title') String originalTitle,
-          String overview,
-          double popularity,
-          @JsonKey(name: 'poster_path') String posterPath,
-          @JsonKey(name: 'release_date') String releaseDate,
-          int revenue,
-          int runtime,
-          String tatus,
-          String tagline,
-          String title,
-          bool video,
-          @JsonKey(name: 'vote_average') double voteAverage,
-          @JsonKey(name: 'vote_count') int voteCount,
-          @JsonKey(name: 'production_companies') List<CompanyEntity> companies,
-          @JsonKey(name: 'production_countries') List<CountryEntity> countries,
-          @JsonKey(name: 'spoken_languages') List<LanguageEntity> languages}) =
-      _$_MovieInfoEntity;
+abstract class _MovieInfoDataModel implements MovieInfoDataModel {
+  factory _MovieInfoDataModel(
+      {bool adult,
+      @JsonKey(name: 'backdrop_path')
+          String backdropPath,
+      @JsonKey(name: 'belongs_to_collection')
+          CollectionDataModel collection,
+      int budget,
+      List<GenreDataModel> genres,
+      String homepage,
+      int id,
+      @JsonKey(name: 'imdb_id')
+          String imdbId,
+      @JsonKey(name: 'original_language')
+          String originalLanguage,
+      @JsonKey(name: 'original_title')
+          String originalTitle,
+      String overview,
+      double popularity,
+      @JsonKey(name: 'poster_path')
+          String posterPath,
+      @JsonKey(name: 'release_date')
+          String releaseDate,
+      int revenue,
+      int runtime,
+      String tatus,
+      String tagline,
+      String title,
+      bool video,
+      @JsonKey(name: 'vote_average')
+          double voteAverage,
+      @JsonKey(name: 'vote_count')
+          int voteCount,
+      @JsonKey(name: 'production_companies')
+          List<CompanyDataModel> companies,
+      @JsonKey(name: 'production_countries')
+          List<CountryDataModel> countries,
+      @JsonKey(name: 'spoken_languages')
+          List<LanguageDataModel> languages}) = _$_MovieInfoDataModel;
 
-  factory _MovieInfoEntity.fromJson(Map<String, dynamic> json) =
-      _$_MovieInfoEntity.fromJson;
+  factory _MovieInfoDataModel.fromJson(Map<String, dynamic> json) =
+      _$_MovieInfoDataModel.fromJson;
 
   @override
   bool get adult;
@@ -636,11 +649,11 @@ abstract class _MovieInfoEntity implements MovieInfoEntity {
   String get backdropPath;
   @override
   @JsonKey(name: 'belongs_to_collection')
-  CollectionEntity get collection;
+  CollectionDataModel get collection;
   @override
   int get budget;
   @override
-  List<GenreEntity> get genres;
+  List<GenreDataModel> get genres;
   @override
   String get homepage;
   @override
@@ -684,14 +697,14 @@ abstract class _MovieInfoEntity implements MovieInfoEntity {
   int get voteCount;
   @override
   @JsonKey(name: 'production_companies')
-  List<CompanyEntity> get companies;
+  List<CompanyDataModel> get companies;
   @override
   @JsonKey(name: 'production_countries')
-  List<CountryEntity> get countries;
+  List<CountryDataModel> get countries;
   @override
   @JsonKey(name: 'spoken_languages')
-  List<LanguageEntity> get languages;
+  List<LanguageDataModel> get languages;
   @override
   @JsonKey(ignore: true)
-  _$MovieInfoEntityCopyWith<_MovieInfoEntity> get copyWith;
+  _$MovieInfoDataModelCopyWith<_MovieInfoDataModel> get copyWith;
 }

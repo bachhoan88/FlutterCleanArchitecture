@@ -35,7 +35,7 @@ class _MovieApi implements MovieApi {
   }
 
   @override
-  Future<MovieImageEntity> getMovieImages(movieId, key) async {
+  Future<MovieImageDataModel> getMovieImages(movieId, key) async {
     ArgumentError.checkNotNull(movieId, 'movieId');
     ArgumentError.checkNotNull(key, 'key');
     const _extra = <String, dynamic>{};
@@ -49,12 +49,12 @@ class _MovieApi implements MovieApi {
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);
-    final value = MovieImageEntity.fromJson(_result.data);
+    final value = MovieImageDataModel.fromJson(_result.data);
     return value;
   }
 
   @override
-  Future<MovieInfoEntity> getMovieInfo(movieId, key) async {
+  Future<MovieInfoDataModel> getMovieInfo(movieId, key) async {
     ArgumentError.checkNotNull(movieId, 'movieId');
     ArgumentError.checkNotNull(key, 'key');
     const _extra = <String, dynamic>{};
@@ -68,7 +68,7 @@ class _MovieApi implements MovieApi {
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);
-    final value = MovieInfoEntity.fromJson(_result.data);
+    final value = MovieInfoDataModel.fromJson(_result.data);
     return value;
   }
 }

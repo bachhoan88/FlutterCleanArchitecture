@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/res.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/all.dart';
 import 'package:river_movies/src/presentation/base/async_value_view.dart';
-import 'package:river_movies/src/presentation/model/image_item.dart';
+import 'package:river_movies/src/presentation/model/image_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/detail/component/screenshot_view_holder.dart';
 import 'package:river_movies/src/presentation/ui/theme/color.dart';
 
@@ -12,14 +12,14 @@ import '../detail_view_model.dart';
 
 class ScreenshotView extends HookWidget {
   final int movieId;
-  final Function(ImageItem) actionOpenImage;
+  final Function(ImageViewDataModel) actionOpenImage;
   final Function actionLoadAll;
 
   const ScreenshotView({Key key, @required this.movieId, @required this.actionOpenImage, @required this.actionLoadAll}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return AsyncValueView<List<ImageItem>>(
+    return AsyncValueView<List<ImageViewDataModel>>(
         value: useProvider(getMovieImageProvider(movieId).state),
         errorRetry: () {
           context.refresh(getMovieImageProvider(movieId));
@@ -29,7 +29,7 @@ class ScreenshotView extends HookWidget {
         });
   }
 
-  Widget _createScreenshotView(BuildContext context, List<ImageItem> images) {
+  Widget _createScreenshotView(BuildContext context, List<ImageViewDataModel> images) {
     final contentHeight = 2.0 * (MediaQuery.of(context).size.width / 2.2) / 3.0;
     return Column(
       children: [

@@ -1,7 +1,7 @@
-import 'package:river_movies/src/data/model/movie_info_entity.dart';
+import 'package:river_movies/src/data/model/movie_info_data_model.dart';
 import 'package:river_movies/src/presentation/base/model_item_mapper.dart';
 
-class MovieInfoItem {
+class MovieInfoViewDataModel {
   final String title;
   final String overview;
   final double voteAverage;
@@ -10,13 +10,13 @@ class MovieInfoItem {
   final String year;
   final String categories;
 
-  MovieInfoItem({this.title, this.overview, this.voteAverage, this.runtime, this.countries, this.year, this.categories});
+  MovieInfoViewDataModel({this.title, this.overview, this.voteAverage, this.runtime, this.countries, this.year, this.categories});
 }
 
-class MovieInfoItemMapper extends ModelItemMapper<MovieInfoEntity, MovieInfoItem> {
+class MovieInfoViewDataModelMapper extends ModelItemMapper<MovieInfoDataModel, MovieInfoViewDataModel> {
   @override
-  MovieInfoItem mapperTo(MovieInfoEntity data) {
-    return MovieInfoItem(
+  MovieInfoViewDataModel mapperTo(MovieInfoDataModel data) {
+    return MovieInfoViewDataModel(
       title: data.title ?? '',
       overview: data.overview ?? '',
       voteAverage: data.voteAverage ?? 0.0,

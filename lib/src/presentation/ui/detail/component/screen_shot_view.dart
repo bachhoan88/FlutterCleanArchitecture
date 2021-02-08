@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/res.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/all.dart';
-import 'package:river_movies/src/presentation/base/async_value_view.dart';
+import 'package:river_movies/src/presentation/base/common_state_view.dart';
 import 'package:river_movies/src/presentation/model/image_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/detail/component/screenshot_view_holder.dart';
 import 'package:river_movies/src/presentation/ui/theme/color.dart';
@@ -19,7 +19,7 @@ class ScreenshotView extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AsyncValueView<List<ImageViewDataModel>>(
+    return CommonStateView<List<ImageViewDataModel>>(
         value: useProvider(getMovieImageProvider(movieId).state),
         errorRetry: () {
           context.refresh(getMovieImageProvider(movieId));

@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/res.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/all.dart';
 import 'package:river_movies/src/domain/usecase/movie/fetch_movies_usecase.dart';
-import 'package:river_movies/src/presentation/base/async_value_view.dart';
+import 'package:river_movies/src/presentation/base/common_state_view.dart';
 import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/home/component/movie_view_holder.dart';
 import 'package:river_movies/src/presentation/ui/theme/color.dart';
@@ -19,7 +19,7 @@ class MyListView extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AsyncValueView<List<MovieViewDataModel>>(
+    return CommonStateView<List<MovieViewDataModel>>(
       value: useProvider(fetchMoviesProvider(MovieType.topRated).state),
       errorRetry: () {
         context.refresh(fetchMoviesProvider(MovieType.topRated));

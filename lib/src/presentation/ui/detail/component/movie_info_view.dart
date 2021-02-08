@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/res.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/all.dart';
-import 'package:river_movies/src/presentation/base/async_value_view.dart';
+import 'package:river_movies/src/presentation/base/common_state_view.dart';
 import 'package:river_movies/src/presentation/di/view_model_provider.dart';
 import 'package:river_movies/src/presentation/model/movie_info_view_data_model.dart';
 import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
@@ -18,7 +18,7 @@ class MovieInfoView extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AsyncValueView<MovieInfoViewDataModel>(
+    return CommonStateView<MovieInfoViewDataModel>(
         value: useProvider(getMovieInfoProvider(movie.id).state),
         errorRetry: () {
           context.refresh(getMovieInfoProvider(movie.id));

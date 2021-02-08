@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:hooks_riverpod/all.dart';
 import 'package:river_movies/src/domain/annotation/exception_type.dart';
 import 'package:river_movies/src/domain/exception/alert_exception.dart';
-import 'package:river_movies/src/domain/exception/clean_exception.dart';
+import 'package:river_movies/src/domain/exception/handling_exception.dart';
 import 'package:river_movies/src/domain/exception/dialog_exception.dart';
 import 'package:river_movies/src/domain/exception/inline_exception.dart';
 import 'package:river_movies/src/domain/exception/redirect_exception.dart';
@@ -15,7 +15,7 @@ import 'package:river_movies/src/presentation/ui/widget/custom_dialog.dart';
 import 'package:river_movies/src/presentation/ui/widget/error_page.dart';
 import 'package:river_movies/src/presentation/ui/widget/loading.dart';
 
-class AsyncValueView<T> extends HookWidget {
+class CommonStateView<T> extends HookWidget {
   final AsyncValue<T> _asyncValue;
   final Widget Function(T) _child;
   final Function _errorRetry;
@@ -24,7 +24,7 @@ class AsyncValueView<T> extends HookWidget {
   final Function(dynamic) _inlineAction;
   final Function(dynamic) _redirectAction;
 
-  const AsyncValueView({
+  const CommonStateView({
     @required AsyncValue<T> value,
     @required Widget Function(T) child,
     Function errorRetry,
@@ -48,7 +48,7 @@ class AsyncValueView<T> extends HookWidget {
         return Loading();
       },
       error: (error, stacktrace) {
-        if (error is CleanException) {
+        if (error is HandlingException) {
           switch (error.exceptionType) {
             case ExceptionType.redirect:
               final exception = error as RedirectException;

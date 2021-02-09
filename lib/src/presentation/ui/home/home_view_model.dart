@@ -6,7 +6,8 @@ import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 
 class HomeViewModel extends BaseViewModel {}
 
-final fetchMoviesProvider = StateNotifierProvider.autoDispose.family<GetMovies, MovieType>((ref, type) => GetMovies(fetchMovieUseCase: ref.read(fetchMoviesUseCaseProvider), type: type));
+final fetchMoviesProvider = StateNotifierProvider.autoDispose
+    .family<GetMovies, MovieType>((ref, type) => GetMovies(fetchMovieUseCase: ref.read(fetchMoviesUseCaseProvider), type: type));
 
 class GetMovies extends StateNotifier<AsyncValue<List<MovieViewDataModel>>> {
   final FetchMovieUseCase _fetchMovieUseCase;
@@ -22,7 +23,10 @@ class GetMovies extends StateNotifier<AsyncValue<List<MovieViewDataModel>>> {
   }
 
   void _createObserve() {
-    _fetchMovieUseCase.createObservable(_movieType).then((value) => state = AsyncValue.data(value.map(_movieItemMapper.mapperTo).toList())).catchError((error) {
+    _fetchMovieUseCase
+        .createObservable(_movieType)
+        .then((value) => state = AsyncValue.data(value.map(_movieItemMapper.mapperTo).toList()))
+        .catchError((error) {
       state = AsyncValue.error(error);
     });
   }

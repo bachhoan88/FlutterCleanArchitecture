@@ -7,7 +7,6 @@ import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/theme/color.dart';
 
 class SlideViewHolder extends BaseViewHolder<MovieViewDataModel> {
-
   SlideViewHolder(MovieViewDataModel item, Function(MovieViewDataModel) actionOnItemClicked) : super(item, actionOnItemClicked);
 
   @override

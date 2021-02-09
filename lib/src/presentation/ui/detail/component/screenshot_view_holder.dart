@@ -6,7 +6,6 @@ import 'package:river_movies/src/presentation/base/base_view_holder.dart';
 import 'package:river_movies/src/presentation/model/image_view_data_model.dart';
 
 class ScreenshotViewHolder extends BaseViewHolder<ImageViewDataModel> {
-
   ScreenshotViewHolder(ImageViewDataModel item, Function(ImageViewDataModel) action) : super(item, action);
 
   @override

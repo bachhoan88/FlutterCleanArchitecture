@@ -15,11 +15,11 @@ class DetailViewModel extends BaseViewModel {
   }
 }
 
-final getMovieImageProvider = StateNotifierProvider.autoDispose.family<GetMovieImage, int>((ref, movieId) => GetMovieImage(getMovieImageUseCase: ref.read(getMovieImageUseCaseProvider), movieId: movieId));
+final getMovieImageProvider = StateNotifierProvider.autoDispose
+    .family<GetMovieImage, int>((ref, movieId) => GetMovieImage(getMovieImageUseCase: ref.read(getMovieImageUseCaseProvider), movieId: movieId));
 
-final getMovieInfoProvider = StateNotifierProvider.autoDispose.family<GetMovieInfo, int>(
-        (ref, movieId) => GetMovieInfo(getMovieInfoUseCase: ref.read(getMovieInfoUseCaseProvider), movieId: movieId)
-);
+final getMovieInfoProvider = StateNotifierProvider.autoDispose
+    .family<GetMovieInfo, int>((ref, movieId) => GetMovieInfo(getMovieInfoUseCase: ref.read(getMovieInfoUseCaseProvider), movieId: movieId));
 
 class GetMovieImage extends StateNotifier<AsyncValue<List<ImageViewDataModel>>> {
   final GetMovieImageUseCase _getMovieImageUseCase;
@@ -35,7 +35,10 @@ class GetMovieImage extends StateNotifier<AsyncValue<List<ImageViewDataModel>>> 
   }
 
   void _createObserver() {
-    _getMovieImageUseCase.createObservable(_movieId).catchError((e) => state = AsyncValue.error(e)).then((value) => state = AsyncValue.data(value.backdrops.map(_imageItemMapper.mapperTo).toList()));
+    _getMovieImageUseCase
+        .createObservable(_movieId)
+        .catchError((e) => state = AsyncValue.error(e))
+        .then((value) => state = AsyncValue.data(value.backdrops.map(_imageItemMapper.mapperTo).toList()));
   }
 }
 
@@ -53,6 +56,9 @@ class GetMovieInfo extends StateNotifier<AsyncValue<MovieInfoViewDataModel>> {
   }
 
   void _createObserver() {
-    _getMovieInfoUseCase.createObservable(_movieId).catchError((e) => state = AsyncValue.error(e)).then((value) => state = AsyncValue.data(_movieInfoItemMapper.mapperTo(value)));
+    _getMovieInfoUseCase
+        .createObservable(_movieId)
+        .catchError((e) => state = AsyncValue.error(e))
+        .then((value) => state = AsyncValue.data(_movieInfoItemMapper.mapperTo(value)));
   }
 }

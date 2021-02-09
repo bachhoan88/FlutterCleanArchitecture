@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:hooks_riverpod/all.dart';
 import 'package:river_movies/src/domain/annotation/exception_type.dart';
 import 'package:river_movies/src/domain/exception/alert_exception.dart';
-import 'package:river_movies/src/domain/exception/handling_exception.dart';
+import 'package:river_movies/src/domain/exception/base_exception.dart';
 import 'package:river_movies/src/domain/exception/dialog_exception.dart';
 import 'package:river_movies/src/domain/exception/inline_exception.dart';
 import 'package:river_movies/src/domain/exception/redirect_exception.dart';
@@ -48,7 +48,7 @@ class CommonStateView<T> extends HookWidget {
         return Loading();
       },
       error: (error, stacktrace) {
-        if (error is HandlingException) {
+        if (error is BaseException) {
           switch (error.exceptionType) {
             case ExceptionType.redirect:
               final exception = error as RedirectException;

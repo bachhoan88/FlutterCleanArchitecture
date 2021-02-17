@@ -77,9 +77,10 @@ dev_dependencies:
   # retrofit
   retrofit_generator: ^1.3.4+1
 
-#flutter_gen:
-#  integrations:
-#    flutter_svg: true
+flutter_gen:
+  output: lib/gen/
+  integrations:
+    flutter_svg: true
 
 flutter:
   uses-material-design: true

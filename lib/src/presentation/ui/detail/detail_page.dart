@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:river_movies/gen/assets.gen.dart';
 import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/theme/color.dart';
 import 'package:river_movies/src/presentation/ui/widget/favorite_icon_widget.dart';
@@ -93,8 +94,7 @@ class DetailPage extends StatelessWidget {
         elevation: 0.0,
         titleSpacing: 4.0,
         backgroundColor: Colors.transparent,
-        title: Image.asset(
-          'assets/images/ic_netflix.png',
+        title: Assets.images.icNetflix.image(
           height: 56.0,
           fit: BoxFit.fitHeight,
         ),

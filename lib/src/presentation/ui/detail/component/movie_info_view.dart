@@ -8,24 +8,29 @@ import 'package:river_movies/src/presentation/di/view_model_provider.dart';
 import 'package:river_movies/src/presentation/model/movie_info_view_data_model.dart';
 import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/widget/star_rating.dart';
-
-import '../detail_view_model.dart';
+import 'package:river_movies/src/presentation/ui/widget/stateful_wrapper.dart';
 
 class MovieInfoView extends HookWidget {
   final MovieViewDataModel movie;
 
-  const MovieInfoView({Key key, this.movie}) : super(key: key);
+  MovieInfoView({Key key, this.movie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return CommonStateView<MovieInfoViewDataModel>(
-        value: useProvider(getMovieInfoProvider(movie.id).state),
+    return StatefulWrapper(
+      onInit: () {
+        context.read(detailViewModelProvider).getMovieInfo(movie.id);
+      },
+      child: CommonStateView<MovieInfoViewDataModel>(
+        value: useProvider(detailViewModelProvider.select((value) => value.movieInfo)),
         errorRetry: () {
-          context.refresh(getMovieInfoProvider(movie.id));
+          context.read(detailViewModelProvider).getMovieInfo(movie.id);
         },
         child: (info) {
           return _createMovieBody(context, info);
-        });
+        },
+      ),
+    );
   }
 
   Widget _createMovieBody(BuildContext context, MovieInfoViewDataModel info) {

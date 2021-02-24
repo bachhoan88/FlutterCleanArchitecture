@@ -4,12 +4,11 @@ import 'package:flutter_gen/gen_l10n/res.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/all.dart';
 import 'package:river_movies/src/presentation/base/common_state_view.dart';
+import 'package:river_movies/src/presentation/di/view_model_provider.dart';
 import 'package:river_movies/src/presentation/model/image_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/detail/component/screenshot_view_holder.dart';
 import 'package:river_movies/src/presentation/ui/theme/color.dart';
-
-import '../detail_view_model.dart';
-
+import 'package:river_movies/src/presentation/ui/widget/stateful_wrapper.dart';
 class ScreenshotView extends HookWidget {
   final int movieId;
   final Function(ImageViewDataModel) actionOpenImage;
@@ -19,14 +18,20 @@ class ScreenshotView extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CommonStateView<List<ImageViewDataModel>>(
-        value: useProvider(getMovieImageProvider(movieId).state),
+    return StatefulWrapper(
+      onInit: () {
+        context.read(detailViewModelProvider).getMovieImage(movieId);
+      },
+      child: CommonStateView<List<ImageViewDataModel>>(
+        value: useProvider(detailViewModelProvider.select((value) => value.images)),
         errorRetry: () {
-          context.refresh(getMovieImageProvider(movieId));
+          context.read(detailViewModelProvider).getMovieImage(movieId);
         },
         child: (images) {
           return _createScreenshotView(context, images);
-        });
+        },
+      ),
+    );
   }
 
   Widget _createScreenshotView(BuildContext context, List<ImageViewDataModel> images) {

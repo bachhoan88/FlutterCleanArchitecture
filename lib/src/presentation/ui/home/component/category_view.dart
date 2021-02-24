@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/all.dart';
 import 'package:river_movies/src/domain/usecase/movie/fetch_movies_usecase.dart';
 import 'package:river_movies/src/presentation/base/common_state_view.dart';
+import 'package:river_movies/src/presentation/di/view_model_provider.dart';
 import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/home/component/category_view_holder.dart';
 
@@ -17,9 +18,9 @@ class CategoryView extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return CommonStateView<List<MovieViewDataModel>>(
-      value: useProvider(fetchMoviesProvider(MovieType.upcoming).state),
+      value: useProvider(homeViewModelProvider.select((value) => value.categoryMovies)),
       errorRetry: () {
-        context.refresh(fetchMoviesProvider(MovieType.upcoming));
+        context.read(homeViewModelProvider).getMovieWithType(MovieType.upcoming);
       },
       child: (movies) {
         return _createCategoryList(context, movies);

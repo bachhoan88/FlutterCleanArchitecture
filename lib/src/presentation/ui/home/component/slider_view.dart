@@ -5,6 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:river_movies/src/domain/usecase/movie/fetch_movies_usecase.dart';
 import 'package:river_movies/src/presentation/base/common_state_view.dart';
+import 'package:river_movies/src/presentation/di/view_model_provider.dart';
 import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/home/component/slide_view_holder.dart';
 import '../home_view_model.dart';
@@ -17,9 +18,9 @@ class SliderView extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return CommonStateView<List<MovieViewDataModel>>(
-      value: useProvider(fetchMoviesProvider(MovieType.nowPlaying).state),
+      value: useProvider(homeViewModelProvider.select((value) => value.nowPlayingMovies)),
       errorRetry: () {
-        context.refresh(fetchMoviesProvider(MovieType.nowPlaying));
+        context.read(homeViewModelProvider).getMovieWithType(MovieType.nowPlaying);
       },
       child: (movies) {
         return CarouselSlider.builder(

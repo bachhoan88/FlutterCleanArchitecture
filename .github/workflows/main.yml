@@ -50,5 +50,11 @@ jobs:
       - name: Get dependences
         run: flutter pub get
 
+      - name: Run UT
+        run: flutter test --coverage lib/
+
+      - name: Generate UT Coverage
+        run: genhtml -o coverage coverage/lcov.info
+
       - name: Build android
         run: flutter build apk --debug --flavor dev --dart-define=FLAVOR=dev

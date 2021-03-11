@@ -81,6 +81,9 @@ dev_dependencies:
   # retrofit
   retrofit_generator: ^1.3.4+1
 
+  # unit test
+  test_coverage: ^0.4.2
+
 flutter_gen:
   output: lib/gen/
   integrations:

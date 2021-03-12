@@ -15,15 +15,15 @@ class CustomDialog {
   CustomDialog({@required this.context, @required this.title, @required this.message, this.positive, this.positiveCallback, this.negative, this.negativeCallback}) {
     var buttons = [
       TextButton(
-        child: Text(positive),
         onPressed: positiveCallback,
+        child: Text(positive),
       )
     ];
 
     if (negative != null) {
       buttons.add(TextButton(
-        child: Text(negative),
         onPressed: negativeCallback,
+        child: Text(negative),
       ));
     }
 

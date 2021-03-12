@@ -11,29 +11,8 @@ on:
       - example
 
 jobs:
-  build_ios:
-    name: Build Flutter (iOS)
-    runs-on: macOS-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
-        with:
-          java-version: '12.x'
-      - uses: subosito/flutter-action@v1
-        with:
-          channel: 'beta'
-
-      - name: Flutter clean cache
-        run: flutter clean
-
-      - name: Get dependences
-        run: flutter pub get
-
-      - name: Build ios
-        run: flutter build ios --debug --no-codesign
-
-  build_apk:
-    name: Build Flutter (Android)
+  lint_test:
+    name: Clean & Run UT
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -50,12 +29,49 @@ jobs:
       - name: Get dependences
         run: flutter pub get
 
+      - name: Check lint
+        run: flutter analyze
+
       - name: Run UT
         run: flutter test --coverage lib/
 
+      - name: Generate coverage report
+        uses: zgosalvez/github-actions-report-lcov@v1
+        with:
+          coverage-files: coverage/lcov.info
+          minimum-coverage: 60
+          artifact-name: code-coverage-report
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          working-directory: ./
+
+  build_ios:
+    name: Build Flutter (iOS)
+    needs: lint_test
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'beta'
+
+      - name: Build ios
+        run: flutter build ios --debug --no-codesign
+
+  build_apk:
+    name: Build Flutter (Android)
+    runs-on: ubuntu-latest
+    needs: lint_test
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'beta'
+
       - name: Build android
         run: flutter build apk --debug --flavor dev --dart-define=FLAVOR=dev
-
-after_success:
-  - npm install -g coveralls
-  - cat "coverage/lcov.info" | coveralls

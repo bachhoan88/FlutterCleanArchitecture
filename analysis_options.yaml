@@ -1,9 +1,17 @@
 include: package:pedantic/analysis_options.yaml
 
 analyzer:
-  exclude: [build/**]
+  exclude: [
+    build/**,
+    .dart_tool/**,
+    lib/src/data/model/*.g.dart,
+    lib/src/data/model/*.freezed.dart,
+  ]
   strong-mode:
     implicit-casts: true
+
+  errors:
+    unused_import: error
 
 linter:
   rules:

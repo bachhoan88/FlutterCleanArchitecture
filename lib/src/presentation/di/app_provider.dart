@@ -1,3 +1,3 @@
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final localeCodeProvider = StateProvider<String>((ref) => null);

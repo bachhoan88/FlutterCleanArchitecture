@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:river_movies/src/domain/usecase/movie/get_movie_image_usecase.dart';
 import 'package:river_movies/src/domain/usecase/movie/get_movie_info_usecase.dart';
 import 'package:river_movies/src/presentation/base/base_view_model.dart';
@@ -42,7 +42,9 @@ class DetailViewModel extends BaseViewModel {
   void getMovieImage(int movieId) {
     _getMovieImageUseCase
         .createObservable(movieId)
-        .catchError((e) => _images = AsyncValue.error(e))
+        .catchError((e) {
+          _images = AsyncValue.error(e);
+        })
         .then((value) => _images = AsyncValue.data(value.backdrops.map(_imageItemMapper.mapperTo).toList()))
         .whenComplete(notifyListeners);
   }
@@ -50,7 +52,9 @@ class DetailViewModel extends BaseViewModel {
   void getMovieInfo(int movieId) {
     _getMovieInfoUseCase
         .createObservable(movieId)
-        .catchError((e) => _movieInfo = AsyncValue.error(e))
+        .catchError((e) {
+          _movieInfo = AsyncValue.error(e);
+        })
         .then((value) => _movieInfo = AsyncValue.data(_movieInfoItemMapper.mapperTo(value)))
         .whenComplete(notifyListeners);
   }

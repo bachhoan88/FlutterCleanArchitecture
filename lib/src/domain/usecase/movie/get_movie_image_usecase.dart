@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:river_movies/src/data/model/models.dart';
 import 'package:river_movies/src/domain/exception/alert_exception.dart';
 import 'package:river_movies/src/domain/mapper/resource_mapper.dart';

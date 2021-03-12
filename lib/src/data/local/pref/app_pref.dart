@@ -9,4 +9,10 @@ class AppPrefs extends PrefHelper {
     var _preferences = await SharedPreferences.getInstance();
     return _preferences.getBool(firstRunKey) ?? true;
   }
+
+  @override
+  Future<void> setFirstRun(bool isFirstRun) {
+    // TODO: implement setFirstRun
+    throw UnimplementedError();
+  }
 }

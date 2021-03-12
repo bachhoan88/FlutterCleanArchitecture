@@ -1,4 +1,4 @@
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:river_movies/src/data/di/repository_provider.dart';
 import 'package:river_movies/src/domain/usecase/movie/fetch_movies_usecase.dart';
 import 'package:river_movies/src/domain/usecase/movie/get_movie_image_usecase.dart';

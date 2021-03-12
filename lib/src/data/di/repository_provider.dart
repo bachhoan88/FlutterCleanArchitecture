@@ -1,4 +1,4 @@
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:river_movies/src/data/local/pref/app_pref.dart';
 import 'package:river_movies/src/data/local/pref/pref_helper.dart';
 import 'package:river_movies/src/data/movie_repository_impl.dart';

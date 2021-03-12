@@ -39,13 +39,13 @@ class CustomProgressDialog {
 
   CustomProgressDialog(
       this.context, {
-        this.backgroundColor: const Color(0x99000000),
-        this.blur: 0,
-        this.dismissable: true,
+        this.backgroundColor = const Color(0x99000000),
+        this.blur = 0,
+        this.dismissable = true,
         this.onDismiss,
         this.loadingWidget,
-        this.useSafeArea: false,
-        this.animationDuration: const Duration(milliseconds: 300),
+        this.useSafeArea = false,
+        this.animationDuration = const Duration(milliseconds: 300),
       }) {
     _initProgress();
   }
@@ -113,7 +113,7 @@ class _ArsProgressDialogWidget extends StatelessWidget {
     this.backgroundColor,
     this.loadingWidget,
     this.blur,
-    this.animationDuration: const Duration(milliseconds: 300),
+    this.animationDuration = const Duration(milliseconds: 300),
   }) {
     loadingWidget = loadingWidget ??
         Container(
@@ -174,7 +174,7 @@ class _DialogBackground extends StatelessWidget {
   double _colorOpacity;
 
   _DialogBackground(
-      {this.dialog, this.dismissable, this.blur, this.onDismiss, this.animationDuration: const Duration(milliseconds: 300), this.color}) {
+      {this.dialog, this.dismissable, this.blur, this.onDismiss, this.animationDuration = const Duration(milliseconds: 300), this.color}) {
     _colorOpacity = color.opacity;
   }
 

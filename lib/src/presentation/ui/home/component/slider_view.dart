@@ -8,7 +8,6 @@ import 'package:river_movies/src/presentation/base/common_state_view.dart';
 import 'package:river_movies/src/presentation/di/view_model_provider.dart';
 import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
 import 'package:river_movies/src/presentation/ui/home/component/slide_view_holder.dart';
-import '../home_view_model.dart';
 
 class SliderView extends HookWidget {
   final Function(MovieViewDataModel) actionOpenMovie;

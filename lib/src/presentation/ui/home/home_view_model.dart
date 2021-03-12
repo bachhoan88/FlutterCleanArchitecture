@@ -1,4 +1,4 @@
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:river_movies/src/domain/usecase/movie/fetch_movies_usecase.dart';
 import 'package:river_movies/src/presentation/base/base_view_model.dart';
 import 'package:river_movies/src/presentation/model/movie_view_data_model.dart';
@@ -7,19 +7,19 @@ class HomeViewModel extends BaseViewModel {
   final FetchMovieUseCase _fetchMovieUseCase;
   final MovieViewDataModelMapper _movieItemMapper;
 
-  AsyncValue<List<MovieViewDataModel>> _nowPlayingMovies = AsyncValue.loading();
+  AsyncValue<List<MovieViewDataModel>> _nowPlayingMovies = const AsyncValue.loading();
 
   AsyncValue<List<MovieViewDataModel>> get nowPlayingMovies => _nowPlayingMovies;
 
-  AsyncValue<List<MovieViewDataModel>> _myListMovies = AsyncValue.loading();
+  AsyncValue<List<MovieViewDataModel>> _myListMovies = const AsyncValue.loading();
 
   AsyncValue<List<MovieViewDataModel>> get myListMovies => _myListMovies;
 
-  AsyncValue<List<MovieViewDataModel>> _categoryMovies = AsyncValue.loading();
+  AsyncValue<List<MovieViewDataModel>> _categoryMovies = const AsyncValue.loading();
 
   AsyncValue<List<MovieViewDataModel>> get categoryMovies => _categoryMovies;
 
-  AsyncValue<List<MovieViewDataModel>> _popularMovies = AsyncValue.loading();
+  AsyncValue<List<MovieViewDataModel>> _popularMovies = const AsyncValue.loading();
 
   AsyncValue<List<MovieViewDataModel>> get popularMovies => _popularMovies;
 

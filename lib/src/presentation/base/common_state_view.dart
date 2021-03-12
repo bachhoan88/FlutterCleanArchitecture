@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/res.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:river_movies/src/domain/annotation/exception_type.dart';
 import 'package:river_movies/src/domain/exception/alert_exception.dart';
 import 'package:river_movies/src/domain/exception/base_exception.dart';

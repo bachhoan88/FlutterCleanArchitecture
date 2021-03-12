@@ -18,10 +18,10 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
+      onWillPop: () async => true,
       child: Scaffold(
         body: _createDetailBody(context),
       ),
-      onWillPop: () async => true,
     );
   }
 

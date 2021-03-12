@@ -53,8 +53,9 @@ jobs:
       - name: Run UT
         run: flutter test --coverage lib/
 
-      - name: Generate UT Coverage
-        run: genhtml -o coverage coverage/lcov.info
-
       - name: Build android
         run: flutter build apk --debug --flavor dev --dart-define=FLAVOR=dev
+
+after_success:
+  - npm install -g coveralls
+  - cat "coverage/lcov.info" | coveralls

@@ -14,6 +14,9 @@ This is a simple for Clean Architecture using the Provider Pattern
 If using the another library not build with null-safety. Please run with argument `flutter run --no-sound-null-safety`
 
 ## Environment
+**Framework**
+- Dart: ">=2.12.0 <3.0.0"
+- Flutter: '>=2.0.0'
 
 **iOS**
 - iOS 13+

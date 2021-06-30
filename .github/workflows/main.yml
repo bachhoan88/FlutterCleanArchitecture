@@ -56,7 +56,7 @@ jobs:
           channel: 'master'
 
       - name: Build ios
-        run: flutter build ios --debug --no-codesign
+        run: flutter build ios --debug --flavor dev --no-codesign
 
   build_apk:
     name: Build Flutter (Android)

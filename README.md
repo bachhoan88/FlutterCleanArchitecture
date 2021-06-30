@@ -6,7 +6,7 @@ This is a simple for Clean Architecture using the Provider Pattern
 - Base on [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) + [CleanArchitecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
 ## Data Flow
-![Structure](files/RiverFlutter.jpg "Data flow")
+![Structure](files/data-flow.jpg "Data flow")
 
 ## Run with Flavor (dev | stag | prod)
 
@@ -15,7 +15,7 @@ If using the another library not build with null-safety. Please run with argumen
 
 ## Environment
 **Framework**
-- Dart: ">=2.12.0 <3.0.0"
+- Dart: '>=2.12.0 <3.0.0'
 - Flutter: '>=2.0.0'
 
 **iOS**

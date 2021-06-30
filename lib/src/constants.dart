@@ -1,9 +1,6 @@
 import 'package:enum_to_string/enum_to_string.dart';
-import 'package:flutter/cupertino.dart';
-
 enum Flavor { dev, stag, prod }
 
-@immutable
 class Constants {
   const Constants({required this.endpoint, required this.apiKey});
 

@@ -1,0 +1,41 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude: [
+      "build/**",
+      ".dart_tool/**",
+      "**/*.g.dart",
+      "**/*.freezed.dart"
+  ]
+  strong-mode:
+    implicit-casts: true
+
+  errors:
+    unused_import: error
+
+linter:
+  rules:
+    - annotate_overrides
+    - await_only_futures
+    - camel_case_types
+    - cancel_subscriptions
+    - close_sinks
+    - comment_references
+    - constant_identifier_names
+    - control_flow_in_finally
+    - empty_statements
+    - library_names
+    - avoid_catches_without_on_clauses
+    - avoid_catching_errors
+    - avoid_returning_null
+    - avoid_null_checks_in_equality_operators
+    - unnecessary_parenthesis
+    - unnecessary_this
+    - unnecessary_overrides
+    - unnecessary_lambdas
+    - unnecessary_brace_in_string_interps
+    - curly_braces_in_flow_control_structures
+    - slash_for_doc_comments
+    - non_constant_identifier_names
+    - one_member_abstracts
+    - prefer_const_constructors

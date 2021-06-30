@@ -1,0 +1,118 @@
+name: flutter_clean_architecture
+description: This is a simple for Clean Architecture using the Provider Pattern
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: '>=2.0.0'
+
+# If override conflict depends library version
+#dependency_overrides:
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # For data class
+  equatable: ^2.0.3
+
+  # Resource localizations
+  flutter_localizations:
+    sdk: flutter
+
+  # For Design Pattern
+  flutter_hooks: ^0.17.0
+  hooks_riverpod: ^0.14.0+4
+
+  # For Networking
+  dio: ^4.0.0
+  retrofit: ^2.0.0
+
+  # Json serializable & model
+  json_annotation: ^4.0.1
+  freezed_annotation: ^0.14.2
+  enum_to_string: ^2.0.1
+
+  # Platform information
+  package_info: ^2.0.2
+
+  # Default icon for widget
+  cupertino_icons: ^1.0.3
+
+  # Shared Preferences
+  shared_preferences: ^2.0.6
+
+  # Support for design
+  flutter_svg: ^0.22.0
+
+  # Image Cached
+  cached_network_image: ^3.0.0
+
+  # Flare
+  flare_flutter: ^2.0.6
+
+  # Lib for custom view
+  carousel_slider: ^4.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Data class
+  freezed: ^0.14.2
+
+  # Auto generate some files
+  build_runner: ^2.0.4
+#  build_runner: ^1.11.5
+  flutter_gen_runner: ^3.1.1
+  json_serializable: ^4.1.3
+
+  # retrofit
+  retrofit_generator: ^2.0.0+1
+
+  # unit test & calculate coverage
+  mockito: ^5.0.10
+
+  # Lint when build
+  flutter_lints: ^1.0.3
+
+# Config generate when build
+flutter_gen:
+  output: lib/gen/
+  line_lenght: 160
+  null_safety: true
+
+  integrations:
+    flutter_svg: true
+    flare_flutter: true
+
+  assets:
+    enabled: true
+
+  fonts:
+    enabled: true
+
+  colors:
+    enabled: true
+    inputs:
+      - assets/color/colors.xml
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/images/
+    - assets/images/ic_menu.png
+    - assets/images/ic_netflix.png
+
+  fonts:
+    - family: Muli
+      fonts:
+        - asset: assets/fonts/Muli-Bold.ttf
+          weight: 900
+        - asset: assets/fonts/Muli-SemiBold.ttf
+          weight: 700
+        - asset: assets/fonts/Muli-Regular.ttf
+          weight: 400

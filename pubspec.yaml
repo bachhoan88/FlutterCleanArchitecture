@@ -56,6 +56,9 @@ dependencies:
   # Lib for custom view
   carousel_slider: ^4.0.0
 
+  # Toast view
+  fluttertoast: ^8.0.7
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

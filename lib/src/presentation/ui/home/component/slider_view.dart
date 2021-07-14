@@ -1,15 +1,16 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_clean_architecture/src/domain/usecase/movie/fetch_movies_usecase.dart';
-import 'package:flutter_clean_architecture/src/presentation/base/common_state_view.dart';
+import 'package:flutter_clean_architecture/src/presentation/base/base_stateless_view.dart';
 import 'package:flutter_clean_architecture/src/presentation/di/view_model_provider.dart';
 import 'package:flutter_clean_architecture/src/presentation/model/movie_view_data_model.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/home/component/slide_view_holder.dart';
+import 'package:flutter_clean_architecture/src/presentation/ui/home/home_view_model.dart';
+import 'package:flutter_clean_architecture/src/presentation/ui/widget/loading.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class SliderView extends HookWidget {
+class SliderView extends BaseStatelessView<HomeViewModel> {
   final Function(MovieViewDataModel) actionOpenMovie;
 
   const SliderView({
@@ -18,21 +19,13 @@ class SliderView extends HookWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return CommonStateView<List<MovieViewDataModel>>(
-      value: useProvider(
-        homeViewModelProvider.select((value) => value.nowPlayingMovies),
-      ),
-      errorRetry: () {
-        context
-            .read(homeViewModelProvider)
-            .getMovieWithType(MovieType.nowPlaying, retry: true);
-      },
-      child: (movies) {
+  Widget createView(BuildContext context) {
+    return Consumer(builder: (context, watch, _) {
+      return watch(homeViewModelProvider).nowPlayingMovies.when(data: (data) {
         return CarouselSlider.builder(
-          itemCount: movies.length,
+          itemCount: data.length,
           itemBuilder: (BuildContext context, int index, realIndex) {
-            return SlideViewHolder(item: movies[index], actionOnItemClicked: actionOpenMovie);
+            return SlideViewHolder(item: data[index], actionOnItemClicked: actionOpenMovie);
           },
           options: CarouselOptions(
             enableInfiniteScroll: true,
@@ -44,7 +37,19 @@ class SliderView extends HookWidget {
             enlargeCenterPage: true,
           ),
         );
-      },
-    );
+      }, loading: () {
+        return const Loading();
+      }, error: (e, s) {
+        return const SizedBox();
+      });
+    });
   }
+
+  @override
+  void pageErrorRetry(BuildContext context) {
+    context.read(homeViewModelProvider).getMovieWithType(MovieType.nowPlaying, retry: true);
+  }
+
+  @override
+  ProviderBase<dynamic, HomeViewModel> get viewModelProvider => homeViewModelProvider;
 }

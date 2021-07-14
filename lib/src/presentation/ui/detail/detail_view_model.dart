@@ -23,6 +23,8 @@ class DetailViewModel extends BaseViewModel {
 
   AsyncValue<MovieInfoViewDataModel> get movieInfo => _movieInfo;
 
+  int _movieId = -1;
+
   DetailViewModel(
       {required GetMovieImageUseCase getMovieImageUseCase,
       ImageViewDataModelMapper? imageViewDataModelMapper,
@@ -38,9 +40,15 @@ class DetailViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void getMovieImage(int movieId) {
+  void setMovieId(int movieId) {
+    _movieId = movieId;
+    getMovieImage();
+    getMovieInfo();
+  }
+
+  void getMovieImage() {
     _getMovieImageUseCase
-        .createObservable(movieId)
+        .createObservable(_movieId)
         .catchError((e) {
           _images = AsyncValue.error(e);
         })
@@ -48,9 +56,9 @@ class DetailViewModel extends BaseViewModel {
         .whenComplete(notifyListeners);
   }
 
-  void getMovieInfo(int movieId) {
+  void getMovieInfo() {
     _getMovieInfoUseCase
-        .createObservable(movieId)
+        .createObservable(_movieId)
         .catchError((e) {
           _movieInfo = AsyncValue.error(e);
         })

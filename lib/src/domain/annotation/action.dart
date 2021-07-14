@@ -1,1 +1,0 @@
-enum Action { reloadPage, closeSession }

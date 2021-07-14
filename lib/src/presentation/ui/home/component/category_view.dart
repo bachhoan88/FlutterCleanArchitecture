@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_clean_architecture/src/domain/usecase/movie/fetch_movies_usecase.dart';
-import 'package:flutter_clean_architecture/src/presentation/base/common_state_view.dart';
+import 'package:flutter_clean_architecture/src/presentation/base/base_stateless_view.dart';
 import 'package:flutter_clean_architecture/src/presentation/di/view_model_provider.dart';
 import 'package:flutter_clean_architecture/src/presentation/model/movie_view_data_model.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/home/component/category_view_holder.dart';
+import 'package:flutter_clean_architecture/src/presentation/ui/home/home_view_model.dart';
+import 'package:flutter_clean_architecture/src/presentation/ui/widget/loading.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class CategoryView extends HookWidget {
+class CategoryView extends BaseStatelessView<HomeViewModel> {
   final Function(MovieViewDataModel) actionOpenCategory;
 
   const CategoryView({
@@ -17,23 +18,27 @@ class CategoryView extends HookWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return CommonStateView<List<MovieViewDataModel>>(
-      value: useProvider(
-          homeViewModelProvider.select((value) => value.categoryMovies)),
-      errorRetry: () {
-        context
-            .read(homeViewModelProvider)
-            .getMovieWithType(MovieType.upcoming, retry: true);
-      },
-      child: (movies) {
-        return _createCategoryList(context, movies);
-      },
-    );
+  Widget createView(BuildContext context) {
+    return Consumer(builder: (context, watch, _) {
+      return watch(homeViewModelProvider).categoryMovies.when(data: (data) {
+        return _createCategoryList(context, data);
+      }, loading: () {
+        return const Loading();
+      }, error: (e, s) {
+        return const SizedBox();
+      });
+    });
   }
 
-  Widget _createCategoryList(
-      BuildContext context, List<MovieViewDataModel> movies) {
+  @override
+  void pageErrorRetry(BuildContext context) {
+    context.read(homeViewModelProvider).getMovieWithType(MovieType.upcoming, retry: true);
+  }
+
+  @override
+  ProviderBase<dynamic, HomeViewModel> get viewModelProvider => homeViewModelProvider;
+
+  Widget _createCategoryList(BuildContext context, List<MovieViewDataModel> movies) {
     return Container(
       padding: const EdgeInsets.all(0.0),
       width: double.infinity,

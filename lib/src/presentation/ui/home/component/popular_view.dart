@@ -1,16 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/gen/colors.gen.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_clean_architecture/src/domain/usecase/movie/fetch_movies_usecase.dart';
-import 'package:flutter_clean_architecture/src/presentation/base/common_state_view.dart';
+import 'package:flutter_clean_architecture/src/presentation/base/base_stateless_view.dart';
 import 'package:flutter_clean_architecture/src/presentation/di/view_model_provider.dart';
 import 'package:flutter_clean_architecture/src/presentation/model/movie_view_data_model.dart';
-import 'package:flutter_clean_architecture/src/presentation/ui/home/component/movie_view_holder.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/extension/build_context.dart';
+import 'package:flutter_clean_architecture/src/presentation/ui/home/component/movie_view_holder.dart';
+import 'package:flutter_clean_architecture/src/presentation/ui/home/home_view_model.dart';
+import 'package:flutter_clean_architecture/src/presentation/ui/widget/loading.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class PopularView extends HookWidget {
+class PopularView extends BaseStatelessView<HomeViewModel> {
   final Function(MovieViewDataModel) actionOpenMovie;
   final Function() actionLoadAll;
 
@@ -21,21 +22,27 @@ class PopularView extends HookWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return CommonStateView<List<MovieViewDataModel>>(
-      value: useProvider(
-          homeViewModelProvider.select((value) => value.popularMovies)),
-      errorRetry: () {
-        context.read(homeViewModelProvider).getMovieWithType(MovieType.popular, retry: true);
-      },
-      child: (movies) {
-        return _createPopularView(context, movies);
-      },
-    );
+  Widget createView(BuildContext context) {
+    return Consumer(builder: (context, watch, _) {
+      return watch(homeViewModelProvider).popularMovies.when(data: (data) {
+        return _createPopularView(context, data);
+      }, loading: () {
+        return const Loading();
+      }, error: (e, s) {
+        return const SizedBox();
+      });
+    });
   }
 
-  Widget _createPopularView(
-      BuildContext context, List<MovieViewDataModel> movies) {
+  @override
+  ProviderBase<dynamic, HomeViewModel> get viewModelProvider => homeViewModelProvider;
+
+  @override
+  void pageErrorRetry(BuildContext context) {
+    context.read(homeViewModelProvider).getMovieWithType(MovieType.popular, retry: true);
+  }
+
+  Widget _createPopularView(BuildContext context, List<MovieViewDataModel> movies) {
     final contentHeight = 4.0 * (MediaQuery.of(context).size.width / 2.4) / 3;
     return Column(
       children: [
@@ -49,9 +56,7 @@ class PopularView extends HookWidget {
                 flex: 1,
                 child: Text(
                   context.res().popular,
-                  style: Theme.of(context).textTheme.headline5?.copyWith(
-                    color: ColorName.groupTitleColor,
-                  ),
+                  style: Theme.of(context).textTheme.headline5?.copyWith(color: ColorName.groupTitleColor),
                 ),
               ),
               IconButton(

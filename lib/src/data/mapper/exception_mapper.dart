@@ -38,8 +38,11 @@ class ExceptionMapper extends BaseExceptionMapper<AppError, BaseException> {
         }
 
       case AppErrorType.unauthorized: // After refresh token but still un authorized
-        return RedirectException(-1, error.message,
+        return RedirectException(
+          -1,
+          error.message,
           redirect: Redirect.openLoginScreen,
+          data: null,
         );
 
       case AppErrorType.unknown:

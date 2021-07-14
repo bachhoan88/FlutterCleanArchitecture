@@ -1,1 +1,1 @@
-enum Action { reloadPage, closePage }
+enum GlobalAction { reloadPage, closePage }

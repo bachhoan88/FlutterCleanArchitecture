@@ -79,6 +79,8 @@ class HomeViewModel extends BaseViewModel {
           break;
       }
     }).onError((error, s) {
+      setThrowable(error);
+
       if (error is BaseException) {
         switch (type) {
           case MovieType.nowPlaying:

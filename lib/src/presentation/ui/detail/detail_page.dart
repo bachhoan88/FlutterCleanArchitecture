@@ -3,10 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/gen/assets.gen.dart';
 import 'package:flutter_clean_architecture/gen/colors.gen.dart';
+import 'package:flutter_clean_architecture/src/presentation/di/view_model_provider.dart';
 import 'package:flutter_clean_architecture/src/presentation/model/movie_view_data_model.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/widget/favorite_icon_widget.dart';
 import 'component/custom_shape_clip_oval.dart';
 import 'component/view.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 const detailPageRoutes = '/detail';
 
@@ -24,23 +26,22 @@ class DetailPage extends StatelessWidget {
   }
 
   Widget _createDetailBody(BuildContext context) {
-    final movie =
-        ModalRoute.of(context)?.settings.arguments as MovieViewDataModel;
+    final movie = ModalRoute.of(context)?.settings.arguments as MovieViewDataModel;
+    context.read(detailViewModelProvider).setMovieId(movie.id);
+
     return Stack(
       children: [
         LayoutBuilder(
           builder: (BuildContext context, BoxConstraints viewportConstraints) {
             return SingleChildScrollView(
               child: ConstrainedBox(
-                constraints:
-                    BoxConstraints(minHeight: viewportConstraints.maxHeight),
+                constraints: BoxConstraints(minHeight: viewportConstraints.maxHeight),
                 child: Column(
                   children: [
                     _createDetailHeader(context),
-                    MovieInfoView(movie: movie),
+                    const MovieInfoView(),
                     const Divider(height: 8.0, color: Colors.transparent),
                     ScreenshotView(
-                      movieId: movie.id,
                       actionOpenImage: (img) {},
                       actionLoadAll: () {},
                     ),
@@ -73,21 +74,6 @@ class DetailPage extends StatelessWidget {
               child: _createHeaderImage(context),
             ),
           ),
-          // ShapeOfView(
-          //   shape: ArcShape(
-          //     direction: ArcDirection.Outside,
-          //     height: 48,
-          //     position: ArcPosition.Bottom,
-          //   ),
-          //   height: width,
-          //   elevation: 24.0,
-          //   child: Container(
-          //     padding: const EdgeInsets.all(0.0),
-          //     width: double.infinity,
-          //     height: width,
-          //     child: _createHeaderImage(context),
-          //   ),
-          // ),
           _createHeaderAction(context),
         ],
       ),
@@ -120,8 +106,7 @@ class DetailPage extends StatelessWidget {
         actions: [
           Container(
             padding: const EdgeInsets.only(right: 16.0),
-            child: FavoriteIconWidget(
-                isFavorite: false, onFavoriteChanged: (checked) {}),
+            child: FavoriteIconWidget(isFavorite: false, onFavoriteChanged: (checked) {}),
           ),
         ],
       ),

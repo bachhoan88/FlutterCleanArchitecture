@@ -8,6 +8,9 @@ This is a simple for Clean Architecture using the Provider Pattern
 ## Data Flow
 ![Structure](files/data-flow.jpg "Data flow")
 
+## Exception Flow
+![Structure](files/exception-handler.jpg "Exception flow")
+
 ## Run with Flavor (dev | stag | prod)
 
 `flutter run --flavor dev --dart-define=FLAVOR=dev`

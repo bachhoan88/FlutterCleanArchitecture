@@ -1,14 +1,15 @@
-import 'package:flutter_clean_architecture/src/domain/annotation/action.dart';
+import 'package:flutter_clean_architecture/src/domain/model/action.dart';
 
-class Dialog {
+class Dialogs {
   final String? title;
   final String message;
   final String? positive;
-  final Action positiveAction;
+  final GlobalAction positiveAction;
   final dynamic positiveObject;
   final String? negative;
-  final Action negativeAction;
+  final GlobalAction negativeAction;
   final dynamic negativeObject;
 
-  Dialog({this.title, required this.message, required this.positive, required this.positiveAction, this.positiveObject, required this.negative, required this.negativeAction, this.negativeObject});
+  Dialogs({this.title, required this.message, required this.positive, required this.positiveAction, this
+      .positiveObject, required this.negative, required this.negativeAction, this.negativeObject});
 }

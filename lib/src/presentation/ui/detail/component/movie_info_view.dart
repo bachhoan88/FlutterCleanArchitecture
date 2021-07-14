@@ -1,48 +1,43 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flutter_clean_architecture/src/presentation/base/common_state_view.dart';
+import 'package:flutter_clean_architecture/src/presentation/base/base_stateless_view.dart';
 import 'package:flutter_clean_architecture/src/presentation/di/view_model_provider.dart';
 import 'package:flutter_clean_architecture/src/presentation/model/movie_info_view_data_model.dart';
-import 'package:flutter_clean_architecture/src/presentation/model/movie_view_data_model.dart';
-import 'package:flutter_clean_architecture/src/presentation/ui/widget/star_rating.dart';
-import 'package:flutter_clean_architecture/src/presentation/ui/widget/stateful_wrapper.dart';
+import 'package:flutter_clean_architecture/src/presentation/ui/detail/detail_view_model.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/extension/build_context.dart';
+import 'package:flutter_clean_architecture/src/presentation/ui/widget/loading.dart';
+import 'package:flutter_clean_architecture/src/presentation/ui/widget/star_rating.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class MovieInfoView extends HookWidget {
-  final MovieViewDataModel movie;
-
-  const MovieInfoView({
-    Key? key,
-    required this.movie,
-  }) : super(key: key);
+class MovieInfoView extends BaseStatelessView<DetailViewModel> {
+  const MovieInfoView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return StatefulWrapper(
-      onInit: () {
-        context.read(detailViewModelProvider).getMovieInfo(movie.id);
-      },
-      child: CommonStateView<MovieInfoViewDataModel>(
-        value: useProvider(
-            detailViewModelProvider.select((value) => value.movieInfo)),
-        errorRetry: () {
-          context.read(detailViewModelProvider).getMovieInfo(movie.id);
-        },
-        child: (info) {
-          return _createMovieBody(context, info);
-        },
-      ),
-    );
+  Widget createView(BuildContext context) {
+    return Consumer(builder: (context, watch, _) {
+      return watch(detailViewModelProvider).movieInfo.when(data: (data) {
+        return _createMovieBody(context, data);
+      }, loading: () {
+        return const Loading();
+      }, error: (e, s) {
+        return const SizedBox();
+      });
+    });
+  }
+
+  @override
+  ProviderBase<dynamic, DetailViewModel> get viewModelProvider => detailViewModelProvider;
+
+  @override
+  void pageErrorRetry(BuildContext context) {
+    context.read(detailViewModelProvider).getMovieInfo();
   }
 
   Widget _createMovieBody(BuildContext context, MovieInfoViewDataModel info) {
     return Column(
       children: [
         Container(
-          padding: const EdgeInsets.only(
-              left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
           child: Text(
             info.title ?? '',
             maxLines: 2,
@@ -51,8 +46,7 @@ class MovieInfoView extends HookWidget {
           ),
         ),
         Container(
-          padding: const EdgeInsets.only(
-              left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
           child: Text(
             info.categories,
             maxLines: 2,
@@ -71,8 +65,7 @@ class MovieInfoView extends HookWidget {
           ),
         ),
         Container(
-          padding: const EdgeInsets.only(
-              left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -97,9 +90,7 @@ class MovieInfoView extends HookWidget {
                   ),
                   Text(
                     info.countries,
-                    style: Theme.of(context).textTheme.headline4?.copyWith(
-                          fontSize: 18.0,
-                        ),
+                    style: Theme.of(context).textTheme.headline4?.copyWith(fontSize: 18.0),
                   )
                 ],
               ),

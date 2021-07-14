@@ -4,6 +4,12 @@ import 'package:flutter_clean_architecture/src/domain/exception/base_exception.d
 
 class RedirectException extends BaseException {
   final Redirect redirect;
+  final dynamic data = null;
 
-  RedirectException(int code, String message, {required this.redirect}) : super(code, message, ExceptionType.redirect);
+  RedirectException(
+    int code,
+    String message, {
+    required this.redirect,
+    required dynamic data,
+  }) : super(code, message, ExceptionType.redirect);
 }

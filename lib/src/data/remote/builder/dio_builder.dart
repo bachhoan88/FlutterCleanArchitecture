@@ -1,4 +1,5 @@
 import 'package:dio/adapter.dart';
+import 'package:dio/adapter_browser.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_clean_architecture/src/constants.dart';
@@ -43,6 +44,10 @@ class DioBuilder extends DioMixin implements Dio {
     }
 
     // create default http client
-    httpClientAdapter = DefaultHttpClientAdapter();
+    if (kIsWeb) {
+      httpClientAdapter = BrowserHttpClientAdapter();
+    } else {
+      httpClientAdapter = DefaultHttpClientAdapter();
+    }
   }
 }

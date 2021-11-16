@@ -80,12 +80,9 @@ jobs:
     needs: lint_test
     steps:
       - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
         with:
-          repository: flutter/flutter
-          ref: master
-      - name: Add Flutter to path
-        run: echo "::add-path::$GITHUB_WORKSPACE/flutter/bin"
-
+          channel: master
       - name: Enable desktop support for Flutter
         run: flutter config --enable-windows-desktop
 

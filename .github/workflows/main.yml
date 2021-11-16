@@ -73,3 +73,23 @@ jobs:
 
       - name: Build android
         run: flutter build apk --debug --flavor dev --dart-define=FLAVOR=dev
+
+  build_exe:
+    name: Build for Windows
+    runs-on: windows-latest
+    needs: lint_test
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: flutter/flutter
+          ref: master
+      - name: Add Flutter to path
+        run: echo "::add-path::$GITHUB_WORKSPACE/flutter/bin"
+
+      - name: Enable desktop support for Flutter
+        run: flutter config --enable-windows-desktop
+
+      - name: Build Windows Debug
+        run: |
+          flutter packages get
+          flutter build -v windows --debug --flavor dev

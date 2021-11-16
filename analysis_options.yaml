@@ -5,13 +5,15 @@ analyzer:
       "build/**",
       ".dart_tool/**",
       "**/*.g.dart",
-      "**/*.freezed.dart"
+      "**/*.freezed.dart",
+      "lib/gen/**"
   ]
   strong-mode:
     implicit-casts: true
 
   errors:
     unused_import: error
+    invalid_annotation_target: ignore
 
 linter:
   rules:

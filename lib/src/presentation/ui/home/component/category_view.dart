@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/src/domain/usecase/movie/fetch_movies_usecase.dart';
 import 'package:flutter_clean_architecture/src/presentation/base/base_stateless_view.dart';

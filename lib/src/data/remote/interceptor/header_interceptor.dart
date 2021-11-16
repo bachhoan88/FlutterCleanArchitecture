@@ -1,16 +1,18 @@
+
 import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_clean_architecture/src/data/local/pref/app_pref.dart';
 import 'package:package_info/package_info.dart';
 
 class HeaderInterceptor extends InterceptorsWrapper {
-
   final String userAgentKey = 'User-Agent';
   final String authHeaderKey = 'Authorization';
   final String bearer = 'Bearer';
 
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+  void onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
     final userAgentValue = await userAgentClientHintsHeader();
 
     final token = await AppPrefs().getToken();
@@ -23,7 +25,11 @@ class HeaderInterceptor extends InterceptorsWrapper {
   }
 
   Future<String> userAgentClientHintsHeader() async {
-    final packageInfo = await PackageInfo.fromPlatform();
-    return '${Platform.operatingSystem} - ${packageInfo.buildNumber}';
+    try {
+      final packageInfo = await PackageInfo.fromPlatform();
+      return '${Platform.operatingSystem} - ${packageInfo.buildNumber}';
+    } on Exception catch (_) {
+      return 'The Platform not support get info';
+    }
   }
 }

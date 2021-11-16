@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/gen/colors.gen.dart';
 import 'package:flutter_clean_architecture/src/presentation/base/base_view_holder.dart';

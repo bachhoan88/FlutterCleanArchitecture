@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/src/domain/annotation/exception_type.dart';
 import 'package:flutter_clean_architecture/src/domain/exception/alert_exception.dart';

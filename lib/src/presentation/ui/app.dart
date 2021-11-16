@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/home/home_page.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/theme/theme.dart';

@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:flutter_clean_architecture/src/data/base/data_model.dart';
 
 part 'language_data_model.g.dart';

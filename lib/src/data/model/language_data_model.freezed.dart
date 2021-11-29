@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'language_data_model.dart';
 
@@ -152,7 +153,7 @@ class _$_LanguageDataModel implements _LanguageDataModel {
       @JsonKey(name: 'iso_639_1') this.countryCode});
 
   factory _$_LanguageDataModel.fromJson(Map<String, dynamic> json) =>
-      _$_$_LanguageDataModelFromJson(json);
+      _$$_LanguageDataModelFromJson(json);
 
   @override
   final String? name;
@@ -196,7 +197,7 @@ class _$_LanguageDataModel implements _LanguageDataModel {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_LanguageDataModelToJson(this);
+    return _$$_LanguageDataModelToJson(this);
   }
 }
 

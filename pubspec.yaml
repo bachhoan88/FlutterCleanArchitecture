@@ -31,7 +31,7 @@ dependencies:
   retrofit: ^3.0.0
 
   # Json serializable & model
-  json_annotation: ^4.0.1
+  json_annotation: ^4.3.0
   freezed_annotation: ^0.14.2
   enum_to_string: ^2.0.1
 
@@ -76,7 +76,7 @@ dev_dependencies:
   retrofit_generator: ^3.0.0+1
 
   # unit test & calculate coverage
-  mockito: ^5.0.10
+  mockito: ^5.0.16
 
   # Lint when build
   flutter_lints: ^1.0.3

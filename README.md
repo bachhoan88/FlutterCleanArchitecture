@@ -47,6 +47,16 @@ If using the another library not build with null-safety. Please run with argumen
 ## Auto generate resource
 `flutter packages pub run build_runner build --delete-conflicting-outputs`
 
+## Auto generate mock class using on Unit Test 
+Example: After created the test class, and run command below, the mock class `MockMovieRepository` will auto generate 
+```
+[@GenerateMocks([MovieRepository])]
+void main() {
+  late MovieRepository repository;
+}
+```
+`flutter pub run  build_runner build --delete-conflicting-outputs`
+
 ## Auto generate asset image
 `fluttergen -c pubspec.yaml`
 

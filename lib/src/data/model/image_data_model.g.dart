@@ -6,18 +6,17 @@ part of 'image_data_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ImageDataModel _$_$_ImageDataModelFromJson(Map<String, dynamic> json) {
-  return _$_ImageDataModel(
-    imagePath: json['file_path'] as String?,
-    height: json['height'] as int?,
-    width: json['width'] as int?,
-    countryCode: json['iso_639_1'] as String?,
-    voteAverage: (json['vote_average'] as num?)?.toDouble(),
-    voteCount: json['vote_count'] as int?,
-  );
-}
+_$_ImageDataModel _$$_ImageDataModelFromJson(Map<String, dynamic> json) =>
+    _$_ImageDataModel(
+      imagePath: json['file_path'] as String?,
+      height: json['height'] as int?,
+      width: json['width'] as int?,
+      countryCode: json['iso_639_1'] as String?,
+      voteAverage: (json['vote_average'] as num?)?.toDouble(),
+      voteCount: json['vote_count'] as int?,
+    );
 
-Map<String, dynamic> _$_$_ImageDataModelToJson(_$_ImageDataModel instance) =>
+Map<String, dynamic> _$$_ImageDataModelToJson(_$_ImageDataModel instance) =>
     <String, dynamic>{
       'file_path': instance.imagePath,
       'height': instance.height,

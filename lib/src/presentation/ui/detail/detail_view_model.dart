@@ -46,23 +46,27 @@ class DetailViewModel extends BaseViewModel {
     getMovieInfo();
   }
 
-  void getMovieImage() {
-    _getMovieImageUseCase
-        .createObservable(_movieId)
-        .catchError((e) {
-          _images = AsyncValue.error(e);
-        })
-        .then((value) => _images = AsyncValue.data(value.backdrops?.map(_imageItemMapper.mapperTo).toList() ?? []))
-        .whenComplete(notifyListeners);
+  void getMovieImage() async {
+    try {
+      final value = await _getMovieImageUseCase
+          .createObservable(_movieId);
+      _images = AsyncValue.data(value.backdrops?.map(_imageItemMapper.mapperTo).toList() ?? []);
+    } on Exception catch(e) {
+      _images = AsyncValue.error(e);
+    } finally {
+      notifyListeners();
+    }
   }
 
-  void getMovieInfo() {
-    _getMovieInfoUseCase
-        .createObservable(_movieId)
-        .catchError((e) {
-          _movieInfo = AsyncValue.error(e);
-        })
-        .then((value) => _movieInfo = AsyncValue.data(_movieInfoItemMapper.mapperTo(value)))
-        .whenComplete(notifyListeners);
+  void getMovieInfo() async {
+    try {
+      final value = await _getMovieInfoUseCase
+          .createObservable(_movieId);
+      _movieInfo = AsyncValue.data(_movieInfoItemMapper.mapperTo(value));
+    } on Exception catch(e) {
+      _movieInfo = AsyncValue.error(e);
+    } finally {
+      notifyListeners();
+    }
   }
 }

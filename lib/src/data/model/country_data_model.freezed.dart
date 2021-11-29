@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'country_data_model.dart';
 
@@ -129,7 +130,7 @@ class _$_CountryDataModel implements _CountryDataModel {
       {this.name, @JsonKey(name: 'iso_3166_1') this.code});
 
   factory _$_CountryDataModel.fromJson(Map<String, dynamic> json) =>
-      _$_$_CountryDataModelFromJson(json);
+      _$$_CountryDataModelFromJson(json);
 
   @override
   final String? name;
@@ -165,7 +166,7 @@ class _$_CountryDataModel implements _CountryDataModel {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_CountryDataModelToJson(this);
+    return _$$_CountryDataModelToJson(this);
   }
 }
 

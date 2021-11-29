@@ -33,7 +33,7 @@ class HomeViewModel extends BaseViewModel {
     getMovieWithType(MovieType.popular);
   }
 
-  void getMovieWithType(MovieType type, {bool retry = false}) {
+  void getMovieWithType(MovieType type, {bool retry = false}) async {
     if (retry) {
       switch (type) {
         case MovieType.nowPlaying:
@@ -57,7 +57,9 @@ class HomeViewModel extends BaseViewModel {
       }
       notifyListeners();
     }
-    _fetchMovieUseCase.createObservable(type).then((value) {
+
+    try {
+      final value = await _fetchMovieUseCase.createObservable(type);
       switch (type) {
         case MovieType.nowPlaying:
           _nowPlayingMovies = AsyncValue.data(value.map(_movieItemMapper.mapperTo).toList());
@@ -78,7 +80,7 @@ class HomeViewModel extends BaseViewModel {
         default:
           break;
       }
-    }).onError((error, s) {
+    } on Exception catch (error) {
       setThrowable(error);
 
       if (error is BaseException) {
@@ -103,6 +105,8 @@ class HomeViewModel extends BaseViewModel {
             break;
         }
       }
-    }).whenComplete(notifyListeners);
+    } finally {
+      notifyListeners();
+    }
   }
 }

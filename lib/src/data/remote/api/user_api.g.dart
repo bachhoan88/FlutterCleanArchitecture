@@ -17,11 +17,12 @@ class _UserApi implements UserApi {
   Future<TokenDataModel> refreshToken(userDataModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(userDataModel.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<TokenDataModel>(
-            Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
+            Options(method: 'POST', headers: _headers, extra: _extra)
                 .compose(_dio.options, '/authenticate',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
@@ -33,11 +34,12 @@ class _UserApi implements UserApi {
   Future<RegisterResponse> register(userDataModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(userDataModel.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<RegisterResponse>(
-            Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
+            Options(method: 'POST', headers: _headers, extra: _extra)
                 .compose(_dio.options, '/register',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));

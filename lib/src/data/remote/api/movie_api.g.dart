@@ -17,11 +17,12 @@ class _MovieApi implements MovieApi {
   Future<MovieResponse> fetchMovies(type, key) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'api_key': key};
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<MovieResponse>(
-            Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra)
-                .compose(_dio.options, '/$type',
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/${type}',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = MovieResponse.fromJson(_result.data!);
@@ -32,11 +33,12 @@ class _MovieApi implements MovieApi {
   Future<MovieImageDataModel> getMovieImages(movieId, key) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'api_key': key};
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<MovieImageDataModel>(
-            Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra)
-                .compose(_dio.options, '/$movieId/images',
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/${movieId}/images',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = MovieImageDataModel.fromJson(_result.data!);
@@ -47,11 +49,12 @@ class _MovieApi implements MovieApi {
   Future<MovieInfoDataModel> getMovieInfo(movieId, key) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'api_key': key};
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<MovieInfoDataModel>(
-            Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra)
-                .compose(_dio.options, '/$movieId',
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/${movieId}',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = MovieInfoDataModel.fromJson(_result.data!);

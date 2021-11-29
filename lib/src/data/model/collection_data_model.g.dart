@@ -6,17 +6,16 @@ part of 'collection_data_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CollectionDataModel _$_$_CollectionDataModelFromJson(
-    Map<String, dynamic> json) {
-  return _$_CollectionDataModel(
-    id: json['id'] as int?,
-    name: json['name'] as String?,
-    posterPath: json['poster_path'] as String?,
-    backdropPath: json['backdrop_path'] as String?,
-  );
-}
+_$_CollectionDataModel _$$_CollectionDataModelFromJson(
+        Map<String, dynamic> json) =>
+    _$_CollectionDataModel(
+      id: json['id'] as int?,
+      name: json['name'] as String?,
+      posterPath: json['poster_path'] as String?,
+      backdropPath: json['backdrop_path'] as String?,
+    );
 
-Map<String, dynamic> _$_$_CollectionDataModelToJson(
+Map<String, dynamic> _$$_CollectionDataModelToJson(
         _$_CollectionDataModel instance) =>
     <String, dynamic>{
       'id': instance.id,

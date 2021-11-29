@@ -6,7 +6,8 @@ analyzer:
       ".dart_tool/**",
       "**/*.g.dart",
       "**/*.freezed.dart",
-      "lib/gen/**"
+      "lib/gen/**",
+      "**/*.mocks.dart"
   ]
   strong-mode:
     implicit-casts: true

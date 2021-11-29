@@ -49,8 +49,8 @@ If using the another library not build with null-safety. Please run with argumen
 
 ## Auto generate mock class using on Unit Test 
 Example: After created the test class, and run command below, the mock class `MockMovieRepository` will auto generate 
-```
-[@GenerateMocks([MovieRepository])]
+```Dart
+@GenerateMocks([MovieRepository])
 void main() {
   late MovieRepository repository;
 }

@@ -8,7 +8,6 @@ import 'package:flutter_clean_architecture/src/presentation/model/pair.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/extension/build_context.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/widget/custom_dialog.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/widget/error_page.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -17,7 +16,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
 
   Widget createView(BuildContext context);
 
-  abstract final ProviderBase<dynamic, V> viewModelProvider;
+  abstract final ProviderBase<V> viewModelProvider;
 
   bool get useRootNavigator => true;
 
@@ -29,7 +28,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
 
   void inlineTagsAction(List<Tag> tags) {}
 
-  void pageErrorRetry(BuildContext context) {}
+  void pageErrorRetry(BuildContext context, WidgetRef ref) {}
 
   @override
   Widget build(BuildContext context) {
@@ -42,21 +41,21 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
   }
 
   Widget _createErrorView(BuildContext context) {
-    return HookBuilder(
-      builder: (context) {
+    return Consumer(
+      builder: (context, ref, _) {
         // Check on page error
-        final pageError = useProvider(viewModelProvider).pageMessage.observer();
+        final pageError = ref.watch(viewModelProvider).pageMessage.observer();
         if (pageError != null) {
           return ErrorPage(
             message: pageError,
             retry: () {
-              pageErrorRetry(context);
+              pageErrorRetry(context, ref);
             },
           );
         }
 
         // check toast error
-        final toastError = useProvider(viewModelProvider).toastMessage.observer();
+        final toastError = ref.watch(viewModelProvider).toastMessage.observer();
         if (toastError != null) {
           WidgetsBinding.instance?.addPostFrameCallback((_) {
             Fluttertoast.showToast(msg: toastError);
@@ -66,7 +65,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
         }
 
         // check alert error
-        final alertError = useProvider(viewModelProvider).alertException.observer();
+        final alertError = ref.watch(viewModelProvider).alertException.observer();
         if (alertError != null) {
           WidgetsBinding.instance?.addPostFrameCallback((_) {
             _showAlert(context, alertError);
@@ -75,7 +74,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
         }
 
         // Check dialog error
-        final dialogError = useProvider(viewModelProvider).dialogException.observer();
+        final dialogError = ref.watch(viewModelProvider).dialogException.observer();
         if (dialogError != null) {
           WidgetsBinding.instance?.addPostFrameCallback((_) {
             _showDialog(context, dialogError);
@@ -84,7 +83,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
         }
 
         // check redirect
-        final redirectError = useProvider(viewModelProvider).redirect.observer();
+        final redirectError = ref.watch(viewModelProvider).redirect.observer();
         if (redirectError != null) {
           WidgetsBinding.instance?.addPostFrameCallback((_) {
             redirectAction(redirectError.first, redirectError.second);
@@ -93,7 +92,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
         }
 
         // check snack bar
-        final snackBarError = useProvider(viewModelProvider).snackBarMessage.observer();
+        final snackBarError = ref.watch(viewModelProvider).snackBarMessage.observer();
         if (snackBarError != null) {
           WidgetsBinding.instance?.addPostFrameCallback((_) {
             _showSnackBar(context, snackBarError);
@@ -103,7 +102,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
         }
         
         // check inline 
-        final inlineError = useProvider(viewModelProvider).inlineTags.observer();
+        final inlineError = ref.watch(viewModelProvider).inlineTags.observer();
         if (inlineError != null) {
           inlineTagsAction(inlineError);
           return const SizedBox();

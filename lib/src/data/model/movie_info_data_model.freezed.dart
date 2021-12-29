@@ -76,7 +76,7 @@ class _$MovieInfoDataModelTearOff {
     );
   }
 
-  MovieInfoDataModel fromJson(Map<String, Object> json) {
+  MovieInfoDataModel fromJson(Map<String, Object?> json) {
     return MovieInfoDataModel.fromJson(json);
   }
 }
@@ -604,104 +604,72 @@ class _$_MovieInfoDataModel implements _MovieInfoDataModel {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _MovieInfoDataModel &&
-            (identical(other.adult, adult) ||
-                const DeepCollectionEquality().equals(other.adult, adult)) &&
-            (identical(other.backdropPath, backdropPath) ||
-                const DeepCollectionEquality()
-                    .equals(other.backdropPath, backdropPath)) &&
-            (identical(other.collection, collection) ||
-                const DeepCollectionEquality()
-                    .equals(other.collection, collection)) &&
-            (identical(other.budget, budget) ||
-                const DeepCollectionEquality().equals(other.budget, budget)) &&
-            (identical(other.genres, genres) ||
-                const DeepCollectionEquality().equals(other.genres, genres)) &&
-            (identical(other.homepage, homepage) ||
-                const DeepCollectionEquality()
-                    .equals(other.homepage, homepage)) &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.imdbId, imdbId) ||
-                const DeepCollectionEquality().equals(other.imdbId, imdbId)) &&
-            (identical(other.originalLanguage, originalLanguage) ||
-                const DeepCollectionEquality()
-                    .equals(other.originalLanguage, originalLanguage)) &&
-            (identical(other.originalTitle, originalTitle) ||
-                const DeepCollectionEquality()
-                    .equals(other.originalTitle, originalTitle)) &&
-            (identical(other.overview, overview) ||
-                const DeepCollectionEquality()
-                    .equals(other.overview, overview)) &&
-            (identical(other.popularity, popularity) ||
-                const DeepCollectionEquality()
-                    .equals(other.popularity, popularity)) &&
-            (identical(other.posterPath, posterPath) ||
-                const DeepCollectionEquality()
-                    .equals(other.posterPath, posterPath)) &&
-            (identical(other.releaseDate, releaseDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.releaseDate, releaseDate)) &&
-            (identical(other.revenue, revenue) ||
-                const DeepCollectionEquality()
-                    .equals(other.revenue, revenue)) &&
-            (identical(other.runtime, runtime) ||
-                const DeepCollectionEquality()
-                    .equals(other.runtime, runtime)) &&
-            (identical(other.tatus, tatus) ||
-                const DeepCollectionEquality().equals(other.tatus, tatus)) &&
-            (identical(other.tagline, tagline) ||
-                const DeepCollectionEquality()
-                    .equals(other.tagline, tagline)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.video, video) ||
-                const DeepCollectionEquality().equals(other.video, video)) &&
-            (identical(other.voteAverage, voteAverage) ||
-                const DeepCollectionEquality()
-                    .equals(other.voteAverage, voteAverage)) &&
-            (identical(other.voteCount, voteCount) ||
-                const DeepCollectionEquality()
-                    .equals(other.voteCount, voteCount)) &&
-            (identical(other.companies, companies) ||
-                const DeepCollectionEquality()
-                    .equals(other.companies, companies)) &&
-            (identical(other.countries, countries) ||
-                const DeepCollectionEquality()
-                    .equals(other.countries, countries)) &&
-            (identical(other.languages, languages) ||
-                const DeepCollectionEquality()
-                    .equals(other.languages, languages)));
+        (other.runtimeType == runtimeType &&
+            other is _MovieInfoDataModel &&
+            const DeepCollectionEquality().equals(other.adult, adult) &&
+            const DeepCollectionEquality()
+                .equals(other.backdropPath, backdropPath) &&
+            const DeepCollectionEquality()
+                .equals(other.collection, collection) &&
+            const DeepCollectionEquality().equals(other.budget, budget) &&
+            const DeepCollectionEquality().equals(other.genres, genres) &&
+            const DeepCollectionEquality().equals(other.homepage, homepage) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.imdbId, imdbId) &&
+            const DeepCollectionEquality()
+                .equals(other.originalLanguage, originalLanguage) &&
+            const DeepCollectionEquality()
+                .equals(other.originalTitle, originalTitle) &&
+            const DeepCollectionEquality().equals(other.overview, overview) &&
+            const DeepCollectionEquality()
+                .equals(other.popularity, popularity) &&
+            const DeepCollectionEquality()
+                .equals(other.posterPath, posterPath) &&
+            const DeepCollectionEquality()
+                .equals(other.releaseDate, releaseDate) &&
+            const DeepCollectionEquality().equals(other.revenue, revenue) &&
+            const DeepCollectionEquality().equals(other.runtime, runtime) &&
+            const DeepCollectionEquality().equals(other.tatus, tatus) &&
+            const DeepCollectionEquality().equals(other.tagline, tagline) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.video, video) &&
+            const DeepCollectionEquality()
+                .equals(other.voteAverage, voteAverage) &&
+            const DeepCollectionEquality().equals(other.voteCount, voteCount) &&
+            const DeepCollectionEquality().equals(other.companies, companies) &&
+            const DeepCollectionEquality().equals(other.countries, countries) &&
+            const DeepCollectionEquality().equals(other.languages, languages));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(adult) ^
-      const DeepCollectionEquality().hash(backdropPath) ^
-      const DeepCollectionEquality().hash(collection) ^
-      const DeepCollectionEquality().hash(budget) ^
-      const DeepCollectionEquality().hash(genres) ^
-      const DeepCollectionEquality().hash(homepage) ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(imdbId) ^
-      const DeepCollectionEquality().hash(originalLanguage) ^
-      const DeepCollectionEquality().hash(originalTitle) ^
-      const DeepCollectionEquality().hash(overview) ^
-      const DeepCollectionEquality().hash(popularity) ^
-      const DeepCollectionEquality().hash(posterPath) ^
-      const DeepCollectionEquality().hash(releaseDate) ^
-      const DeepCollectionEquality().hash(revenue) ^
-      const DeepCollectionEquality().hash(runtime) ^
-      const DeepCollectionEquality().hash(tatus) ^
-      const DeepCollectionEquality().hash(tagline) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(video) ^
-      const DeepCollectionEquality().hash(voteAverage) ^
-      const DeepCollectionEquality().hash(voteCount) ^
-      const DeepCollectionEquality().hash(companies) ^
-      const DeepCollectionEquality().hash(countries) ^
-      const DeepCollectionEquality().hash(languages);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(adult),
+        const DeepCollectionEquality().hash(backdropPath),
+        const DeepCollectionEquality().hash(collection),
+        const DeepCollectionEquality().hash(budget),
+        const DeepCollectionEquality().hash(genres),
+        const DeepCollectionEquality().hash(homepage),
+        const DeepCollectionEquality().hash(id),
+        const DeepCollectionEquality().hash(imdbId),
+        const DeepCollectionEquality().hash(originalLanguage),
+        const DeepCollectionEquality().hash(originalTitle),
+        const DeepCollectionEquality().hash(overview),
+        const DeepCollectionEquality().hash(popularity),
+        const DeepCollectionEquality().hash(posterPath),
+        const DeepCollectionEquality().hash(releaseDate),
+        const DeepCollectionEquality().hash(revenue),
+        const DeepCollectionEquality().hash(runtime),
+        const DeepCollectionEquality().hash(tatus),
+        const DeepCollectionEquality().hash(tagline),
+        const DeepCollectionEquality().hash(title),
+        const DeepCollectionEquality().hash(video),
+        const DeepCollectionEquality().hash(voteAverage),
+        const DeepCollectionEquality().hash(voteCount),
+        const DeepCollectionEquality().hash(companies),
+        const DeepCollectionEquality().hash(countries),
+        const DeepCollectionEquality().hash(languages)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -758,67 +726,67 @@ abstract class _MovieInfoDataModel implements MovieInfoDataModel {
       _$_MovieInfoDataModel.fromJson;
 
   @override
-  bool? get adult => throw _privateConstructorUsedError;
+  bool? get adult;
   @override
   @JsonKey(name: 'backdrop_path')
-  String? get backdropPath => throw _privateConstructorUsedError;
+  String? get backdropPath;
   @override
   @JsonKey(name: 'belongs_to_collection')
-  CollectionDataModel? get collection => throw _privateConstructorUsedError;
+  CollectionDataModel? get collection;
   @override
-  int? get budget => throw _privateConstructorUsedError;
+  int? get budget;
   @override
-  List<GenreDataModel>? get genres => throw _privateConstructorUsedError;
+  List<GenreDataModel>? get genres;
   @override
-  String? get homepage => throw _privateConstructorUsedError;
+  String? get homepage;
   @override
-  int? get id => throw _privateConstructorUsedError;
+  int? get id;
   @override
   @JsonKey(name: 'imdb_id')
-  String? get imdbId => throw _privateConstructorUsedError;
+  String? get imdbId;
   @override
   @JsonKey(name: 'original_language')
-  String? get originalLanguage => throw _privateConstructorUsedError;
+  String? get originalLanguage;
   @override
   @JsonKey(name: 'original_title')
-  String? get originalTitle => throw _privateConstructorUsedError;
+  String? get originalTitle;
   @override
-  String? get overview => throw _privateConstructorUsedError;
+  String? get overview;
   @override
-  double? get popularity => throw _privateConstructorUsedError;
+  double? get popularity;
   @override
   @JsonKey(name: 'poster_path')
-  String? get posterPath => throw _privateConstructorUsedError;
+  String? get posterPath;
   @override
   @JsonKey(name: 'release_date')
-  String? get releaseDate => throw _privateConstructorUsedError;
+  String? get releaseDate;
   @override
-  int? get revenue => throw _privateConstructorUsedError;
+  int? get revenue;
   @override
-  int? get runtime => throw _privateConstructorUsedError;
+  int? get runtime;
   @override
-  String? get tatus => throw _privateConstructorUsedError;
+  String? get tatus;
   @override
-  String? get tagline => throw _privateConstructorUsedError;
+  String? get tagline;
   @override
-  String? get title => throw _privateConstructorUsedError;
+  String? get title;
   @override
-  bool? get video => throw _privateConstructorUsedError;
+  bool? get video;
   @override
   @JsonKey(name: 'vote_average')
-  double? get voteAverage => throw _privateConstructorUsedError;
+  double? get voteAverage;
   @override
   @JsonKey(name: 'vote_count')
-  int? get voteCount => throw _privateConstructorUsedError;
+  int? get voteCount;
   @override
   @JsonKey(name: 'production_companies')
-  List<CompanyDataModel>? get companies => throw _privateConstructorUsedError;
+  List<CompanyDataModel>? get companies;
   @override
   @JsonKey(name: 'production_countries')
-  List<CountryDataModel>? get countries => throw _privateConstructorUsedError;
+  List<CountryDataModel>? get countries;
   @override
   @JsonKey(name: 'spoken_languages')
-  List<LanguageDataModel>? get languages => throw _privateConstructorUsedError;
+  List<LanguageDataModel>? get languages;
   @override
   @JsonKey(ignore: true)
   _$MovieInfoDataModelCopyWith<_MovieInfoDataModel> get copyWith =>

@@ -30,7 +30,7 @@ class _$UserDataModelTearOff {
     );
   }
 
-  UserDataModel fromJson(Map<String, Object> json) {
+  UserDataModel fromJson(Map<String, Object?> json) {
     return UserDataModel.fromJson(json);
   }
 }
@@ -154,20 +154,17 @@ class _$_UserDataModel implements _UserDataModel {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UserDataModel &&
-            (identical(other.username, username) ||
-                const DeepCollectionEquality()
-                    .equals(other.username, username)) &&
-            (identical(other.password, password) ||
-                const DeepCollectionEquality()
-                    .equals(other.password, password)));
+        (other.runtimeType == runtimeType &&
+            other is _UserDataModel &&
+            const DeepCollectionEquality().equals(other.username, username) &&
+            const DeepCollectionEquality().equals(other.password, password));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(username) ^
-      const DeepCollectionEquality().hash(password);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(username),
+      const DeepCollectionEquality().hash(password));
 
   @JsonKey(ignore: true)
   @override
@@ -190,10 +187,10 @@ abstract class _UserDataModel implements UserDataModel {
 
   @override
   @JsonKey(name: 'username')
-  String? get username => throw _privateConstructorUsedError;
+  String? get username;
   @override
   @JsonKey(name: 'password')
-  String? get password => throw _privateConstructorUsedError;
+  String? get password;
   @override
   @JsonKey(ignore: true)
   _$UserDataModelCopyWith<_UserDataModel> get copyWith =>

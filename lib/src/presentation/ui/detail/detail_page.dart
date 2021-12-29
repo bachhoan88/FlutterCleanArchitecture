@@ -5,28 +5,28 @@ import 'package:flutter_clean_architecture/gen/colors.gen.dart';
 import 'package:flutter_clean_architecture/src/presentation/di/view_model_provider.dart';
 import 'package:flutter_clean_architecture/src/presentation/model/movie_view_data_model.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/widget/favorite_icon_widget.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'component/custom_shape_clip_oval.dart';
 import 'component/view.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 const detailPageRoutes = '/detail';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends ConsumerWidget {
   const DetailPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return WillPopScope(
       onWillPop: () async => true,
       child: Scaffold(
-        body: _createDetailBody(context),
+        body: _createDetailBody(context, ref),
       ),
     );
   }
 
-  Widget _createDetailBody(BuildContext context) {
+  Widget _createDetailBody(BuildContext context, WidgetRef ref) {
     final movie = ModalRoute.of(context)?.settings.arguments as MovieViewDataModel;
-    context.read(detailViewModelProvider).setMovieId(movie.id);
+    ref.read(detailViewModelProvider).setMovieId(movie.id);
 
     return Stack(
       children: [

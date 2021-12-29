@@ -29,7 +29,7 @@ class _$CountryDataModelTearOff {
     );
   }
 
-  CountryDataModel fromJson(Map<String, Object> json) {
+  CountryDataModel fromJson(Map<String, Object?> json) {
     return CountryDataModel.fromJson(json);
   }
 }
@@ -146,18 +146,17 @@ class _$_CountryDataModel implements _CountryDataModel {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CountryDataModel &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)));
+        (other.runtimeType == runtimeType &&
+            other is _CountryDataModel &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.code, code));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(code);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(code));
 
   @JsonKey(ignore: true)
   @override
@@ -179,10 +178,10 @@ abstract class _CountryDataModel implements CountryDataModel {
       _$_CountryDataModel.fromJson;
 
   @override
-  String? get name => throw _privateConstructorUsedError;
+  String? get name;
   @override
   @JsonKey(name: 'iso_3166_1')
-  String? get code => throw _privateConstructorUsedError;
+  String? get code;
   @override
   @JsonKey(ignore: true)
   _$CountryDataModelCopyWith<_CountryDataModel> get copyWith =>

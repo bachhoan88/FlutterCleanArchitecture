@@ -34,7 +34,7 @@ class _$CompanyDataModelTearOff {
     );
   }
 
-  CompanyDataModel fromJson(Map<String, Object> json) {
+  CompanyDataModel fromJson(Map<String, Object?> json) {
     return CompanyDataModel.fromJson(json);
   }
 }
@@ -190,26 +190,22 @@ class _$_CompanyDataModel implements _CompanyDataModel {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CompanyDataModel &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.logoPath, logoPath) ||
-                const DeepCollectionEquality()
-                    .equals(other.logoPath, logoPath)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.originalCountry, originalCountry) ||
-                const DeepCollectionEquality()
-                    .equals(other.originalCountry, originalCountry)));
+        (other.runtimeType == runtimeType &&
+            other is _CompanyDataModel &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.logoPath, logoPath) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality()
+                .equals(other.originalCountry, originalCountry));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(logoPath) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(originalCountry);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(logoPath),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(originalCountry));
 
   @JsonKey(ignore: true)
   @override
@@ -234,15 +230,15 @@ abstract class _CompanyDataModel implements CompanyDataModel {
       _$_CompanyDataModel.fromJson;
 
   @override
-  int? get id => throw _privateConstructorUsedError;
+  int? get id;
   @override
   @JsonKey(name: 'logo_path')
-  String? get logoPath => throw _privateConstructorUsedError;
+  String? get logoPath;
   @override
-  String? get name => throw _privateConstructorUsedError;
+  String? get name;
   @override
   @JsonKey(name: 'original_country')
-  String? get originalCountry => throw _privateConstructorUsedError;
+  String? get originalCountry;
   @override
   @JsonKey(ignore: true)
   _$CompanyDataModelCopyWith<_CompanyDataModel> get copyWith =>

@@ -32,7 +32,7 @@ class _$LanguageDataModelTearOff {
     );
   }
 
-  LanguageDataModel fromJson(Map<String, Object> json) {
+  LanguageDataModel fromJson(Map<String, Object?> json) {
     return LanguageDataModel.fromJson(json);
   }
 }
@@ -172,23 +172,20 @@ class _$_LanguageDataModel implements _LanguageDataModel {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LanguageDataModel &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.engName, engName) ||
-                const DeepCollectionEquality()
-                    .equals(other.engName, engName)) &&
-            (identical(other.countryCode, countryCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.countryCode, countryCode)));
+        (other.runtimeType == runtimeType &&
+            other is _LanguageDataModel &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.engName, engName) &&
+            const DeepCollectionEquality()
+                .equals(other.countryCode, countryCode));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(engName) ^
-      const DeepCollectionEquality().hash(countryCode);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(engName),
+      const DeepCollectionEquality().hash(countryCode));
 
   @JsonKey(ignore: true)
   @override
@@ -211,13 +208,13 @@ abstract class _LanguageDataModel implements LanguageDataModel {
       _$_LanguageDataModel.fromJson;
 
   @override
-  String? get name => throw _privateConstructorUsedError;
+  String? get name;
   @override
   @JsonKey(name: 'english_name')
-  String? get engName => throw _privateConstructorUsedError;
+  String? get engName;
   @override
   @JsonKey(name: 'iso_639_1')
-  String? get countryCode => throw _privateConstructorUsedError;
+  String? get countryCode;
   @override
   @JsonKey(ignore: true)
   _$LanguageDataModelCopyWith<_LanguageDataModel> get copyWith =>

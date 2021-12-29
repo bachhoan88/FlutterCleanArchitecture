@@ -23,7 +23,7 @@ class ExceptionMapper extends BaseExceptionMapper<AppError, BaseException> {
 
   @override
   Future<BaseException> mapperTo(AppError error) async {
-    final resource = await _resourceMapper.mapperTo(_reader(localeCodeProvider).state);
+    final resource = await _resourceMapper.mapperTo(_reader(localeCodeProvider));
     switch (error.type) {
       case AppErrorType.network:
         return ToastException(-1, resource.errorInternetConnection);

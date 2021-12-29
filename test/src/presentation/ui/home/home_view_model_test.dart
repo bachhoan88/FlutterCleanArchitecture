@@ -36,10 +36,10 @@ void main() {
     });
 
     test('Test get movie on constructor success', () async {
-      expect(viewModel.nowPlayingMovies.data?.value.first.id, movies.first.id);
-      expect(viewModel.categoryMovies.data?.value.first.id, movies.first.id);
-      expect(viewModel.myListMovies.data?.value.first.id, movies.first.id);
-      expect(viewModel.popularMovies.data?.value.first.id, movies.first.id);
+      expect(viewModel.nowPlayingMovies.asData?.value.first.id, movies.first.id);
+      expect(viewModel.categoryMovies.asData?.value.first.id, movies.first.id);
+      expect(viewModel.myListMovies.asData?.value.first.id, movies.first.id);
+      expect(viewModel.popularMovies.asData?.value.first.id, movies.first.id);
     });
 
     testWidgets('Test get movies success', (WidgetTester tester) async {
@@ -52,13 +52,12 @@ void main() {
 
       // call function
       viewModel.getMovieWithType(popular, retry: true);
-      expect(viewModel.popularMovies, const AsyncValue.loading());
 
       // wait for mapper success
       await tester.pump(const Duration(milliseconds: 50));
 
       // compare result
-      expect(viewModel.popularMovies.data?.value.length, others.length);
+      expect(viewModel.popularMovies.asData?.value.length, others.length);
     });
 
     testWidgets('Test get movies fail', (WidgetTester tester) async {
@@ -75,7 +74,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 50));
 
       // compare
-      expect(viewModel.popularMovies, AsyncValue.error(throwable));
+      expect(viewModel.popularMovies, AsyncValue<List<MovieViewDataModel>>.error(throwable));
     });
   });
 }

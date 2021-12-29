@@ -34,7 +34,7 @@ class _$CollectionDataModelTearOff {
     );
   }
 
-  CollectionDataModel fromJson(Map<String, Object> json) {
+  CollectionDataModel fromJson(Map<String, Object?> json) {
     return CollectionDataModel.fromJson(json);
   }
 }
@@ -190,26 +190,23 @@ class _$_CollectionDataModel implements _CollectionDataModel {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CollectionDataModel &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.posterPath, posterPath) ||
-                const DeepCollectionEquality()
-                    .equals(other.posterPath, posterPath)) &&
-            (identical(other.backdropPath, backdropPath) ||
-                const DeepCollectionEquality()
-                    .equals(other.backdropPath, backdropPath)));
+        (other.runtimeType == runtimeType &&
+            other is _CollectionDataModel &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality()
+                .equals(other.posterPath, posterPath) &&
+            const DeepCollectionEquality()
+                .equals(other.backdropPath, backdropPath));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(posterPath) ^
-      const DeepCollectionEquality().hash(backdropPath);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(posterPath),
+      const DeepCollectionEquality().hash(backdropPath));
 
   @JsonKey(ignore: true)
   @override
@@ -235,15 +232,15 @@ abstract class _CollectionDataModel implements CollectionDataModel {
       _$_CollectionDataModel.fromJson;
 
   @override
-  int? get id => throw _privateConstructorUsedError;
+  int? get id;
   @override
-  String? get name => throw _privateConstructorUsedError;
+  String? get name;
   @override
   @JsonKey(name: 'poster_path')
-  String? get posterPath => throw _privateConstructorUsedError;
+  String? get posterPath;
   @override
   @JsonKey(name: 'backdrop_path')
-  String? get backdropPath => throw _privateConstructorUsedError;
+  String? get backdropPath;
   @override
   @JsonKey(ignore: true)
   _$CollectionDataModelCopyWith<_CollectionDataModel> get copyWith =>

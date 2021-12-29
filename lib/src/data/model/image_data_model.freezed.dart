@@ -38,7 +38,7 @@ class _$ImageDataModelTearOff {
     );
   }
 
-  ImageDataModel fromJson(Map<String, Object> json) {
+  ImageDataModel fromJson(Map<String, Object?> json) {
     return ImageDataModel.fromJson(json);
   }
 }
@@ -230,34 +230,27 @@ class _$_ImageDataModel implements _ImageDataModel {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ImageDataModel &&
-            (identical(other.imagePath, imagePath) ||
-                const DeepCollectionEquality()
-                    .equals(other.imagePath, imagePath)) &&
-            (identical(other.height, height) ||
-                const DeepCollectionEquality().equals(other.height, height)) &&
-            (identical(other.width, width) ||
-                const DeepCollectionEquality().equals(other.width, width)) &&
-            (identical(other.countryCode, countryCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.countryCode, countryCode)) &&
-            (identical(other.voteAverage, voteAverage) ||
-                const DeepCollectionEquality()
-                    .equals(other.voteAverage, voteAverage)) &&
-            (identical(other.voteCount, voteCount) ||
-                const DeepCollectionEquality()
-                    .equals(other.voteCount, voteCount)));
+        (other.runtimeType == runtimeType &&
+            other is _ImageDataModel &&
+            const DeepCollectionEquality().equals(other.imagePath, imagePath) &&
+            const DeepCollectionEquality().equals(other.height, height) &&
+            const DeepCollectionEquality().equals(other.width, width) &&
+            const DeepCollectionEquality()
+                .equals(other.countryCode, countryCode) &&
+            const DeepCollectionEquality()
+                .equals(other.voteAverage, voteAverage) &&
+            const DeepCollectionEquality().equals(other.voteCount, voteCount));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(imagePath) ^
-      const DeepCollectionEquality().hash(height) ^
-      const DeepCollectionEquality().hash(width) ^
-      const DeepCollectionEquality().hash(countryCode) ^
-      const DeepCollectionEquality().hash(voteAverage) ^
-      const DeepCollectionEquality().hash(voteCount);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(imagePath),
+      const DeepCollectionEquality().hash(height),
+      const DeepCollectionEquality().hash(width),
+      const DeepCollectionEquality().hash(countryCode),
+      const DeepCollectionEquality().hash(voteAverage),
+      const DeepCollectionEquality().hash(voteCount));
 
   @JsonKey(ignore: true)
   @override
@@ -284,20 +277,20 @@ abstract class _ImageDataModel implements ImageDataModel {
 
   @override
   @JsonKey(name: 'file_path')
-  String? get imagePath => throw _privateConstructorUsedError;
+  String? get imagePath;
   @override
-  int? get height => throw _privateConstructorUsedError;
+  int? get height;
   @override
-  int? get width => throw _privateConstructorUsedError;
+  int? get width;
   @override
   @JsonKey(name: 'iso_639_1')
-  String? get countryCode => throw _privateConstructorUsedError;
+  String? get countryCode;
   @override
   @JsonKey(name: 'vote_average')
-  double? get voteAverage => throw _privateConstructorUsedError;
+  double? get voteAverage;
   @override
   @JsonKey(name: 'vote_count')
-  int? get voteCount => throw _privateConstructorUsedError;
+  int? get voteCount;
   @override
   @JsonKey(ignore: true)
   _$ImageDataModelCopyWith<_ImageDataModel> get copyWith =>

@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_clean_architecture/src/presentation/di/view_model_provider.dart';
 
@@ -15,9 +14,9 @@ class ContainerWithLoading extends StatelessWidget {
     return Stack(
       children: [
         _child,
-        HookBuilder(
-          builder: (context) {
-            final state = useProvider(loadingStateProvider);
+        Consumer(
+          builder: (context, ref, _) {
+            final state = ref.watch(loadingStateProvider);
             return state.isLoading ? const Loading() : const SizedBox();
           },
         ),

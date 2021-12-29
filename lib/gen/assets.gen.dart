@@ -3,12 +3,17 @@
 ///  FlutterGen
 /// *****************************************************
 
+// ignore_for_file: directives_ordering,unnecessary_import
+
 import 'package:flutter/widgets.dart';
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/ic_menu.png
   AssetGenImage get icMenu => const AssetGenImage('assets/images/ic_menu.png');
+
+  /// File path: assets/images/ic_netflix.png
   AssetGenImage get icNetflix =>
       const AssetGenImage('assets/images/ic_netflix.png');
 }

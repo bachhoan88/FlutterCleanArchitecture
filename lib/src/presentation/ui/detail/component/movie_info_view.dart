@@ -13,8 +13,8 @@ class MovieInfoView extends BaseStatelessView<DetailViewModel> {
 
   @override
   Widget createView(BuildContext context) {
-    return Consumer(builder: (context, watch, _) {
-      return watch(detailViewModelProvider).movieInfo.when(data: (data) {
+    return Consumer(builder: (context, ref, _) {
+      return ref.watch(detailViewModelProvider).movieInfo.when(data: (data) {
         return _createMovieBody(context, data);
       }, loading: () {
         return const Loading();
@@ -25,11 +25,11 @@ class MovieInfoView extends BaseStatelessView<DetailViewModel> {
   }
 
   @override
-  ProviderBase<dynamic, DetailViewModel> get viewModelProvider => detailViewModelProvider;
+  ProviderBase<DetailViewModel> get viewModelProvider => detailViewModelProvider;
 
   @override
-  void pageErrorRetry(BuildContext context) {
-    context.read(detailViewModelProvider).getMovieInfo();
+  void pageErrorRetry(BuildContext context, WidgetRef ref) {
+    ref.read(detailViewModelProvider).getMovieInfo();
   }
 
   Widget _createMovieBody(BuildContext context, MovieInfoViewDataModel info) {
@@ -117,10 +117,10 @@ class MovieInfoView extends BaseStatelessView<DetailViewModel> {
   }
 
   Widget _createMovieOverview(BuildContext context, String overview) {
-    return Consumer(builder: (context, watch, child) {
-      var expanded = watch(detailViewModelProvider).expanded;
+    return Consumer(builder: (context, ref, child) {
+      var expanded = ref.watch(detailViewModelProvider).expanded;
       return InkWell(
-        onTap: context.read(detailViewModelProvider).toggleExpand,
+        onTap: ref.read(detailViewModelProvider).toggleExpand,
         child: Container(
           alignment: Alignment.center,
           margin: const EdgeInsets.only(left: 24.0, right: 24.0, top: 8.0),

@@ -22,8 +22,8 @@ class MyListView extends BaseStatelessView<HomeViewModel> {
 
   @override
   Widget createView(BuildContext context) {
-    return Consumer(builder: (context, watch, _) {
-      return watch(homeViewModelProvider).myListMovies.when(data: (data) {
+    return Consumer(builder: (context, ref, _) {
+      return ref.watch(homeViewModelProvider).myListMovies.when(data: (data) {
         return _createMyListView(context, data);
       }, loading: () {
         return const Loading();
@@ -34,12 +34,12 @@ class MyListView extends BaseStatelessView<HomeViewModel> {
   }
 
   @override
-  void pageErrorRetry(BuildContext context) {
-    context.read(homeViewModelProvider).getMovieWithType(MovieType.topRated, retry: true);
+  void pageErrorRetry(BuildContext context, WidgetRef ref) {
+    ref.read(homeViewModelProvider).getMovieWithType(MovieType.topRated, retry: true);
   }
 
   @override
-  ProviderBase<dynamic, HomeViewModel> get viewModelProvider => homeViewModelProvider;
+  ProviderBase<HomeViewModel> get viewModelProvider => homeViewModelProvider;
 
   Widget _createMyListView(BuildContext context, List<MovieViewDataModel> movies) {
     final contentHeight = 4.0 * (MediaQuery.of(context).size.width / 2.4) / 3;

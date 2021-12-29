@@ -28,7 +28,7 @@ class _$GenreDataModelTearOff {
     );
   }
 
-  GenreDataModel fromJson(Map<String, Object> json) {
+  GenreDataModel fromJson(Map<String, Object?> json) {
     return GenreDataModel.fromJson(json);
   }
 }
@@ -142,18 +142,17 @@ class _$_GenreDataModel implements _GenreDataModel {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _GenreDataModel &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _GenreDataModel &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -173,9 +172,9 @@ abstract class _GenreDataModel implements GenreDataModel {
       _$_GenreDataModel.fromJson;
 
   @override
-  int? get id => throw _privateConstructorUsedError;
+  int? get id;
   @override
-  String? get name => throw _privateConstructorUsedError;
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$GenreDataModelCopyWith<_GenreDataModel> get copyWith =>

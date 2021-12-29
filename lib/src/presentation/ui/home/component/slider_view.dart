@@ -20,8 +20,8 @@ class SliderView extends BaseStatelessView<HomeViewModel> {
 
   @override
   Widget createView(BuildContext context) {
-    return Consumer(builder: (context, watch, _) {
-      return watch(homeViewModelProvider).nowPlayingMovies.when(data: (data) {
+    return Consumer(builder: (context, ref, _) {
+      return ref.watch(homeViewModelProvider).nowPlayingMovies.when(data: (data) {
         return CarouselSlider.builder(
           itemCount: data.length,
           itemBuilder: (BuildContext context, int index, realIndex) {
@@ -46,10 +46,10 @@ class SliderView extends BaseStatelessView<HomeViewModel> {
   }
 
   @override
-  void pageErrorRetry(BuildContext context) {
-    context.read(homeViewModelProvider).getMovieWithType(MovieType.nowPlaying, retry: true);
+  void pageErrorRetry(BuildContext context, WidgetRef ref) {
+    ref.read(homeViewModelProvider).getMovieWithType(MovieType.nowPlaying, retry: true);
   }
 
   @override
-  ProviderBase<dynamic, HomeViewModel> get viewModelProvider => homeViewModelProvider;
+  ProviderBase<HomeViewModel> get viewModelProvider => homeViewModelProvider;
 }

@@ -22,8 +22,8 @@ class PopularView extends BaseStatelessView<HomeViewModel> {
 
   @override
   Widget createView(BuildContext context) {
-    return Consumer(builder: (context, watch, _) {
-      return watch(homeViewModelProvider).popularMovies.when(data: (data) {
+    return Consumer(builder: (context, ref, _) {
+      return ref.watch(homeViewModelProvider).popularMovies.when(data: (data) {
         return _createPopularView(context, data);
       }, loading: () {
         return const Loading();
@@ -34,11 +34,11 @@ class PopularView extends BaseStatelessView<HomeViewModel> {
   }
 
   @override
-  ProviderBase<dynamic, HomeViewModel> get viewModelProvider => homeViewModelProvider;
+  ProviderBase<HomeViewModel> get viewModelProvider => homeViewModelProvider;
 
   @override
-  void pageErrorRetry(BuildContext context) {
-    context.read(homeViewModelProvider).getMovieWithType(MovieType.popular, retry: true);
+  void pageErrorRetry(BuildContext context, WidgetRef ref) {
+    ref.read(homeViewModelProvider).getMovieWithType(MovieType.popular, retry: true);
   }
 
   Widget _createPopularView(BuildContext context, List<MovieViewDataModel> movies) {

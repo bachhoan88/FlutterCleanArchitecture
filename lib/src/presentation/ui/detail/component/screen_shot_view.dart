@@ -21,8 +21,8 @@ class ScreenshotView extends BaseStatelessView<DetailViewModel> {
 
   @override
   Widget createView(BuildContext context) {
-    return Consumer(builder: (context, watch, _) {
-      return watch(detailViewModelProvider).images.when(data: (data) {
+    return Consumer(builder: (context, ref, _) {
+      return ref.watch(detailViewModelProvider).images.when(data: (data) {
         return _createScreenshotView(context, data);
       }, loading: () {
         return const Loading();
@@ -33,7 +33,7 @@ class ScreenshotView extends BaseStatelessView<DetailViewModel> {
   }
 
   @override
-  ProviderBase<dynamic, DetailViewModel> get viewModelProvider => detailViewModelProvider;
+  ProviderBase<DetailViewModel> get viewModelProvider => detailViewModelProvider;
 
   Widget _createScreenshotView(BuildContext context, List<ImageViewDataModel> images) {
     final contentHeight = 2.0 * (MediaQuery.of(context).size.width / 2.2) / 3.0;

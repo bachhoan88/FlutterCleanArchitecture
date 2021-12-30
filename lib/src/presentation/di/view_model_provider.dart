@@ -9,12 +9,12 @@ final loadingStateProvider = ChangeNotifierProvider(
 );
 
 final homeViewModelProvider = ChangeNotifierProvider<HomeViewModel>(
-  (ref) => HomeViewModel(fetchMovieUseCase: ref.read(fetchMoviesUseCaseProvider)),
+  (ref) => HomeViewModel(fetchMovieUseCase: ref.watch(fetchMoviesUseCaseProvider)),
 );
 
 final detailViewModelProvider = ChangeNotifierProvider.autoDispose<DetailViewModel>(
   (ref) => DetailViewModel(
-    getMovieImageUseCase: ref.read(getMovieImageUseCaseProvider),
-    getMovieInfoUseCase: ref.read(getMovieInfoUseCaseProvider),
+    getMovieImageUseCase: ref.watch(getMovieImageUseCaseProvider),
+    getMovieInfoUseCase: ref.watch(getMovieInfoUseCaseProvider),
   ),
 );

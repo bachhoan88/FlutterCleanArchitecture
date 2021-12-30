@@ -38,7 +38,7 @@ class PopularView extends BaseStatelessView<HomeViewModel> {
 
   @override
   void pageErrorRetry(BuildContext context, WidgetRef ref) {
-    ref.read(homeViewModelProvider).getMovieWithType(MovieType.popular, retry: true);
+    ref.watch(homeViewModelProvider.notifier).getMovieWithType(MovieType.popular, retry: true);
   }
 
   Widget _createPopularView(BuildContext context, List<MovieViewDataModel> movies) {

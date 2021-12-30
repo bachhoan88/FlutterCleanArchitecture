@@ -26,7 +26,7 @@ class DetailPage extends ConsumerWidget {
 
   Widget _createDetailBody(BuildContext context, WidgetRef ref) {
     final movie = ModalRoute.of(context)?.settings.arguments as MovieViewDataModel;
-    ref.read(detailViewModelProvider).setMovieId(movie.id);
+    ref.watch(detailViewModelProvider.notifier).setMovieId(movie.id);
 
     return Stack(
       children: [

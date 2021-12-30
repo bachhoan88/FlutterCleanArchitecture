@@ -13,9 +13,9 @@ final authBuilderProvider = Provider<Dio>(
 );
 
 final movieApiProvider = Provider<MovieApi>(
-  (ref) => MovieApi(ref.read(dioBuilderProvider)),
+  (ref) => MovieApi(ref.watch(dioBuilderProvider)),
 );
 
 final userApiProvider = Provider<UserApi>(
-      (ref) => UserApi(ref.read(authBuilderProvider)),
+      (ref) => UserApi(ref.watch(authBuilderProvider)),
 );

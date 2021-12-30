@@ -47,7 +47,7 @@ class SliderView extends BaseStatelessView<HomeViewModel> {
 
   @override
   void pageErrorRetry(BuildContext context, WidgetRef ref) {
-    ref.read(homeViewModelProvider).getMovieWithType(MovieType.nowPlaying, retry: true);
+    ref.watch(homeViewModelProvider.notifier).getMovieWithType(MovieType.nowPlaying, retry: true);
   }
 
   @override

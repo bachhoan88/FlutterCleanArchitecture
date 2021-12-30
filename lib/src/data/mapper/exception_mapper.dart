@@ -9,21 +9,19 @@ import 'package:flutter_clean_architecture/src/domain/exception/redirect_excepti
 import 'package:flutter_clean_architecture/src/domain/exception/toast_exception.dart';
 import 'package:flutter_clean_architecture/src/domain/mapper/resource_mapper.dart';
 import 'package:flutter_clean_architecture/src/domain/model/tag.dart';
-import 'package:flutter_clean_architecture/src/presentation/di/app_provider.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ExceptionMapper extends BaseExceptionMapper<AppError, BaseException> {
-  final Reader _reader;
+  final String _countryCode;
   final ResourceMapper _resourceMapper = ResourceMapper();
 
-  ExceptionMapper({required Reader reader}) : _reader = reader;
+  ExceptionMapper({required String countryCode}) : _countryCode = countryCode;
 
   @override
   Future<AppError> mapperFrom(BaseException exception) => throw UnimplementedError();
 
   @override
   Future<BaseException> mapperTo(AppError error) async {
-    final resource = await _resourceMapper.mapperTo(_reader(localeCodeProvider));
+    final resource = await _resourceMapper.mapperTo(_countryCode);
     switch (error.type) {
       case AppErrorType.network:
         return ToastException(-1, resource.errorInternetConnection);

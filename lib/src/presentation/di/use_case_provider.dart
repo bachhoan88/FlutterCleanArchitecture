@@ -5,13 +5,13 @@ import 'package:flutter_clean_architecture/src/domain/usecase/movie/get_movie_im
 import 'package:flutter_clean_architecture/src/domain/usecase/movie/get_movie_info_usecase.dart';
 
 final fetchMoviesUseCaseProvider = Provider<FetchMovieUseCase>(
-      (ref) => FetchMovieUseCase(repository: ref.read(movieRepositoryProvider)),
+      (ref) => FetchMovieUseCase(repository: ref.watch(movieRepositoryProvider)),
 );
 
 final getMovieInfoUseCaseProvider = Provider<GetMovieInfoUseCase>(
-    (ref) => GetMovieInfoUseCase(repository: ref.read(movieRepositoryProvider)),
+    (ref) => GetMovieInfoUseCase(repository: ref.watch(movieRepositoryProvider)),
 );
 
 final getMovieImageUseCaseProvider = Provider<GetMovieImageUseCase>(
-      (ref) => GetMovieImageUseCase(repository: ref.read(movieRepositoryProvider)),
+      (ref) => GetMovieImageUseCase(repository: ref.watch(movieRepositoryProvider)),
 );

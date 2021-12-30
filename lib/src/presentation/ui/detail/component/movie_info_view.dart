@@ -29,7 +29,7 @@ class MovieInfoView extends BaseStatelessView<DetailViewModel> {
 
   @override
   void pageErrorRetry(BuildContext context, WidgetRef ref) {
-    ref.read(detailViewModelProvider).getMovieInfo();
+    ref.watch(detailViewModelProvider.notifier).getMovieInfo();
   }
 
   Widget _createMovieBody(BuildContext context, MovieInfoViewDataModel info) {
@@ -120,7 +120,7 @@ class MovieInfoView extends BaseStatelessView<DetailViewModel> {
     return Consumer(builder: (context, ref, child) {
       var expanded = ref.watch(detailViewModelProvider).expanded;
       return InkWell(
-        onTap: ref.read(detailViewModelProvider).toggleExpand,
+        onTap: ref.watch(detailViewModelProvider.notifier).toggleExpand,
         child: Container(
           alignment: Alignment.center,
           margin: const EdgeInsets.only(left: 24.0, right: 24.0, top: 8.0),

@@ -31,7 +31,7 @@ class CategoryView extends BaseStatelessView<HomeViewModel> {
 
   @override
   void pageErrorRetry(BuildContext context, WidgetRef ref) {
-    ref.read(homeViewModelProvider).getMovieWithType(MovieType.upcoming, retry: true);
+    ref.watch(homeViewModelProvider.notifier).getMovieWithType(MovieType.upcoming, retry: true);
   }
 
   @override

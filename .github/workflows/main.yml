@@ -30,19 +30,25 @@ jobs:
         with:
           status: starting
           channel: '#workflows'
-          message: Starting Docker Build and Push...
+          message: Starting Build and Push...
         if: always()
 
       - name: Flutter clean cache
-        run: flutter clean
+        run: |
+          flutter clean
+          echo ${{pull_request.head}}
+          echo ${{pull_request.base}}
 
       - name: Get dependences
+        id: packages-get
         run: flutter pub get
 
       - name: Check lint
+        id: code-convention
         run: flutter analyze
 
       - name: Run UT
+        id: run-unit-test
         run: flutter test --coverage lib/
 
       - name: Generate coverage report

@@ -30,7 +30,7 @@ jobs:
         with:
           status: starting
           channel: '#workflows'
-          message: @here ${{ github.event.pull_request.user.login }} requests merge from ${{ github.event.pull_request.head.repo.owner.login }} to ${{github
+          message: ${{ github.event.pull_request.user.login }} requests merge from ${{ github.event.pull_request.head.repo.owner.login }} to ${{github
           .event.pull_request.head.ref}}
         if: always()
 

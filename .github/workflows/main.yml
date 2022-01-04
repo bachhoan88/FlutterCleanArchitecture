@@ -26,12 +26,12 @@ jobs:
         with:
           channel: master
 
-      - uses: act10ns/slack@v1
-        with:
-          status: starting
-          channel: '#workflows'
-          message: "Starting Build and Push from ${{ github.event.pull_request.user.login }}..."
-        if: always()
+#      - uses: act10ns/slack@v1
+#        with:
+#          status: starting
+#          channel: '#workflows'
+#          message: Triggered via {{eventName}} by {{actor}} {{or action "action"}} {{ref}} `{{diffRef}}`
+#        if: always()
 
       - name: Flutter clean cache
         run: flutter clean
@@ -60,8 +60,8 @@ jobs:
       - uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
-          steps: ${{ toJson(steps) }}
-          channel: '#workflows'
+#          steps: ${{ toJson(steps) }}
+#          channel: '#workflows'
         if: always()
 
 #  build_ios:

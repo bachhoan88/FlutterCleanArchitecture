@@ -30,9 +30,11 @@ jobs:
         with:
           status: starting
           channel: '#workflows'
-          message: ${{ github.event.pull_request.user.login }} requests merge from ${{ github.event.pull_request.head.repo.owner.login }} to ${{github
-          .event.pull_request.head.ref}}
+          message: Starting Build and Push...
         if: always()
+
+      - name: View PR author
+        run: echo "This PR is opened by ${{ github.event.pull_request.user.login }} ."
 
       - name: Flutter clean cache
         run: flutter clean

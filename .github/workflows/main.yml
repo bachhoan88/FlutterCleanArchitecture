@@ -30,12 +30,13 @@ jobs:
         with:
           status: starting
           channel: '#workflows'
-          message: Starting Build and Push...
+          message: @here ${{ github.event.pull_request.user.login }} requests merge from ${{ github.event.pull_request.head.repo.owner.login }} to ${{github
+          .event.pull_request.head.ref}}
         if: always()
 
       - name: Flutter clean cache
         run: flutter clean
-        
+
       - name: Get dependences
         id: packages-get
         run: flutter pub get

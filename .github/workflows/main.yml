@@ -34,11 +34,8 @@ jobs:
         if: always()
 
       - name: Flutter clean cache
-        run: |
-          flutter clean
-          echo ${{pull_request.head}}
-          echo ${{pull_request.base}}
-
+        run: flutter clean
+        
       - name: Get dependences
         id: packages-get
         run: flutter pub get

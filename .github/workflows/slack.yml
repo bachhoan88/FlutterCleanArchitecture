@@ -1,7 +1,7 @@
 username: GitHub-CI
 icon_url: https://github.com/bachhoan88.png
 
-pretext: Triggered via {{eventName}} by {{actor}} {{or action "action"}} {{ref}} `{{diffRef}}` @here
+pretext: Triggered via {{eventName}} by {{actor}} {{or action "action"}} {{ref}} `{{diffRef}}`
 title: GitHub Actions
 title_link: https://support.github.com
 

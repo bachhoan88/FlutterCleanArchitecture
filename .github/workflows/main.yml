@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REPOSITORY_URL: docker.pkg.github.com
+      IMAGE_NAME: ${{ github.repository }}/files/moviedb
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2

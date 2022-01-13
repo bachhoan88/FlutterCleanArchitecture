@@ -11,17 +11,17 @@ import 'package:flutter_clean_architecture/src/domain/mapper/resource_mapper.dar
 import 'package:flutter_clean_architecture/src/domain/model/tag.dart';
 
 class ExceptionMapper extends BaseExceptionMapper<AppError, BaseException> {
-  final String _countryCode;
+  final String _languageCode;
   final ResourceMapper _resourceMapper = ResourceMapper();
 
-  ExceptionMapper({required String countryCode}) : _countryCode = countryCode;
+  ExceptionMapper({required String languageCode}) : _languageCode = languageCode;
 
   @override
   Future<AppError> mapperFrom(BaseException exception) => throw UnimplementedError();
 
   @override
   Future<BaseException> mapperTo(AppError error) async {
-    final resource = await _resourceMapper.mapperTo(_countryCode);
+    final resource = await _resourceMapper.mapperTo(_languageCode);
     switch (error.type) {
       case AppErrorType.network:
         return ToastException(-1, resource.errorInternetConnection);

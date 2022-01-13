@@ -7,6 +7,7 @@ import 'package:flutter_clean_architecture/src/presentation/base/base_view_model
 import 'package:flutter_clean_architecture/src/presentation/model/pair.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/extension/build_context.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/widget/custom_dialog.dart';
+import 'package:flutter_clean_architecture/src/presentation/ui/widget/custom_progress_dialog.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/widget/error_page.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -20,13 +21,15 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
 
   bool get useRootNavigator => true;
 
+  bool get checkIsLoading => false;
+
   void positiveAction(GlobalAction? action, dynamic data) {}
 
   void negativeAction(GlobalAction? action, dynamic data) {}
 
-  void redirectAction(Redirect redirect, dynamic data) {}
+  void redirectAction(BuildContext context, Redirect redirect, dynamic data) {}
 
-  void inlineTagsAction(List<Tag> tags) {}
+  void inlineTagsAction(WidgetRef ref, List<Tag> tags) {}
 
   void pageErrorRetry(BuildContext context, WidgetRef ref) {}
 
@@ -36,8 +39,31 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
       children: [
         createView(context),
         _createErrorView(context),
+        _createLoading(context),
       ],
     );
+  }
+
+  Widget _createLoading(BuildContext context) {
+    if (checkIsLoading) {
+      var showing = false;
+      return Consumer(builder: (context, ref, _) {
+        final isLoading = ref.watch(viewModelProvider)..loading.observer();
+        if (isLoading == true) {
+          WidgetsBinding.instance?.addPostFrameCallback((_) {
+            if (!showing) {
+              CustomProgressDialog(context).show(rootNavigator: useRootNavigator);
+              showing = true;
+            }
+          });
+        } else if (isLoading == false && showing) {
+          Navigator.of(context, rootNavigator: useRootNavigator).pop();
+          showing = false;
+        }
+        return const SizedBox();
+      });
+    }
+    return const SizedBox();
   }
 
   Widget _createErrorView(BuildContext context) {
@@ -86,7 +112,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
         final redirectError = ref.watch(viewModelProvider).redirect.observer();
         if (redirectError != null) {
           WidgetsBinding.instance?.addPostFrameCallback((_) {
-            redirectAction(redirectError.first, redirectError.second);
+            redirectAction(context, redirectError.first, redirectError.second);
           });
           return const SizedBox();
         }
@@ -104,7 +130,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
         // check inline 
         final inlineError = ref.watch(viewModelProvider).inlineTags.observer();
         if (inlineError != null) {
-          inlineTagsAction(inlineError);
+          inlineTagsAction(ref, inlineError);
           return const SizedBox();
         }
 

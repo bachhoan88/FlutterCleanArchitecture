@@ -12,10 +12,10 @@ jobs:
   lint_test:
     name: Clean & Run UT
     runs-on: ubuntu-latest
-    env:
-      REPOSITORY_URL: docker.pkg.github.com
-      IMAGE_NAME: ${{ github.repository }}/files/moviedb
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+#    env:
+#      REPOSITORY_URL: docker.pkg.github.com
+#      IMAGE_NAME: ${{ github.repository }}/files/moviedb
+#      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
@@ -39,19 +39,21 @@ jobs:
         id: run-unit-test
         run: flutter test --coverage lib/
 
-      - name: Generate coverage report
-        uses: zgosalvez/github-actions-report-lcov@v1
-        with:
-          coverage-files: coverage/lcov.info
-          minimum-coverage: 10
-          artifact-name: code-coverage-report
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          working-directory: ./
-
-      - uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-          config: .github/workflows/slack.yml
+#      - name: Generate coverage report
+#        uses: zgosalvez/github-actions-report-lcov@v1
+#        with:
+#          coverage-files: coverage/lcov.info
+#          minimum-coverage: 10
+#          artifact-name: code-coverage-report
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
+#          working-directory: ./
+#
+#      - uses: act10ns/slack@v1
+#        with:
+#          status: ${{ job.status }}
+#          steps: ${{ toJson(steps) }}
+#          channel: '#workflows'
+#        if: always()
 
 #  build_ios:
 #    name: Build Flutter (iOS)
@@ -85,37 +87,37 @@ jobs:
 #      - name: Build android
 #        run: flutter build apk --debug --flavor dev --dart-define=FLAVOR=dev
 #
-  build_exe:
-    name: Build for Windows
-    runs-on: windows-latest
-    needs: lint_test
-    steps:
-      - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v1
-        with:
-          channel: master
-      - name: Enable desktop support for Flutter
-        run: flutter config --enable-windows-desktop
-
-      - name: Build Windows Debug
-        run: |
-          flutter packages get
-          flutter build -v windows --debug --dart-define=FLAVOR=dev
-
-      - name: Archive Debug
-        uses: thedoctor0/zip-release@master
-        with:
-          type: 'zip'
-          directory: 'build/windows/runner/Debug'
-#          path: 'build/windows/runner/Debug'
-          filename: 'Debug.zip'
-
-      - name: Upload file to Slack
-        uses: MeilCli/slack-upload-file@v1
-        with:
-          slack_token: ${{ secrets.SLACK_TOKEN }}
-          channels: ${{ secrets.SLACK_CHANNELS }}
-          file_path: 'Debug.zip'
-          file_name: 'Debug.zip'
-          file_type: 'zip'
-          initial_comment: 'Test upload file to slack'
+#  build_exe:
+#    name: Build for Windows
+#    runs-on: windows-latest
+#    needs: lint_test
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: subosito/flutter-action@v1
+#        with:
+#          channel: master
+#      - name: Enable desktop support for Flutter
+#        run: flutter config --enable-windows-desktop
+#
+#      - name: Build Windows Debug
+#        run: |
+#          flutter packages get
+#          flutter build -v windows --debug --dart-define=FLAVOR=dev
+#
+#      - name: Archive Debug
+#        uses: thedoctor0/zip-release@master
+#        with:
+#          type: 'zip'
+#          directory: 'build/windows/runner/Debug'
+##          path: 'build/windows/runner/Debug'
+#          filename: 'Debug.zip'
+#
+#      - name: Upload file to Slack
+#        uses: MeilCli/slack-upload-file@v1
+#        with:
+#          slack_token: ${{ secrets.SLACK_TOKEN }}
+#          channels: ${{ secrets.SLACK_CHANNELS }}
+#          file_path: 'Debug.zip'
+#          file_name: 'Debug.zip'
+#          file_type: 'zip'
+#          initial_comment: 'Test upload file to slack'

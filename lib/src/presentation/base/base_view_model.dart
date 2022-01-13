@@ -42,6 +42,17 @@ abstract class BaseViewModel extends ChangeNotifier implements ViewModel {
 
   SingleObserver<List<Tag>> get inlineTags => _inlineTags;
 
+  final SingleObserver<bool> _loading = SingleObserver(data: false);
+
+  SingleObserver<bool> get loading => _loading;
+
+  void setLoading(bool loading, {bool refresh = false}) {
+    _loading.changeValue(loading);
+    if (refresh) {
+      notifyListeners();
+    }
+  }
+
   void setThrowable(dynamic throwable) {
     if (throwable is BaseException) {
       switch (throwable.exceptionType) {

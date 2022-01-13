@@ -12,9 +12,9 @@ class MovieRepositoryImpl implements MovieRepository {
   final String _apiKey;
   final ExceptionMapper _exceptionMapper;
 
-  MovieRepositoryImpl(this._movieApi, String countryCode, {String? apiKey, ExceptionMapper? mapper})
+  MovieRepositoryImpl(this._movieApi, String languageCode, {String? apiKey, ExceptionMapper? mapper})
       : _apiKey = apiKey ?? Constants.shared().apiKey,
-        _exceptionMapper = mapper ?? ExceptionMapper(countryCode: countryCode);
+        _exceptionMapper = mapper ?? ExceptionMapper(languageCode: languageCode);
 
   @override
   Future<List<MovieDataModel>> fetchMovies(String type) async {

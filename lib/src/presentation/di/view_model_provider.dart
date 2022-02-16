@@ -12,8 +12,8 @@ final homeViewModelProvider = ChangeNotifierProvider<HomeViewModel>(
   (ref) => HomeViewModel(fetchMovieUseCase: ref.watch(fetchMoviesUseCaseProvider)),
 );
 
-final detailViewModelProvider = ChangeNotifierProvider.autoDispose<DetailViewModel>(
-  (ref) => DetailViewModel(
+final detailViewModelProvider = ChangeNotifierProvider.autoDispose.family<DetailViewModel, int>(
+  (ref, id) => DetailViewModel(
     getMovieImageUseCase: ref.watch(getMovieImageUseCaseProvider),
     getMovieInfoUseCase: ref.watch(getMovieInfoUseCaseProvider),
   ),

@@ -10,11 +10,13 @@ import 'package:flutter_clean_architecture/src/presentation/ui/widget/loading.da
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ScreenshotView extends BaseStatelessView<DetailViewModel> {
+  final int movieId;
   final Function(ImageViewDataModel) actionOpenImage;
   final Function() actionLoadAll;
 
   const ScreenshotView({
     Key? key,
+    required this.movieId,
     required this.actionOpenImage,
     required this.actionLoadAll,
   }) : super(key: key);
@@ -22,7 +24,7 @@ class ScreenshotView extends BaseStatelessView<DetailViewModel> {
   @override
   Widget createView(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
-      return ref.watch(detailViewModelProvider).images.when(data: (data) {
+      return ref.watch(detailViewModelProvider(movieId)).images.when(data: (data) {
         return _createScreenshotView(context, data);
       }, loading: () {
         return const Loading();
@@ -33,7 +35,7 @@ class ScreenshotView extends BaseStatelessView<DetailViewModel> {
   }
 
   @override
-  ProviderBase<DetailViewModel> get viewModelProvider => detailViewModelProvider;
+  ProviderBase<DetailViewModel> get viewModelProvider => detailViewModelProvider(movieId);
 
   Widget _createScreenshotView(BuildContext context, List<ImageViewDataModel> images) {
     final contentHeight = 2.0 * (MediaQuery.of(context).size.width / 2.2) / 3.0;

@@ -45,6 +45,14 @@ class SliderView extends BaseStatelessView<HomeViewModel> {
     });
   }
 
+
+  @override
+  bool get checkIsLoading => true;
+
+
+  @override
+  int get timeoutSecond => 20;
+
   @override
   void pageErrorRetry(BuildContext context, WidgetRef ref) {
     ref.watch(homeViewModelProvider.notifier).getMovieWithType(MovieType.nowPlaying, retry: true);

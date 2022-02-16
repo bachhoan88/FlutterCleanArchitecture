@@ -66,19 +66,19 @@ class CommonStateView<T> extends HookWidget {
 
             case ExceptionType.snack:
               final exception = error as SnackBarException;
-              WidgetsBinding.instance?.addPostFrameCallback((_) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(exception.message)));
               });
 
               return const SizedBox();
 
             case ExceptionType.toast:
-              WidgetsBinding.instance?.addPostFrameCallback((_) {});
+              WidgetsBinding.instance.addPostFrameCallback((_) {});
               return const SizedBox();
 
             case ExceptionType.dialog:
               final exception = error as DialogException;
-              WidgetsBinding.instance?.addPostFrameCallback((_) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
                 CustomDialog(
                   context: context,
                   title: exception.dialog.title ?? '',
@@ -104,7 +104,7 @@ class CommonStateView<T> extends HookWidget {
 
             case ExceptionType.alert:
               final exception = error as AlertException;
-              WidgetsBinding.instance?.addPostFrameCallback((_) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
                 CustomDialog(
                   context: context,
                   title: exception.title ?? '',

@@ -23,6 +23,8 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
 
   bool get checkIsLoading => false;
 
+  int get timeoutSecond => 2;
+
   void positiveAction(GlobalAction? action, dynamic data) {}
 
   void negativeAction(GlobalAction? action, dynamic data) {}
@@ -50,7 +52,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
       return Consumer(builder: (context, ref, _) {
         final isLoading = ref.watch(viewModelProvider)..loading.observer();
         if (isLoading == true) {
-          WidgetsBinding.instance?.addPostFrameCallback((_) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
             if (!showing) {
               CustomProgressDialog(context).show(rootNavigator: useRootNavigator);
               showing = true;
@@ -83,7 +85,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
         // check toast error
         final toastError = ref.watch(viewModelProvider).toastMessage.observer();
         if (toastError != null) {
-          WidgetsBinding.instance?.addPostFrameCallback((_) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
             Fluttertoast.showToast(msg: toastError);
           });
 
@@ -93,7 +95,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
         // check alert error
         final alertError = ref.watch(viewModelProvider).alertException.observer();
         if (alertError != null) {
-          WidgetsBinding.instance?.addPostFrameCallback((_) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
             _showAlert(context, alertError);
           });
           return const SizedBox();
@@ -102,7 +104,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
         // Check dialog error
         final dialogError = ref.watch(viewModelProvider).dialogException.observer();
         if (dialogError != null) {
-          WidgetsBinding.instance?.addPostFrameCallback((_) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
             _showDialog(context, dialogError);
           });
           return const SizedBox();
@@ -111,7 +113,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
         // check redirect
         final redirectError = ref.watch(viewModelProvider).redirect.observer();
         if (redirectError != null) {
-          WidgetsBinding.instance?.addPostFrameCallback((_) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
             redirectAction(context, redirectError.first, redirectError.second);
           });
           return const SizedBox();
@@ -120,7 +122,7 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
         // check snack bar
         final snackBarError = ref.watch(viewModelProvider).snackBarMessage.observer();
         if (snackBarError != null) {
-          WidgetsBinding.instance?.addPostFrameCallback((_) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
             _showSnackBar(context, snackBarError);
           });
           

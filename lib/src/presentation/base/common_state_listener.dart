@@ -47,7 +47,7 @@ class CommonStateListener<T> {
         }
       },
       loading: () {
-        WidgetsBinding.instance?.addPostFrameCallback((_) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
           CustomProgressDialog(context).show();
         });
       },
@@ -73,19 +73,19 @@ class CommonStateListener<T> {
 
             case ExceptionType.snack:
               final exception = error as SnackBarException;
-              WidgetsBinding.instance?.addPostFrameCallback((_) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(exception.message)));
               });
 
               break;
 
             case ExceptionType.toast:
-              WidgetsBinding.instance?.addPostFrameCallback((_) {});
+              WidgetsBinding.instance.addPostFrameCallback((_) {});
               break;
 
             case ExceptionType.dialog:
               final exception = error as DialogException;
-              WidgetsBinding.instance?.addPostFrameCallback((_) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
                 CustomDialog(
                   context: context,
                   title: exception.dialog.title ?? '',
@@ -111,7 +111,7 @@ class CommonStateListener<T> {
 
             case ExceptionType.alert:
               final exception = error as AlertException;
-              WidgetsBinding.instance?.addPostFrameCallback((_) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
                 CustomDialog(
                   context: context,
                   title: exception.title ?? '',

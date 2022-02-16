@@ -17,8 +17,8 @@ class MovieRepositoryImpl implements MovieRepository {
         _exceptionMapper = mapper ?? ExceptionMapper(languageCode: languageCode);
 
   @override
-  Future<List<MovieDataModel>> fetchMovies(String type) async {
-    final response = await _movieApi.fetchMovies(type, _apiKey)
+  Future<List<MovieDataModel>> fetchMovies(String? type) async {
+    final response = await _movieApi.fetchMovies(type ?? '', _apiKey)
         .catchError((e) async => throw await _exceptionMapper.mapperTo(AppError.from(e)));
     return response.movies ?? [];
   }

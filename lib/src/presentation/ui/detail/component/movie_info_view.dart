@@ -9,12 +9,13 @@ import 'package:flutter_clean_architecture/src/presentation/ui/widget/star_ratin
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class MovieInfoView extends BaseStatelessView<DetailViewModel> {
-  const MovieInfoView({Key? key}) : super(key: key);
+  final int movieId;
+  const MovieInfoView({Key? key, required this.movieId}) : super(key: key);
 
   @override
   Widget createView(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
-      return ref.watch(detailViewModelProvider).movieInfo.when(data: (data) {
+      return ref.watch(detailViewModelProvider(movieId)).movieInfo.when(data: (data) {
         return _createMovieBody(context, data);
       }, loading: () {
         return const Loading();
@@ -25,11 +26,11 @@ class MovieInfoView extends BaseStatelessView<DetailViewModel> {
   }
 
   @override
-  ProviderBase<DetailViewModel> get viewModelProvider => detailViewModelProvider;
+  ProviderBase<DetailViewModel> get viewModelProvider => detailViewModelProvider(movieId);
 
   @override
   void pageErrorRetry(BuildContext context, WidgetRef ref) {
-    ref.watch(detailViewModelProvider.notifier).getMovieInfo();
+    ref.watch(detailViewModelProvider(movieId).notifier).getMovieInfo();
   }
 
   Widget _createMovieBody(BuildContext context, MovieInfoViewDataModel info) {
@@ -118,9 +119,9 @@ class MovieInfoView extends BaseStatelessView<DetailViewModel> {
 
   Widget _createMovieOverview(BuildContext context, String overview) {
     return Consumer(builder: (context, ref, child) {
-      var expanded = ref.watch(detailViewModelProvider).expanded;
+      var expanded = ref.watch(detailViewModelProvider(movieId)).expanded;
       return InkWell(
-        onTap: ref.watch(detailViewModelProvider.notifier).toggleExpand,
+        onTap: ref.watch(detailViewModelProvider(movieId).notifier).toggleExpand,
         child: Container(
           alignment: Alignment.center,
           margin: const EdgeInsets.only(left: 24.0, right: 24.0, top: 8.0),

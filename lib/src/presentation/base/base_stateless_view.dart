@@ -23,6 +23,8 @@ abstract class BaseStatelessView<V extends BaseViewModel> extends StatelessWidge
 
   bool get checkIsLoading => false;
 
+  int get timeoutSecond => 2;
+
   void positiveAction(GlobalAction? action, dynamic data) {}
 
   void negativeAction(GlobalAction? action, dynamic data) {}

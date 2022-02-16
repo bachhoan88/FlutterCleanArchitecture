@@ -26,7 +26,7 @@ class DetailPage extends ConsumerWidget {
 
   Widget _createDetailBody(BuildContext context, WidgetRef ref) {
     final movie = ModalRoute.of(context)?.settings.arguments as MovieViewDataModel;
-    ref.watch(detailViewModelProvider.notifier).setMovieId(movie.id);
+    ref.watch(detailViewModelProvider(movie.id).notifier).setMovieId(movie.id);
 
     return Stack(
       children: [
@@ -38,9 +38,10 @@ class DetailPage extends ConsumerWidget {
                 child: Column(
                   children: [
                     _createDetailHeader(context),
-                    const MovieInfoView(),
+                    MovieInfoView(movieId: movie.id,),
                     const Divider(height: 8.0, color: Colors.transparent),
                     ScreenshotView(
+                      movieId: movie.id,
                       actionOpenImage: (img) {},
                       actionLoadAll: () {},
                     ),

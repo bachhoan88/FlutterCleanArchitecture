@@ -11,7 +11,7 @@ class StatefulWrapper extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _StatefulWrapperState createState() => _StatefulWrapperState();
+  State<StatefulWrapper> createState() => _StatefulWrapperState();
 }
 
 class _StatefulWrapperState extends State<StatefulWrapper> {

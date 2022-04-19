@@ -11,32 +11,32 @@ class AppPrefs extends PrefHelper {
 
   @override
   Future<bool> firstRun() async {
-    final preferences = await SharedPreferences.getInstance();
-    return preferences.getBool(firstRunKey) ?? true;
+    final _preferences = await SharedPreferences.getInstance();
+    return _preferences.getBool(firstRunKey) ?? true;
   }
 
   @override
   Future<void> setFirstRun(bool isFirstRun) async {
-    final preferences = await SharedPreferences.getInstance();
-    await preferences.setBool(firstRunKey, isFirstRun);
+    final _preferences = await SharedPreferences.getInstance();
+    await _preferences.setBool(firstRunKey, isFirstRun);
   }
 
   @override
   Future<String?> getToken() async {
-    final preferences = await SharedPreferences.getInstance();
-    return preferences.getString(tokenKey);
+    final _preferences = await SharedPreferences.getInstance();
+    return _preferences.getString(tokenKey);
   }
 
   @override
   Future setToken(String token) async {
-    final preferences = await SharedPreferences.getInstance();
-    await preferences.setString(tokenKey, token);
+    final _preferences = await SharedPreferences.getInstance();
+    await _preferences.setString(tokenKey, token);
   }
 
   @override
   Future<UserDataModel?> getUserSaved() async {
-    final preferences = await SharedPreferences.getInstance();
-    final userJson = preferences.getString(userKey);
+    final _preferences = await SharedPreferences.getInstance();
+    final userJson = _preferences.getString(userKey);
     if (userJson != null) {
       try {
         return UserDataModel.fromJson(jsonDecode(userJson));
@@ -50,7 +50,7 @@ class AppPrefs extends PrefHelper {
 
   @override
   Future saveUser(UserDataModel user) async {
-    final preferences = await SharedPreferences.getInstance();
-    await preferences.setString(userKey, user.toJson().toString());
+    final _preferences = await SharedPreferences.getInstance();
+    await _preferences.setString(userKey, user.toJson().toString());
   }
 }

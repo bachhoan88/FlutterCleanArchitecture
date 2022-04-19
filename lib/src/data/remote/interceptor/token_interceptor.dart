@@ -5,7 +5,7 @@ import 'package:flutter_clean_architecture/src/data/model/user_data_model.dart';
 import 'package:flutter_clean_architecture/src/data/remote/api/user_api.dart';
 import 'package:flutter_clean_architecture/src/data/remote/builder/dio_builder.dart';
 
-class TokenInterceptor extends QueuedInterceptorsWrapper {
+class TokenInterceptor extends Interceptor {
   final Dio currentDio;
   final String auth = 'Authorization';
   final String bearer = 'Bearer';
@@ -17,13 +17,11 @@ class TokenInterceptor extends QueuedInterceptorsWrapper {
     if (err.response != null && err.response?.statusCode == HttpStatus.unauthorized) {
       // TODO Please refactor when token api ready
       // Lock all of request to request new token
-      /// Don't need because use the QueuedInterceptorsWrapper
-      // currentDio.lock();
+      currentDio.lock();
       // request new token & save it
       final token = await requestToken();
       // unlock when token refreshed
-      /// Don't need because don't use lock
-      // currentDio.unlock();
+      currentDio.unlock();
 
       // Re-call request
       final request = err.requestOptions;

@@ -31,13 +31,13 @@ class MovieInfoViewDataModelMapper extends ModelItemMapper<MovieInfoDataModel, M
         runtime: data.runtime ?? 0,
         countries: ((data.countries?.length ?? 0) > 0)
             ? data.countries?.skip(1).fold(data.countries?.first.code ?? '', (previousValue, element) {
-                  return '${previousValue ?? ''}, ${element.code}';
+                  return (previousValue ?? '') + ', ${element.code}';
                 }) ??
                 ''
             : '',
         year: (data.releaseDate?.length ?? 0) >= 4 ? data.releaseDate!.substring(0, 4) : '',
         categories: data.genres?.skip(1).fold(data.genres?.first.name ?? '', (previousValue, element) {
-              return '${previousValue ?? ''}, ${element.name}';
+              return (previousValue ?? '') + ', ${element.name}';
             }) ??
             '');
   }

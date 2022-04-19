@@ -79,7 +79,7 @@ dev_dependencies:
   mockito: ^5.0.16
 
   # Lint when build
-  flutter_lints: ^2.0.0
+  flutter_lints: ^1.0.3
 
 # Config generate when build
 flutter_gen:

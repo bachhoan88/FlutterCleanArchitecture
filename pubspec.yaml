@@ -32,7 +32,7 @@ dependencies:
 
   # Json serializable & model
   json_annotation: ^4.3.0
-  freezed_annotation: ^1.1.0
+  freezed_annotation: ^2.0.3
   enum_to_string: ^2.0.1
 
   # Platform information
@@ -64,7 +64,7 @@ dev_dependencies:
     sdk: flutter
 
   # Data class
-  freezed: ^1.1.0
+  freezed: ^2.0.3+1
 
   # Auto generate some files
   build_runner: ^2.0.4
@@ -79,7 +79,7 @@ dev_dependencies:
   mockito: ^5.0.16
 
   # Lint when build
-  flutter_lints: ^1.0.3
+  flutter_lints: ^2.0.1
 
 # Config generate when build
 flutter_gen:

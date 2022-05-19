@@ -2,7 +2,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_clean_architecture/src/data/local/pref/app_pref.dart';
+import 'package:flutter_clean_architecture/src/data/local/app_storage.dart';
 import 'package:package_info/package_info.dart';
 
 class HeaderInterceptor extends InterceptorsWrapper {
@@ -15,7 +15,7 @@ class HeaderInterceptor extends InterceptorsWrapper {
       RequestOptions options, RequestInterceptorHandler handler) async {
     final userAgentValue = await userAgentClientHintsHeader();
 
-    final token = await AppPrefs().getToken();
+    final token = await AppStorage.init().prefHelper.getToken();
     if (token?.isNotEmpty == true) {
       options.headers[authHeaderKey] = '$bearer $token';
     }

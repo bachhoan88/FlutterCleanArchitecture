@@ -2,41 +2,39 @@ import 'dart:convert';
 
 import 'package:flutter_clean_architecture/src/data/local/pref/pref_helper.dart';
 import 'package:flutter_clean_architecture/src/data/model/user_data_model.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:hive/hive.dart';
 
 class AppPrefs extends PrefHelper {
-  static const String firstRunKey = 'first_run_key';
-  static const String tokenKey = 'token_key';
-  static const String userKey = 'user_key';
+  static const String _firstRunKey = 'first_run_key';
+  static const String _tokenKey = 'token_key';
+  static const String _userKey = 'user_key';
+
+  final Box _prefBox;
+  AppPrefs({required Box prefBox}) : _prefBox = prefBox;
 
   @override
   Future<bool> firstRun() async {
-    final preferences = await SharedPreferences.getInstance();
-    return preferences.getBool(firstRunKey) ?? true;
+    return _prefBox.get(_firstRunKey) ?? true;
   }
 
   @override
   Future<void> setFirstRun(bool isFirstRun) async {
-    final preferences = await SharedPreferences.getInstance();
-    await preferences.setBool(firstRunKey, isFirstRun);
+    await _prefBox.put(_firstRunKey, isFirstRun);
   }
 
   @override
   Future<String?> getToken() async {
-    final preferences = await SharedPreferences.getInstance();
-    return preferences.getString(tokenKey);
+    return _prefBox.get(_tokenKey);
   }
 
   @override
   Future setToken(String token) async {
-    final preferences = await SharedPreferences.getInstance();
-    await preferences.setString(tokenKey, token);
+    await _prefBox.put(_tokenKey, token);
   }
 
   @override
   Future<UserDataModel?> getUserSaved() async {
-    final preferences = await SharedPreferences.getInstance();
-    final userJson = preferences.getString(userKey);
+    final userJson = _prefBox.get(_userKey);
     if (userJson != null) {
       try {
         return UserDataModel.fromJson(jsonDecode(userJson));
@@ -50,7 +48,6 @@ class AppPrefs extends PrefHelper {
 
   @override
   Future saveUser(UserDataModel user) async {
-    final preferences = await SharedPreferences.getInstance();
-    await preferences.setString(userKey, user.toJson().toString());
+    await _prefBox.put(_userKey, user.toJson().toString());
   }
 }

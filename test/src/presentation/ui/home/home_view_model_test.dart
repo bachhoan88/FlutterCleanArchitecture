@@ -74,7 +74,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 50));
 
       // compare
-      expect(viewModel.popularMovies, AsyncValue<List<MovieViewDataModel>>.error(throwable));
+      expect(viewModel.popularMovies, AsyncValue<List<MovieViewDataModel>>.error(throwable, StackTrace.empty));
     });
   });
 }

@@ -15,7 +15,8 @@ class MovieInfoView extends BaseStatelessView<DetailViewModel> {
   @override
   Widget createView(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
-      return ref.watch(detailViewModelProvider(movieId)).movieInfo.when(data: (data) {
+      final movieInfo = ref.watch(detailViewModelProvider(movieId).select((value) => value.movieInfo));
+      return movieInfo.when(data: (data) {
         return _createMovieBody(context, data);
       }, loading: () {
         return const Loading();
@@ -42,7 +43,7 @@ class MovieInfoView extends BaseStatelessView<DetailViewModel> {
             info.title ?? '',
             maxLines: 2,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
         Container(
@@ -51,7 +52,7 @@ class MovieInfoView extends BaseStatelessView<DetailViewModel> {
             info.categories,
             maxLines: 2,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
         Container(
@@ -74,11 +75,11 @@ class MovieInfoView extends BaseStatelessView<DetailViewModel> {
                 children: [
                   Text(
                     context.res().year,
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   Text(
                     info.year,
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   )
                 ],
               ),
@@ -86,11 +87,11 @@ class MovieInfoView extends BaseStatelessView<DetailViewModel> {
                 children: [
                   Text(
                     context.res().country,
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   Text(
                     info.countries,
-                    style: Theme.of(context).textTheme.headline4?.copyWith(fontSize: 18.0),
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18.0),
                   )
                 ],
               ),
@@ -98,11 +99,11 @@ class MovieInfoView extends BaseStatelessView<DetailViewModel> {
                 children: [
                   Text(
                     context.res().length,
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   Text(
                     info.runtime.toString(),
-                    style: Theme.of(context).textTheme.headline4?.copyWith(
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                           fontSize: 18.0,
                         ),
                   )
@@ -130,7 +131,7 @@ class MovieInfoView extends BaseStatelessView<DetailViewModel> {
             textAlign: TextAlign.justify,
             maxLines: expanded ? 100 : 5,
             overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
       );

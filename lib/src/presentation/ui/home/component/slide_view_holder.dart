@@ -66,7 +66,7 @@ class SlideViewHolder extends BaseViewHolder<MovieViewDataModel> {
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context)
                         .textTheme
-                        .headline4
+                        .headlineMedium
                         ?.copyWith(color: ColorName.white),
                   ),
                 ),

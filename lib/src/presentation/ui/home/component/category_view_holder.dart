@@ -61,7 +61,7 @@ class CategoryViewHolder extends BaseViewHolder<MovieViewDataModel> {
                   child: Text(
                     data.releaseDate,
                     maxLines: 1,
-                    style: Theme.of(context).textTheme.headline5?.copyWith(
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       color: ColorName.white
                     ),
                   ),

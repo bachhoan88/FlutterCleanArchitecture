@@ -22,53 +22,53 @@ final ThemeData defaultTheme = ThemeData(
 
 TextTheme _buildTextTheme() {
   return const TextTheme(
-    headline1: TextStyle(
+    displayLarge: TextStyle(
       fontWeight: FontWeight.w400,
     ),
-    headline2: TextStyle(
+    displayMedium: TextStyle(
       fontWeight: FontWeight.w700,
     ),
-    headline3: TextStyle(
+    displaySmall: TextStyle(
       fontWeight: FontWeight.w900,
     ),
-    headline4: TextStyle(
+    headlineMedium: TextStyle(
       fontWeight: FontWeight.w700,
       fontSize: 20.0,
       color: Colors.black87,
     ),
-    headline5: TextStyle(
+    headlineSmall: TextStyle(
       fontWeight: FontWeight.w700,
       fontSize: 16.0,
     ),
-    headline6: TextStyle(
+    titleLarge: TextStyle(
       fontWeight: FontWeight.w700,
     ),
-    subtitle1: TextStyle(
+    titleMedium: TextStyle(
       fontWeight: FontWeight.w400,
       fontSize: 16,
     ),
-    subtitle2: TextStyle(
+    titleSmall: TextStyle(
       fontWeight: FontWeight.w600,
       fontSize: 12,
     ),
-    bodyText1: TextStyle(
+    bodyLarge: TextStyle(
       fontWeight: FontWeight.w400,
       fontSize: 16,
     ),
-    bodyText2: TextStyle(
+    bodyMedium: TextStyle(
       fontWeight: FontWeight.w400,
       fontSize: 13,
       color: Colors.black45,
     ),
-    button: TextStyle(
+    labelLarge: TextStyle(
       fontWeight: FontWeight.w700,
       fontSize: 13,
     ),
-    caption: TextStyle(
+    bodySmall: TextStyle(
       fontWeight: FontWeight.w400,
       fontSize: 12,
     ),
-    overline: TextStyle(
+    labelSmall: TextStyle(
       fontWeight: FontWeight.w400,
       fontSize: 12,
     ),

@@ -15,7 +15,8 @@ class HeaderInterceptor extends InterceptorsWrapper {
       RequestOptions options, RequestInterceptorHandler handler) async {
     final userAgentValue = await userAgentClientHintsHeader();
 
-    final token = await AppStorage.init().prefHelper.getToken();
+    final pref = await AppStorage.init().prefHelper();
+    final token = await pref.getToken();
     if (token?.isNotEmpty == true) {
       options.headers[authHeaderKey] = '$bearer $token';
     }

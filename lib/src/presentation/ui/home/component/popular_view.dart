@@ -23,7 +23,8 @@ class PopularView extends BaseStatelessView<HomeViewModel> {
   @override
   Widget createView(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
-      return ref.watch(homeViewModelProvider).popularMovies.when(data: (data) {
+      final movies = ref.watch(homeViewModelProvider.select((value) => value.popularMovies));
+      return movies.when(data: (data) {
         return _createPopularView(context, data);
       }, loading: () {
         return const Loading();
@@ -55,7 +56,7 @@ class PopularView extends BaseStatelessView<HomeViewModel> {
                 flex: 1,
                 child: Text(
                   context.res().popular,
-                  style: Theme.of(context).textTheme.headline5?.copyWith(color: ColorName.groupTitleColor),
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: ColorName.groupTitleColor),
                 ),
               ),
               IconButton(

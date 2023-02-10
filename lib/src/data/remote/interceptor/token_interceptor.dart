@@ -5,7 +5,7 @@ import 'package:flutter_clean_architecture/src/data/model/user_data_model.dart';
 import 'package:flutter_clean_architecture/src/data/remote/api/user_api.dart';
 import 'package:flutter_clean_architecture/src/data/remote/builder/dio_builder.dart';
 
-class TokenInterceptor extends Interceptor {
+class TokenInterceptor extends QueuedInterceptor {
   final Dio currentDio;
   final String auth = 'Authorization';
   final String bearer = 'Bearer';
@@ -16,12 +16,19 @@ class TokenInterceptor extends Interceptor {
   void onError(DioError err, ErrorInterceptorHandler handler) async {
     if (err.response != null && err.response?.statusCode == HttpStatus.unauthorized) {
       // TODO Please refactor when token api ready
-      // Lock all of request to request new token
-      currentDio.lock();
-      // request new token & save it
-      final token = await requestToken();
-      // unlock when token refreshed
-      currentDio.unlock();
+
+      /// Step 1: Get current token from request
+      /// Step 2: Compare with token from storage
+      /// Step 3.1: If different, recall request with token from storage
+      /// Step 3.2: If same, refresh token
+
+      const tokenFromRequest = '';
+      const tokenFromStorage = '';
+      String token = tokenFromStorage;
+
+      if (tokenFromRequest != tokenFromStorage) {
+        token = await requestToken();
+      }
 
       // Re-call request
       final request = err.requestOptions;

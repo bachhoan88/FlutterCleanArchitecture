@@ -21,7 +21,8 @@ class SliderView extends BaseStatelessView<HomeViewModel> {
   @override
   Widget createView(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
-      return ref.watch(homeViewModelProvider).nowPlayingMovies.when(data: (data) {
+      final movies = ref.watch(homeViewModelProvider.select((value) => value.nowPlayingMovies));
+      return movies.when(data: (data) {
         return CarouselSlider.builder(
           itemCount: data.length,
           itemBuilder: (BuildContext context, int index, realIndex) {

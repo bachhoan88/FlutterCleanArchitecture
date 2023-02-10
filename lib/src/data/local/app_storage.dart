@@ -11,5 +11,7 @@ class AppStorage {
     return AppStorage._();
   }
 
-  PrefHelper get prefHelper => AppPrefs(prefBox: Hive.box(_prefsBox));
+  Future<PrefHelper> prefHelper() async {
+    return AppPrefs(prefBox: await Hive.openBox(_prefsBox));
+  }
 }

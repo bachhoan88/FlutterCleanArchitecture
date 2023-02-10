@@ -24,7 +24,8 @@ class ScreenshotView extends BaseStatelessView<DetailViewModel> {
   @override
   Widget createView(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
-      return ref.watch(detailViewModelProvider(movieId)).images.when(data: (data) {
+      final images = ref.watch(detailViewModelProvider(movieId).select((value) => value.images));
+      return images.when(data: (data) {
         return _createScreenshotView(context, data);
       }, loading: () {
         return const Loading();
@@ -51,7 +52,7 @@ class ScreenshotView extends BaseStatelessView<DetailViewModel> {
                 flex: 1,
                 child: Text(
                   context.res().screenshot,
-                  style: Theme.of(context).textTheme.headline5?.copyWith(
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         color: ColorName.groupTitleColor,
                       ),
                 ),

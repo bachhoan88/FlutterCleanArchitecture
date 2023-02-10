@@ -23,7 +23,8 @@ class MyListView extends BaseStatelessView<HomeViewModel> {
   @override
   Widget createView(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
-      return ref.watch(homeViewModelProvider).myListMovies.when(data: (data) {
+      final movies = ref.watch(homeViewModelProvider.select((value) => value.myListMovies));
+      return movies.when(data: (data) {
         return _createMyListView(context, data);
       }, loading: () {
         return const Loading();
@@ -55,7 +56,7 @@ class MyListView extends BaseStatelessView<HomeViewModel> {
                 flex: 1,
                 child: Text(
                   context.res().myList,
-                  style: Theme.of(context).textTheme.headline5?.copyWith(color: ColorName.groupTitleColor),
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: ColorName.groupTitleColor),
                 ),
               ),
               IconButton(

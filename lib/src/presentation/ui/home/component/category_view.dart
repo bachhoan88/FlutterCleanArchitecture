@@ -19,7 +19,8 @@ class CategoryView extends BaseStatelessView<HomeViewModel> {
   @override
   Widget createView(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
-      return ref.watch(homeViewModelProvider).categoryMovies.when(data: (data) {
+      final movies = ref.watch(homeViewModelProvider.select((value) => value.categoryMovies));
+      return movies.when(data: (data) {
         return _createCategoryList(context, data);
       }, loading: () {
         return const Loading();

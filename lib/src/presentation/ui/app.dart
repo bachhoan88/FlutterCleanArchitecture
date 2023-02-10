@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_clean_architecture/src/presentation/di/app_provider.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/home/home_page.dart';
 import 'package:flutter_clean_architecture/src/presentation/ui/theme/theme.dart';
@@ -17,7 +18,13 @@ class Application extends ConsumerWidget {
       supportedLocales: Resource.supportedLocales,
       localeResolutionCallback: (Locale? locale, Iterable<Locale> supportedLocales) {
         if (supportedLocales.any((element) => locale?.languageCode.contains(element.toString()) == true)) {
-          ref.watch(localeCodeProvider.notifier).state = locale!.languageCode;
+          String currentLanguageCode = ref.watch(localeCodeProvider);
+          if (currentLanguageCode != locale!.languageCode) {
+            SchedulerBinding.instance.addPostFrameCallback((_) {
+              ref.watch(localeCodeProvider.notifier).state = locale.languageCode;
+            });
+          }
+
           return locale;
         }
         return const Locale('en', '');

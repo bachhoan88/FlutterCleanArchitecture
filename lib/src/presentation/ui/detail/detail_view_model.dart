@@ -52,7 +52,7 @@ class DetailViewModel extends BaseViewModel {
           .createObservable(_movieId);
       _images = AsyncValue.data(value.backdrops?.map(_imageItemMapper.mapperTo).toList() ?? []);
     } on Exception catch(e) {
-      _images = AsyncValue.error(e);
+      _images = AsyncValue.error(e, StackTrace.empty);
     } finally {
       notifyListeners();
     }
@@ -64,7 +64,7 @@ class DetailViewModel extends BaseViewModel {
           .createObservable(_movieId);
       _movieInfo = AsyncValue.data(_movieInfoItemMapper.mapperTo(value));
     } on Exception catch(e) {
-      _movieInfo = AsyncValue.error(e);
+      _movieInfo = AsyncValue.error(e, StackTrace.empty);
     } finally {
       notifyListeners();
     }

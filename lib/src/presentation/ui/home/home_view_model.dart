@@ -9,19 +9,15 @@ class HomeViewModel extends BaseViewModel {
   final MovieViewDataModelMapper _movieItemMapper;
 
   AsyncValue<List<MovieViewDataModel>> _nowPlayingMovies = const AsyncValue.loading();
-
   AsyncValue<List<MovieViewDataModel>> get nowPlayingMovies => _nowPlayingMovies;
 
   AsyncValue<List<MovieViewDataModel>> _myListMovies = const AsyncValue.loading();
-
   AsyncValue<List<MovieViewDataModel>> get myListMovies => _myListMovies;
 
   AsyncValue<List<MovieViewDataModel>> _categoryMovies = const AsyncValue.loading();
-
   AsyncValue<List<MovieViewDataModel>> get categoryMovies => _categoryMovies;
 
   AsyncValue<List<MovieViewDataModel>> _popularMovies = const AsyncValue.loading();
-
   AsyncValue<List<MovieViewDataModel>> get popularMovies => _popularMovies;
 
   HomeViewModel({required FetchMovieUseCase fetchMovieUseCase, MovieViewDataModelMapper? mapper})
@@ -86,19 +82,19 @@ class HomeViewModel extends BaseViewModel {
       if (error is BaseException) {
         switch (type) {
           case MovieType.nowPlaying:
-            _nowPlayingMovies = AsyncValue.error(error);
+            _nowPlayingMovies = AsyncValue.error(error, StackTrace.empty);
             break;
 
           case MovieType.topRated:
-            _myListMovies = AsyncValue.error(error);
+            _myListMovies = AsyncValue.error(error, StackTrace.empty);
             break;
 
           case MovieType.upcoming:
-            _categoryMovies = AsyncValue.error(error);
+            _categoryMovies = AsyncValue.error(error, StackTrace.empty);
             break;
 
           case MovieType.popular:
-            _popularMovies = AsyncValue.error(error);
+            _popularMovies = AsyncValue.error(error, StackTrace.empty);
             break;
 
           default:
